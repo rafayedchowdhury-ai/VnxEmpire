@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth - Venox Empire</title>
+    <!-- Tailwind CSS & FontAwesome -->
+    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/tailwindcss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --neon-purple: #bc13fe;
+            --neon-glow: #00f0ff;
+            --dark-bg: #07070c;
+            --deep-ash: #1a1a24;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 20% 35%, rgba(188, 19, 254, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 75%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        /* Premium Glossy Glassmorphism Effect - Expanded Max Width */
+        .glossy-card {
+            background: rgba(20, 15, 30, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(188, 19, 254, 0.25);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6),
+                        0 0 25px rgba(188, 19, 254, 0.15);
+        }
+
+        /* Neon Glow Utility */
+        .neon-text {
+            text-shadow: 0 0 12px var(--neon-purple), 0 0 24px var(--neon-purple);
+        }
+
+        /* Deep Ash Input Fields with Comfort Padding */
+        .glossy-input {
+            background: var(--deep-ash) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff !important;
+            padding-left: 52px !important; 
+            padding-right: 48px !important; 
+            height: 54px; /* ইনপুট বক্স একটু বড় ও প্রিমিয়াম করা হয়েছে */
+            transition: all 0.3s ease;
+        }
+        .glossy-input:focus {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 12px rgba(188, 19, 254, 0.5);
+            outline: none;
+        }
+
+        /* Input Container Dynamic Positioning */
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* বামের আইকন পজিশন */
+        .input-icon-left {
+            position: absolute;
+            left: 18px;
+            z-index: 10;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            pointer-events: none;
+            font-size: 1.1rem;
+        }
+
+        /* ডানের পাসওয়ার্ড টগল আইকন (চোখ) */
+        .password-toggle-btn {
+            position: absolute;
+            right: 18px;
+            z-index: 10;
+            color: #9ca3af;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+            font-size: 1.1rem;
+        }
+        .password-toggle-btn:hover {
+            color: var(--neon-purple);
+        }
+
+        /* Premium Buttons */
+        .btn-neon {
+            background: linear-gradient(135deg, #a811e2, var(--neon-purple));
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
+            height: 52px;
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover {
+            box-shadow: 0 0 25px rgba(188, 19, 254, 0.7);
+            transform: translateY(-1px);
+        }
+
+        /* Social Sign In Buttons with Brand Border Style */
+        .social-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff !important;
+            height: 50px;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(188, 19, 254, 0.4);
+        }
+
+        .form-hidden {
+            display: none !important;
+        }
+        
+        label {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-6">
+
+    <!-- 🛠️ max-w-xl ব্যবহার করে মেইন বক্সটি অনেক বড় এবং স্পেসিয়াস করা হয়েছে -->
+    <div class="w-full max-w-xl glossy-card rounded-3xl p-10 md:p-12 relative overflow-hidden my-6">
+        
+        <!-- Top Tech Icon/Logo Frame -->
+        <div class="flex justify-center mb-8">
+            <div class="w-16 h-16 rounded-2xl bg-purple-900/40 border border-purple-500/40 flex items-center justify-center shadow-[0_0_18px_rgba(188,19,254,0.3)]">
+                <i class="fas fa-shield-halved text-3xl text-purple-400"></i>
+            </div>
+        </div>
+
+        <!-- ================= LOGIN FORM ================= -->
+        <div id="loginFormSection">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-black tracking-wide text-white neon-text">WELCOME BACK</h2>
+                <p class="text-gray-400 text-sm mt-3">Login to manage your premium panel access</p>
+            </div>
+
+            <!-- space-y-6 দিয়ে এলিমেন্টগুলোর মাঝখানের গ্যাপ বাড়ানো হয়েছে -->
+            <form onsubmit="handleLogin(event)" class="space-y-6">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon-left"><i class="fas fa-envelope"></i></span>
+                        <input type="email" required class="w-full glossy-input rounded-xl" placeholder="">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <label class="block text-xs font-semibold uppercase tracking-wider">Password</label>
+                        <a href="#" class="text-xs text-purple-400 hover:underline pr-1">Forgot Password?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="input-icon-left"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="loginPassword" required class="w-full glossy-input rounded-xl">
+                        <button type="button" onclick="togglePassword('loginPassword', 'loginPasswordIcon')" class="password-toggle-btn">
+                            <i id="loginPasswordIcon" class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full btn-neon text-white font-bold rounded-xl uppercase tracking-wider text-sm mt-2">Sign In</button>
+            </form>
+
+            <!-- Divider -->
+            <div class="flex items-center my-8">
+                <div class="flex-1 border-t border-gray-800/60"></div>
+                <span class="px-4 text-xs text-gray-400 uppercase tracking-widest font-mono">Or connect with</span>
+                <div class="flex-1 border-t border-gray-800/60"></div>
+            </div>
+
+            <!-- Social Logins with Actual Brand Icons -->
+            <div class="grid grid-cols-2 gap-5">
+                <button onclick="socialSignIn('Google')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
+                    <!-- 🛠️ Google Actual Icon -->
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l3.227-3.11C18.432 2.06 15.66 1 12.24 1 6.162 1 1.232 5.925 1.232 12s4.93 11 11.008 11c6.346 0 10.564-4.455 10.564-10.75 0-.724-.078-1.275-.173-1.685H12.24z"/>
+                    </svg>
+                    Google
+                </button>
+                <button onclick="socialSignIn('Facebook')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
+                    <!-- 🛠️ Facebook Actual Icon -->
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </button>
+            </div>
+
+            <!-- 🛠️ mt-10 দিয়ে এই লাইনটি আরও নিচে নামানো হয়েছে যেন দেখতে সুন্দর লাগে -->
+            <p class="text-center text-sm text-gray-400 mt-10">
+                Don't have an account? <button onclick="toggleAuthForms()" class="text-purple-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Sign Up</button>
+            </p>
+        </div>
+
+
+        <!-- ================= REGISTRATION FORM ================= -->
+        <div id="registerFormSection" class="form-hidden">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-black tracking-wide text-white neon-text">CREATE ACCOUNT</h2>
+                <p class="text-gray-400 text-sm mt-3">Get instant auto-delivery on all purchases</p>
+            </div>
+
+            <form onsubmit="handleRegister(event)" class="space-y-5">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Username</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon-left"><i class="fas fa-user"></i></span>
+                        <input type="text" required class="w-full glossy-input rounded-xl" placeholder="">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Email Address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon-left"><i class="fas fa-envelope"></i></span>
+                        <input type="email" required class="w-full glossy-input rounded-xl" placeholder="">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Password</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon-left"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="registerPassword" required class="w-full glossy-input rounded-xl">
+                        <button type="button" onclick="togglePassword('registerPassword', 'registerPasswordIcon')" class="password-toggle-btn">
+                            <i id="registerPasswordIcon" class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-start pt-2">
+                    <input type="checkbox" required id="termsCheck" class="mt-1 accent-purple-600">
+                    <label for="termsCheck" class="text-xs text-gray-400 ml-2.5 cursor-pointer select-none leading-relaxed">
+                        I agree to the <a href="#" class="text-purple-400 hover:underline">Terms of Service</a> and Privacy Policy.
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full btn-neon text-white font-bold rounded-xl uppercase tracking-wider text-sm mt-3">Register Now</button>
+            </form>
+
+            <!-- Divider -->
+            <div class="flex items-center my-7">
+                <div class="flex-1 border-t border-gray-800/60"></div>
+                <span class="px-4 text-xs text-gray-400 uppercase tracking-widest font-mono">Or register with</span>
+                <div class="flex-1 border-t border-gray-800/60"></div>
+            </div>
+
+            <!-- Social Registrations with Actual Brand Icons -->
+            <div class="grid grid-cols-2 gap-5">
+                <button onclick="socialSignIn('Google')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                        <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l3.227-3.11C18.432 2.06 15.66 1 12.24 1 6.162 1 1.232 5.925 1.232 12s4.93 11 11.008 11c6.346 0 10.564-4.455 10.564-10.75 0-.724-.078-1.275-.173-1.685H12.24z"/>
+                    </svg>
+                    Google
+                </button>
+                <button onclick="socialSignIn('Facebook')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </button>
+            </div>
+
+            <!-- Already have an account line spaced out -->
+            <p class="text-center text-sm text-gray-400 mt-8">
+                Already have an account? <button onclick="toggleAuthForms()" class="text-purple-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Sign In</button>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(iconId);
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
+
+        function toggleAuthForms() {
+            const loginSection = document.getElementById('loginFormSection');
+            const registerSection = document.getElementById('registerFormSection');
+            
+            loginSection.classList.toggle('form-hidden');
+            registerSection.classList.toggle('form-hidden');
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            alert("Login request submitted!");
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            alert("Registration request submitted!");
+        }
+
+        function socialSignIn(provider) {
+            alert("Redirecting to: " + provider);
+        }
+    </script>
+</body>
+</html>
