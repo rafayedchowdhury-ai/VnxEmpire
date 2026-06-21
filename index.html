@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Venox Empire</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover the ultimate destination for gaming products at Evolution Association. Shop the latest Panel Android, iPhone, PC, and more online." />
+    
+    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/tailwindcss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/bootstrap/bootstrap.min.css">
+
+     <style>
+        :root {
+            --neon-purple: #bc13fe;
+            --neon-glow: #00f0ff;
+            --dark-bg: #0b0b12;
+            --card-bg: #141423;
+            --text-light: #e2e8f0;
+            --neon-red: #ff0055;
+            --neon-green: #00ff66;
+            --neon-blue: #00d2ff;
+            
+            /* Payment Colors */
+            --bkash-color: #e2136e;
+            --nagad-color: #f7941d;
+            --binance-color: #f3ba2f;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--neon-purple); border-radius: 10px; }
+
+        /* Navbar Sticky Premium */
+        .header {
+            background-color: rgba(20, 20, 35, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 4px 20px rgba(188, 19, 254, 0.2);
+        }
+
+        .neon-text-glow {
+            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+        }
+
+        /* Nav Links Styling to force inline on Desktop */
+        .desktop-nav-container {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .desktop-nav-container {
+                display: flex !important;
+                align-items: center;
+                gap: 24px;
+            }
+            .mobile-toggle-btn {
+                display: none !important;
+            }
+        }
+
+        .nav-link-custom {
+            color: #d1cbd0 !important;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none !important;
+            white-space: nowrap;
+        }
+        .nav-link-custom:hover {
+            color: var(--neon-purple) !important;
+            text-shadow: 0 0 8px var(--neon-purple);
+        }
+
+        /* Notice Board */
+        .notice-style {
+            background: linear-gradient(135deg, #1e1e38, #141423);
+            border: 1px solid var(--neon-purple) !important;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+        }
+
+        /* Buttons */
+        .btn-neon-purple {
+            background: transparent;
+            color: #fff !important;
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none !important;
+        }
+        .btn-neon-purple:hover {
+            background: var(--neon-purple);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .btn-neon-cyan {
+            background: var(--neon-purple);
+            color: #fff !important;
+            border: 2px solid var(--neon-purple);
+            box-shadow: 0 0 10px var(--neon-purple);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none !important;
+        }
+        .btn-neon-cyan:hover {
+            box-shadow: 0 0 20px var(--neon-purple);
+            opacity: 0.9;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: var(--card-bg) !important;
+            border: 1px solid rgba(188, 19, 254, 0.1);
+            transition: all 0.4s ease-out;
+        }
+        .product-card:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 25px rgba(188, 19, 254, 0.4);
+            transform: translateY(-8px);
+        }
+
+        .special-bundle-section {
+            background: rgba(15, 15, 25, 0.6);
+            border: 2px dashed rgba(188, 19, 254, 0.4);
+        }
+        
+        .monitor-trigger {
+            background: #111;
+            border: 4px solid #222;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* POPUPS */
+
+        .premium-popup-overlay, .payment-popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(5, 5, 10, 0.95);
+        }
+
+        .premium-page-content {
+            background: linear-gradient(145deg, #0f0014 0%, #000000 50%, #1a0007 100%);
+            border: 3px solid var(--neon-purple);
+            box-shadow: 0 0 40px rgba(188, 19, 254, 0.4);
+            max-width: 700px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        /* External Green Theme Popup Style */
+        .external-popup-content {
+            background: linear-gradient(145deg, #001205 0%, #000000 50%, #050d08 100%);
+            border: 3px solid var(--neon-green) !important;
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.3) !important;
+        }
+
+        /* Internal Blue Theme Popup Style */
+        .internal-popup-content {
+            background: linear-gradient(145deg, #000c1a 0%, #000000 50%, #011326 100%);
+            border: 3px solid var(--neon-blue) !important;
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.3) !important;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--neon-purple);
+        }
+
+        .feature-item-green {
+            background: rgba(0, 255, 102, 0.02);
+            border-left: 4px solid var(--neon-green);
+        }
+
+        .feature-item-blue {
+            background: rgba(0, 210, 255, 0.02);
+            border-left: 4px solid var(--neon-blue);
+        }
+
+        .plan-item {
+            background: rgba(188, 19, 254, 0.05);
+            border: 1px solid rgba(188, 19, 254, 0.2);
+            transition: all 0.3s ease;
+        }
+        .plan-item:hover {
+            border-color: var(--neon-purple);
+            background: rgba(188, 19, 254, 0.1);
+        }
+
+        .plan-item-green {
+            background: rgba(0, 255, 102, 0.04);
+            border: 1px solid rgba(0, 255, 102, 0.15);
+            transition: all 0.3s ease;
+        }
+        .plan-item-green:hover {
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 102, 0.08);
+        }
+
+        .plan-item-blue {
+            background: rgba(0, 210, 255, 0.04);
+            border: 1px solid rgba(0, 210, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        .plan-item-blue:hover {
+            border-color: var(--neon-blue);
+            background: rgba(0, 210, 255, 0.08);
+        }
+
+        .payment-container {
+            background: #19121a;
+            max-width: 500px;
+            margin: 50px auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .payment-tabs-wrapper {
+            background: #120910;
+            padding: 10px;
+            border-radius: 18px;
+            margin: 15px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .payment-tabs-wrapper button {
+            flex: 1;
+            padding: 12px 5px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #8c8c9c;
+            background: transparent;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .payment-container[data-method="bkash"] .tab-bkash { background: var(--bkash-color) !important; color: white !important; }
+        .payment-container[data-method="nagad"] .tab-nagad { background: var(--nagad-color) !important; color: white !important; }
+        .payment-container[data-method="binance"] .tab-binance { background: #e5b323 !important; color: #000 !important; }
+
+        .payment-body { padding: 0 24px 24px 24px; }
+        .pay-input-box {
+            background: #0d050c;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+            color: white;
+            width: 100%;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        .number-display-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 14px;
+            padding: 14px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        
+        .payment-container[data-method="bkash"] .dynamic-bg { background: var(--bkash-color); }
+        .payment-container[data-method="nagad"] .dynamic-bg { background: var(--nagad-color); }
+        .payment-container[data-method="binance"] .dynamic-bg { background: #262111; border: 1px solid var(--binance-color); color: var(--binance-color); }
+
+        .payment-container[data-method="bkash"] .dynamic-btn { background: var(--bkash-color); color: white; }
+        .payment-container[data-method="nagad"] .dynamic-btn { background: var(--nagad-color); color: white; }
+        .payment-container[data-method="binance"] .dynamic-btn { background: var(--binance-color); color: #000; }
+
+        .instruction-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #d1cbd0;
+            list-style: none;
+            line-height: 1.5;
+        }
+        .instruction-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+            top: -2px;
+        }
+        .payment-container[data-method="bkash"] .instruction-list li::before { color: var(--bkash-color); }
+        .payment-container[data-method="nagad"] .instruction-list li::before { color: var(--nagad-color); }
+        .payment-container[data-method="binance"] .instruction-list li::before { color: var(--binance-color); }
+
+        #mobile-menu.hidden { display: none; }
+    </style>
+   
+</head>
+<body>
+
+<div class="header sticky top-0 z-50">
+  <div class="container mx-auto py-3 px-4 flex items-center justify-between">
+      
+      <a href="#" class="text-xl md:text-2xl font-extrabold tracking-wider text-white neon-text-glow flex items-center gap-2 pr-4 text-decoration-none">
+        <i class="fas fa-bolt text-purple-500"></i>Venox Empire
+      </a>
+
+      <div class="flex items-center gap-4 lg:gap-6">
+        
+        <div class="desktop-nav-container">
+          <a href="#" class="nav-link-custom"><i class="fas fa-house text-purple-500"></i>Home</a>
+          <a href="#pc-section" class="nav-link-custom"><i class="fas fa-desktop text-purple-500"></i>PC Panel</a>
+          <a href="#mobile-section" class="nav-link-custom"><i class="fab fa-android text-purple-500"></i>Android Panel</a>
+          <a href="#" class="nav-link-custom"><i class="fas fa-headset text-purple-500"></i>Contact Us</a>
+          <a href="#" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About Us</a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2">
+          <a href="login.html" class="btn-neon-purple px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Login</a>
+          <a href="login.html" class="btn-neon-cyan px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Register</a>
+        </div>
+
+        <button onclick="toggleMobileMenu()" class="mobile-toggle-btn text-white hover:text-purple-400 text-xl focus:outline-none border-none bg-transparent cursor-pointer lg:hidden">
+          <i class="fas fa-bars"></i>
+        </button>
+
+      </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden container mx-auto px-4 pb-4 space-y-3 border-t border-purple-900/40 pt-3">
+      <a href="#" class="block nav-link-custom py-1"><i class="fas fa-house text-purple-500"></i> Home</a>
+      <a href="#pc-section" class="block nav-link-custom py-1"><i class="fas fa-desktop text-purple-500"></i> PC Panel</a>
+      <a href="#mobile-section" class="block nav-link-custom py-1"><i class="fab fa-android text-purple-500"></i> Android Panel</a>
+      <a href="#" class="block nav-link-custom py-1"><i class="fas fa-headset text-purple-500"></i> Contact Us</a>
+      <a href="#" class="block nav-link-custom py-1"><i class="fas fa-circle-info text-purple-500"></i> About Us</a>
+      
+      <div class="flex sm:hidden gap-2 pt-2">
+        <a href="login.html" class="w-1/2 text-center btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Login</a>
+        <a href="login.html" class="w-1/2 text-center btn-neon-cyan py-2 rounded-lg text-xs font-bold uppercase">Register</a>
+      </div>
+  </div>
+</div>
+
+<p>                       </p>
+
+<section class="container mx-auto max-w-4xl p-6 rounded-3xl special-bundle-section text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-white mb-2 tracking-wider">⚠️ EXCLUSIVE LIMITED TIME OFFER ⚠️</h2>
+    <div onclick="openPremiumPage()" class="monitor-trigger max-w-xl mx-auto rounded-xl overflow-hidden aspect-[16/9]">
+        <img src="d1.png" alt="Special Offer Monitor" class="w-full h-full object-cover">
+    </div>
+</section>
+
+<p>                       </p>
+     
+    <section class="my-12" id="pc-section">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-center gap-4 mb-8">
+            <h3 class="text-xl md:text-2xl font-extrabold tracking-wider uppercase text-white flex items-center gap-2">
+                <i class="fas fa-desktop text-purple-500"></i> Free Fire PC Pannel Section 
+            </h3>
+        </div>
+        
+<p>                       </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            
+            <div class="product-card rounded-xl p-2 flex flex-col cursor-pointer border border-purple-500/30">
+                <div class="relative overflow-hidden rounded-lg h-32"> <img src="d2.png" class="w-full h-full object-cover">
+                </div>
+                <div class="pt-3 pb-1 text-center">
+                    <h1 class="text-xs font-bold text-gray-200 mb-2">Danger Zone Pack</h1>
+                    <button onclick="openPremiumPage()" class="w-full btn-neon-purple py-1 text-[10px] rounded-lg font-bold uppercase">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card rounded-xl p-2 flex flex-col cursor-pointer border border-purple-500/30">
+                <div class="relative overflow-hidden rounded-lg h-32">
+                    <img src="e1.png" class="w-full h-full object-cover">
+                </div>
+                <div class="pt-3 pb-1 text-center">
+                    <h1 class="text-xs font-bold text-gray-200 mb-2">VNX External Pack</h1>
+                    <button onclick="openExternalPremiumPage()" class="w-full btn-neon-purple py-1 text-[10px] rounded-lg font-bold uppercase">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card rounded-xl p-2 flex flex-col cursor-pointer border border-purple-500/30">
+                <div class="relative overflow-hidden rounded-lg h-32">
+                    <img src="i1.png" class="w-full h-full object-cover">
+                </div>
+                <div class="pt-3 pb-1 text-center">
+                    <h1 class="text-xs font-bold text-gray-200 mb-2">VnX Premium Internal</h1>
+                    <button onclick="openInternalPremiumPage()" class="w-full btn-neon-purple py-1 text-[10px] rounded-lg font-bold uppercase">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card rounded-xl p-2 flex flex-col cursor-pointer border border-purple-500/30">
+                <div class="relative overflow-hidden rounded-lg h-32">
+                    <img src="m2.png" class="w-full h-full object-cover">
+                </div>
+                <div class="pt-3 pb-1 text-center">
+                    <h1 class="text-xs font-bold text-gray-200 mb-2">VnX Mod Menu</h1>
+                    <button onclick="openModMenuPopup()" class="w-full btn-neon-purple py-1 text-[10px] rounded-lg font-bold uppercase">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<p>                       </p>
+
+    <section class="my-12" id="mobile-section">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <h3 class="text-xl md:text-2xl font-extrabold tracking-wider uppercase text-white flex items-center gap-2">
+                    <i class="fab fa-android text-green-400"></i> Free Fire Mobile Pannel Section 
+                </h3>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer">
+                    <div class="relative overflow-hidden rounded-xl aspect-square">
+                        <img src="a1.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
+                        <h1 class="text-sm font-bold text-gray-200 mb-3">Proxy Free Fire</h1>
+                        <button onclick="openMobilePremiumPage()" class="w-full btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase mt-auto">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="premiumPage" class="premium-popup-overlay">
+    <div class="premium-page-content rounded-3xl p-6 md:p-8 relative">
+        <button onclick="closePremiumPage()" class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-purple-500 transition border-none bg-transparent">&times;</button>
+        <div class="text-center mb-8">
+            <span class="bg-purple-600/20 text-purple-400 border border-purple-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Mega Offer</span>
+            <h2 class="text-2xl md:text-4xl font-black mt-3 text-white neon-text-glow tracking-tight">COMPLETE PREMIUM PACKAGE</h2>
+            <p class="text-gray-300 text-sm mt-2">🔥 মাত্র 600৳-এ পুরো ১ মাসের জন্য পাচ্ছেন অল-ইন-ওয়ান ডিল!</p>
+        </div>
+        <div class="space-y-3 mb-8">
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> External Premium</span><span class="text-xs text-purple-400 font-mono">[ACTIVE]</span></div>
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> Internal Premium</span><span class="text-xs text-purple-400 font-mono">[ACTIVE]</span></div>
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> Internal Mod Menu Brutal</span><span class="text-xs text-purple-400 font-mono">[BRUTAL]</span></div>
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> BR Mod (Dangerous Panel)</span><span class="text-xs text-purple-400 font-mono">[DANGEROUS]</span></div>
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> UID Bypass</span><span class="text-xs text-purple-400 font-mono">[SECURE]</span></div>
+            <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span class="text-white font-medium text-sm flex items-center gap-3"><i class="fas fa-check-circle text-purple-500"></i> Emote Panel</span><span class="text-xs text-green-400 font-mono">[VISUAL]</span></div>
+        </div>
+        <div class="border-t border-dashed border-gray-800 pt-6 text-center">
+            <div class="mb-4">
+                <span class="text-gray-400 text-xs block uppercase tracking-wider">Subscription Fee</span>
+                <span class="text-3xl md:text-4xl font-black text-white" style="text-shadow: 0 0 15px #bc13fe;">600৳ <span class="text-sm text-gray-400 font-normal">/ 30 Days</span></span>
+            </div>
+            <button onclick="triggerBuyNowFromPremium('600')" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY NOW</button>
+        </div>
+    </div>
+</div>
+
+<div id="externalPremiumPage" class="premium-popup-overlay">
+    <div class="premium-page-content external-popup-content rounded-3xl p-6 md:p-8 relative">
+        <button onclick="closeExternalPremiumPage()" class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-green-500 transition border-none bg-transparent">&times;</button>
+        
+        <div class="text-center mb-6">
+            <span class="bg-green-600/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🔥 VNX EXTERNAL — PC 🔥</span>
+            <h2 class="text-2xl md:text-4xl font-black mt-3 text-white tracking-tight" style="text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-green);">VNX EXTERNAL</h2>
+            <p class="text-gray-300 text-sm mt-2">The Ultimate Private External System. Smooth & Highly Optimized Performance!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1">
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[AIMBOT FUNCTIONS]</span>
+                • AI Aimbot<br>• Head = ✔ Fully Safe • Stable • Trusted<br>• Neck = ✔ Fully Safe • Stable • Trusted<br>• Drag = ✔ Fully Safe • Stable • Trusted<br>• [ Freeze Enemy Function ]
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[FOV FUNCTIONS]</span>
+                • 2x Scope = ✔ Fully Safe • Stable • Trusted<br>• 4x Scope = ✔ Fully Safe • Stable • Trusted
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[HELP FUNCTIONS]</span>
+                • Make Male = Reduced Fake Damage • Safe<br>• No Recoil = ✔ Fully Safe • Stable<br>• Glitch Fire = ✔ Fully Safe • Stable<br>• Reset Guest = ✔ Not Patched • Still Working
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[SNIPER FUNCTIONS]</span>
+                • Sniper Scope = ✔ Undetected • Trusted (BD/PK/IND/MENA)<br>• Sniper Location = ✔ All Locations Supported
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[LOCATION FUNCTIONS]</span>
+                • Normal Chams Menu<br>• Blue & White Chams Menu<br>• ESP Line x64 Bit Streamer Location
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[MINI BRUTAL FUNCTIONS]</span>
+                • Camera Left = ✔ Safe • Tested<br>• Super Fast Landing = ✔ Safe • Tested<br>• Fly Car
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[SPECIAL FUNCTIONS]</span>
+                • Only Glue Hack = ✔ Fully Safe<br>• Climb Wall = Fun Feature
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
+                <span class="text-green-400 font-bold block mb-1">[SECURITY FUNCTIONS]</span>
+                • Detect Remote Access<br>• Scan & Kill Suspicious Processes<br>• Boost FPS<br>• DLL Cleaner<br>• PC & Emulator Cleaner<br>• Temp / Network / Windows Cleaner
+            </div>
+            <div class="feature-item-green p-2.5 rounded-xl text-white text-xs sm:col-span-2">
+                <span class="text-green-400 font-bold block mb-1">[STREAMER FUNCTIONS]</span>
+                • Stream Mode = Hide From Taskbar & Task Manager<br>• Always Stream Mode = Panel Starts With Stream Mode<br>• Auto PC Optimization
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE EXT PLAN</span>
+            <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                <div class="plan-item-green p-3 rounded-xl text-center cursor-pointer" onclick="selectExternalPlan('600')">
+                    <div class="text-xs text-gray-400 font-bold">Monthly Plan</div>
+                    <div class="text-md font-black text-white mt-1">৳600</div>
+                </div>
+                <div class="plan-item-green p-3 rounded-xl text-center cursor-pointer active-ext-plan" onclick="selectExternalPlan('2500')" style="border-color: var(--neon-green); background: rgba(0, 255, 102, 0.12);">
+                    <div class="text-xs text-green-400 font-bold">Permanent Plan</div>
+                    <div class="text-md font-black text-white mt-1">৳2500</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center border-t border-dashed border-gray-800 pt-4">
+            <button onclick="triggerBuyNowFromExternalPremium()" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY SELECTED PLAN</button>
+        </div>
+    </div>
+</div>
+
+<div id="internalPremiumPage" class="premium-popup-overlay">
+    <div class="premium-page-content internal-popup-content rounded-3xl p-6 md:p-8 relative">
+        <button onclick="closeInternalPremiumPage()" class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-blue-500 transition border-none bg-transparent">&times;</button>
+        
+        <div class="text-center mb-6">
+            <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🚀 VnX PREMIUM INTERNAL — FULL DOMINATION MODE 🚀</span>
+            <h2 class="text-2xl md:text-4xl font-black mt-3 text-white tracking-tight" style="text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue);">VnX PREMIUM INTERNAL</h2>
+            <p class="text-gray-300 text-sm mt-2">💎 Smooth • Safe • Powerful Domination System</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1">
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs sm:col-span-2">
+                <span class="text-blue-400 font-bold block mb-1">🛡️ WHY VnX IS DIFFERENT?</span>
+                • No Memory Modify (Safe)<br>• Zero Lag ⚡ High FPS<br>• Clean & Stable Performance<br>• Works on All Servers 🌍<br>• Trusted by Users 👑
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[AIMBOT INTERNAL]</span>
+                • AI Aimbot<br>• Headshot = ✔ 100% Hit Rate • No Enemy Escape<br>• Lock = ✔ Instant Lock • Always On Target<br>• Damage = ✔ Real Damage • No Fake Hit
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[FREEZE ENEMY]</span>
+                • Perfect Freeze<br>• Trigger = ✔ Auto Freeze On When You Fire<br>• Effect = ✔ No Move • No Reaction • Easy Kill<br>• Safety = ✔ Lifetime Safe • Stable
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[AIMBOT EXTERNAL]</span>
+                • AI Aimbot<br>• Aim = ✔ Smart • Only Real Value<br>• Track = ✔ Smooth Tracking • High Accuracy<br>• Status = ✔ Safe • Hard To Detect
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[SNIPER FUNCTIONS]</span>
+                • Sniper Aimbot<br>• Shot = ✔ Every Shot = Confirm Hit<br>• Range = ✔ Perfect Long Range Accuracy
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[ESP FUNCTIONS]</span>
+                • ESP Master + Health Line<br>• Vision = ✔ See Enemies Anywhere<br>• Health = ✔ Real-Time HP Visible<br>• Location = ✔ Show Enemy Location After Death
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
+                <span class="text-blue-400 font-bold block mb-1">[ITEM FUNCTIONS]</span>
+                • All Items ESP<br>• Loot = ✔ Spot Every Loot Instantly<br>• Speed = ✔ Faster Gameplay • Better Control
+            </div>
+            <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs sm:col-span-2">
+                <span class="text-blue-400 font-bold block mb-1">[HIDDEN PRO TOOLS]</span>
+                • Hidden Pro Tools<br>• Control = ✔ Advanced Custom Settings<br>• Use = ✔ Built Built For Serious Players
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE INT PLAN</span>
+            <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer" onclick="selectInternalPlan('700')">
+                    <div class="text-xs text-gray-400 font-bold">Monthly Plan</div>
+                    <div class="text-md font-black text-white mt-1">৳700</div>
+                </div>
+                <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer active-int-plan" onclick="selectInternalPlan('3500')" style="border-color: var(--neon-blue); background: rgba(0, 210, 255, 0.12);">
+                    <div class="text-xs text-blue-400 font-bold">Permanent Plan</div>
+                    <div class="text-md font-black text-white mt-1">৳3500</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center border-t border-dashed border-gray-800 pt-4">
+            <button onclick="triggerBuyNowFromInternalPremium()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY SELECTED PLAN</button>
+        </div>
+    </div>
+</div>
+
+<div id="modMenuPopup" class="premium-popup-overlay">
+    <div class="premium-page-content internal-popup-content rounded-3xl p-6 md:p-8 relative">
+        <button onclick="closeModMenuPopup()" class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-blue-500 transition border-none bg-transparent">&times;</button>
+        <div class="text-center mb-6">
+            <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🚀 VnX MOD MENU — UNLEASH FULL CONTROL 🚀</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1 text-xs text-white">
+             <div class="feature-item-blue p-2.5 rounded-xl"><b>[LOGIN OPTIONS]</b><br>FF Normal / x86 / Max India</div>
+             <div class="feature-item-blue p-2.5 rounded-xl"><b>[AIMBOT SYSTEM]</b><br>Aimbot (Hex/Legit/Rage/Silent)<br>Aim Lock • No Recoil • Rapid Fire</div>
+             </div>
+        <div class="mb-6">
+            <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer" onclick="selectModPlan('700')">
+                    <div class="text-xs text-gray-400 font-bold">Monthly</div>
+                    <div class="text-md font-black text-white mt-1">৳700</div>
+                </div>
+                <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer" onclick="selectModPlan('3500')">
+                    <div class="text-xs text-blue-400 font-bold">Permanent</div>
+                    <div class="text-md font-black text-white mt-1">৳3500</div>
+                </div>
+            </div>
+        </div>
+        <button onclick="triggerBuyModMenu()" class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY SELECTED PLAN</button>
+    </div>
+</div>
+
+<div id="mobilePremiumPage" class="premium-popup-overlay">
+    <div class="premium-page-content rounded-3xl p-6 md:p-8 relative">
+        <button onclick="closeMobilePremiumPage()" class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-purple-500 transition border-none bg-transparent">&times;</button>
+        
+        <div class="text-center mb-6">
+            <span class="bg-green-600/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🔥 PROXY PANEL — ANDROID 🔥</span>
+            <h2 class="text-2xl md:text-4xl font-black mt-3 text-white neon-text-glow tracking-tight">PROXY FREE FIRE</h2>
+            <p class="text-purple-400 text-sm mt-2 font-medium">The New Generation Android Proxy Panel. Works on Playstore Normal FREE FIRE!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-60 overflow-y-auto pr-1">
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Non-Root Supported</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Works On Official Free Fire</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Smooth & Stable Performance</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Fast & Easy Installation</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Safe Panel System</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Head Precision</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Neck Precision</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Head + Neck Assist</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Legit Mode</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Back Jump</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Fast Weapon Switch</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Movement Speed Control</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Jump Height Control</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Optimized Performance</div>
+            <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i class="fas fa-check-circle text-purple-500"></i> Regular Updates</div>
+        </div>
+
+        <div class="mb-6">
+            <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE YOUR PLAN</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div class="plan-item p-3 rounded-xl text-center cursor-pointer" onclick="selectMobilePlan('120')">
+                    <div class="text-xs text-gray-400 font-bold">1 Day</div>
+                    <div class="text-md font-black text-white mt-1">৳120 / $1</div>
+                </div>
+                <div class="plan-item p-3 rounded-xl text-center cursor-pointer" onclick="selectMobilePlan('250')">
+                    <div class="text-xs text-gray-400 font-bold">3 Days</div>
+                    <div class="text-md font-black text-white mt-1">৳250 / $2.5</div>
+                </div>
+                <div class="plan-item p-3 rounded-xl text-center cursor-pointer" onclick="selectMobilePlan('450')">
+                    <div class="text-xs text-gray-400 font-bold">7 Days</div>
+                    <div class="text-md font-black text-white mt-1">৳450 / $4.5</div>
+                </div>
+                <div class="plan-item p-3 rounded-xl text-center cursor-pointer" onclick="selectMobilePlan('800')", style="border-color: var(--neon-purple); background: rgba(188, 19, 254, 0.15);">
+                    <div class="text-xs text-purple-400 font-bold">30 Days</div>
+                    <div class="text-md font-black text-white mt-1">৳800 / $8</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center border-t border-dashed border-gray-800 pt-4">
+            <button onclick="triggerBuyNowFromMobilePremium()" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY SELECTED PLAN</button>
+        </div>
+    </div>
+</div>
+
+<div id="paymentModal" class="payment-popup-overlay">
+    <div class="payment-container" id="paymentContainer" data-method="bkash">
+        <div class="payment-tabs-wrapper">
+            <button class="tab-bkash" onclick="setPaymentMethod('bkash')">Bkash</button>
+            <button class="tab-nagad" onclick="setPaymentMethod('nagad')">Nagad</button>
+            <button class="tab-binance" onclick="setPaymentMethod('binance')">Binance</button>
+        </div>
+        <div class="payment-body">
+            <div class="flex justify-between items-center mb-4 text-sm font-semibold">
+                <span style="color: #8c8c9c;">Enter Transaction ID</span>
+                <span class="text-white">Amount: <span id="paymentAmountDisplay">600</span>৳</span>
+            </div>
+            <div class="mb-4"><input type="text" id="transactionIdInput" class="pay-input-box" placeholder="Enter Transaction ID"></div>
+            <div id="dynamicInstructions"></div>
+            <button onclick="verifyPayment()" class="w-full dynamic-btn py-3 rounded-xl font-bold uppercase tracking-wider text-sm mt-6 shadow-lg border-none">VERIFY</button>
+            <button onclick="closePaymentPage()" class="w-full text-center text-xs text-gray-500 mt-4 block underline bg-transparent border-none cursor-pointer">Cancel Payment</button>
+        </div>
+    </div>
+</div>
+
+<footer class="border-t border-purple-900 bg-gray-950 py-6 text-center text-sm text-gray-500">
+    <div class="container mx-auto px-4"><p>&copy; 2026 Evolution Association. All Rights Reserved.</p></div>
+</footer>
+<script>
+    const paymentData = {
+        bkash: { number: "01832680252", instructions: `<ul class="instruction-list"><li>*247# Dial to go to your BKASH mobile menu or go to the BKASH app.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send Money</span>.</li><li>Write the following number as the recipient number:</li></ul>` },
+        nagad: { number: "01977036709", instructions: `<ul class="instruction-list"><li>*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send Money</span>.</li><li>Write the following number as the recipient number:</li></ul>` },
+        binance: { number: "49823798", instructions: `<ul class="instruction-list"><li>Open your Binance App and navigate to Binance Pay.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send</span> via Pay ID / UID.</li><li>Write the following UID as the recipient account:</li></ul>` }
+    };
+
+    let selectedAmount = "600";
+
+    function setPaymentMethod(method) {
+        const container = document.getElementById('paymentContainer');
+        container.setAttribute('data-method', method);
+        const data = paymentData[method];
+        const label = method === 'binance' ? 'Binance UID' : 'Recipient Number';
+        document.getElementById('dynamicInstructions').innerHTML = `
+            ${data.instructions}
+            <div class="number-display-box dynamic-bg">
+                <span class="text-sm font-normal block opacity-80">${label}</span>
+                <span id="targetNumber" class="tracking-wide">${data.number}</span>
+                <button onclick="copyNumber('${data.number}')" class="bg-white/10 hover:bg-white/20 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 border-none text-white cursor-pointer"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+            <ul class="instruction-list"><li>To confirm, now enter your PIN or Authorize transaction.</li><li>Now enter your Transaction ID in the box above and click VERIFY.</li></ul>`;
+    }
+
+    function selectMobilePlan(amount) {
+        selectedAmount = amount;
+        const items = document.querySelectorAll('#mobilePremiumPage .plan-item');
+        items.forEach(item => { item.style.borderColor = 'rgba(188, 19, 254, 0.2)'; item.style.background = 'rgba(188, 19, 254, 0.05)'; });
+        event.currentTarget.style.borderColor = '#bc13fe';
+        event.currentTarget.style.background = 'rgba(188, 19, 254, 0.15)';
+    }
+
+    function selectExternalPlan(amount) {
+        selectedAmount = amount;
+        const items = document.querySelectorAll('.plan-item-green');
+        items.forEach(item => { item.style.borderColor = 'rgba(0, 255, 102, 0.15)'; item.style.background = 'rgba(0, 255, 102, 0.04)'; });
+        event.currentTarget.style.borderColor = '#00ff66';
+        event.currentTarget.style.background = 'rgba(0, 255, 102, 0.12)';
+    }
+
+    function selectInternalPlan(amount) {
+        selectedAmount = amount;
+        const items = document.querySelectorAll('.plan-item-blue');
+        items.forEach(item => { item.style.borderColor = 'rgba(0, 210, 255, 0.15)'; item.style.background = 'rgba(0, 210, 255, 0.04)'; });
+        event.currentTarget.style.borderColor = '#00d2ff';
+        event.currentTarget.style.background = 'rgba(0, 210, 255, 0.12)';
+    }
+
+    function copyNumber(text) { navigator.clipboard.writeText(text).then(() => alert("Copied: " + text)); }
+    
+    // PC Danger Zone Popup
+    function openPremiumPage() { document.getElementById('premiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "600"; }
+    function closePremiumPage() { document.getElementById('premiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    
+    // PC External Popup
+    function openExternalPremiumPage() { document.getElementById('externalPremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "2500"; }
+    function closeExternalPremiumPage() { document.getElementById('externalPremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
+
+    // PC Internal Popup
+    function openInternalPremiumPage() { document.getElementById('internalPremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "3500"; }
+    function closeInternalPremiumPage() { document.getElementById('internalPremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    
+    //Mod Menu Zone
+    function openModMenuPopup() { document.getElementById('modMenuPopup').style.display = 'block'; }
+    function closeModMenuPopup() { document.getElementById('modMenuPopup').style.display = 'none'; }
+    function triggerBuyModMenu() { /* আপনার পেমেন্ট পেজ খোলার কোড */ }
+
+    
+    // Mobile Popup
+    function openMobilePremiumPage() { document.getElementById('mobilePremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "800"; }
+    function closeMobilePremiumPage() { document.getElementById('mobilePremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    
+    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+    
+    function openPaymentPage(amount) { 
+        selectedAmount = amount;
+        document.getElementById('paymentAmountDisplay').innerText = selectedAmount;
+        document.getElementById('paymentModal').style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; 
+        setPaymentMethod('bkash'); 
+    }
+    
+    function closePaymentPage() { 
+        document.getElementById('paymentModal').style.display = 'none'; 
+        if(document.getElementById('premiumPage').style.display !== 'block' && document.getElementById('mobilePremiumPage').style.display !== 'block' && document.getElementById('externalPremiumPage').style.display !== 'block' && document.getElementById('internalPremiumPage').style.display !== 'block') {
+            document.body.style.overflow = 'auto'; 
+        }
+    }
+    
+    function triggerBuyNowFromPremium(amount) { closePremiumPage(); openPaymentPage(amount); }
+    function triggerBuyNowFromExternalPremium() { closeExternalPremiumPage(); openPaymentPage(selectedAmount); }
+    function triggerBuyNowFromInternalPremium() { closeInternalPremiumPage(); openPaymentPage(selectedAmount); }
+    function triggerBuyNowFromMobilePremium() { closeMobilePremiumPage(); openPaymentPage(selectedAmount); }
+    
+    function verifyPayment() {
+        const txId = document.getElementById('transactionIdInput').value;
+        if(!txId.trim()) alert("Please enter a valid Transaction ID!");
+        else alert("Verifying Transaction ID: " + txId + " for Amount: " + selectedAmount + "৳");
+    }
+//Mod Menu Zone
+function openModMenuPopup() {
+    document.getElementById('modMenuPopup').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModMenuPopup() {
+    document.getElementById('modMenuPopup').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function selectModPlan(amount) {
+    selectedAmount = amount;
+
+    const items = document.querySelectorAll('#modMenuPopup .plan-item-blue');
+
+    items.forEach(item => {
+        item.style.borderColor = 'rgba(0, 210, 255, 0.15)';
+        item.style.background = 'rgba(0, 210, 255, 0.04)';
+    });
+
+    event.currentTarget.style.borderColor = '#00d2ff';
+    event.currentTarget.style.background = 'rgba(0, 210, 255, 0.12)';
+}
+
+function triggerBuyModMenu() {
+    closeModMenuPopup();
+    openPaymentPage(selectedAmount);
+}
+</script>
+
+</body>
+</html>
