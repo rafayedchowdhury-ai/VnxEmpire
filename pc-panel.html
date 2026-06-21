@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Panel | VenoX Empire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles for Glow and Buttons */
+        .btn-neon-purple {
+            background: linear-gradient(90deg, #6b21a8, #9333ea);
+            color: white;
+            transition: 0.3s;
+        }
+        .btn-neon-purple:hover {
+            box-shadow: 0 0 15px #9333ea;
+        }
+        .product-card {
+            background: rgba(20, 10, 30, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            border-color: #9333ea;
+            transform: translateY(-5px);
+        }
+    </style>
+    <style>
+    .neon-text-glow { text-shadow: 0 0 10px rgba(188, 19, 254, 0.8); }
+    .nav-link-custom { display: flex; align-items: center; gap: 8px; color: #d1d5db; font-weight: 600; transition: 0.3s; }
+    .nav-link-custom:hover { color: #a855f7; }
+    .btn-neon-purple { background: #6b21a8; color: white; box-shadow: 0 0 10px rgba(107, 33, 168, 0.5); }
+    .btn-neon-cyan { background: #3a02be; color: white; box-shadow: 0 0 10px rgba(8, 145, 178, 0.5); }
+</style>
+</head>
+<body class="bg-[#0a0410] text-white">
+    <header class="sticky top-0 z-[100] w-full bg-[#0a0410] border-b border-purple-900/40">
+    <div class="container mx-auto py-3 px-4 flex items-center justify-between">
+        <a href="index.html" class="text-xl md:text-2xl font-extrabold text-white neon-text-glow flex items-center gap-2">
+            <i class="fas fa-bolt text-purple-500"></i> Venox Empire
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-link-custom"><i class="fas fa-house text-purple-500"></i>Home</a>
+            <a href="pc-panel.html" class="nav-link-custom"><i class="fas fa-desktop text-purple-500"></i>PC PANEL</a>
+            <a href="index.html#mobile-section" class="nav-link-custom"><i class="fab fa-android text-purple-500"></i>Android Panel</a>
+            <a href="#" class="nav-link-custom"><i class="fas fa-headset text-purple-500"></i>Contact Us</a>
+            <a href="about.html" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About Us</a>
+        </nav>
+        <div class="hidden sm:flex items-center gap-2">
+            <a href="login.html" class="btn-neon-purple px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Login</a>
+            <a href="login.html" class="btn-neon-cyan px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Register</a>
+        </div>
+    </div>
+</header>
+
+    <section class="max-w-6xl mx-auto py-16 px-4">
+        <h2 class="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 mb-12 uppercase tracking-widest">
+            PC Panel Collection
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openModMenuPopup()">
+                <img src="d2.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">Danger Zone Pack</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+            
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openExternalPremiumPage()">
+                <img src="e1.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">VNX External Pack</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openInternalPremiumPage()">
+                <img src="i1.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">VnX Premium Internal</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openModMenuPopup()">
+                <img src="m2.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">VnX Mod Menu</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openUidBypassPopup()">
+                <img src="b1.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">UID Bypass</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+
+            <div class="product-card rounded-xl p-4 cursor-pointer" onclick="openBrModPopup()">
+                <img src="br1.png" class="w-full h-40 object-cover rounded-lg">
+                <h1 class="text-lg font-bold text-center mt-4">VNX BR MODS</h1>
+                <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-sm font-bold uppercase">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="payment-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+        </div>
+
+    <script>
+        // এখানে আপনার সেই ফাংশনগুলো বসান যা পপ-আপ ওপেন করে
+        function openModMenuPopup() { document.getElementById('payment-modal').classList.remove('hidden'); document.getElementById('payment-modal').classList.add('flex'); }
+        function openExternalPremiumPage() { /* আপনার কোড */ }
+        function openInternalPremiumPage() { /* আপনার কোড */ }
+        function openUidBypassPopup() { /* আপনার কোড */ }
+        function openBrModPopup() { /* আপনার কোড */ }
+        
+        // মডাল বন্ধ করার ফাংশন
+        window.onclick = function(event) {
+            let modal = document.getElementById('payment-modal');
+            if (event.target == modal) { modal.classList.add('hidden'); }
+        }
+    </script>
+</body>
+</html>
