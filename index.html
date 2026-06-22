@@ -133,6 +133,52 @@
             opacity: 0.9;
         }
 
+        /* Demo Button - glassy cyan neon outline, pairs with Buy Now */
+        .btn-demo-white {
+            position: relative;
+            background: rgba(0, 210, 255, 0.08) !important;
+            color: var(--neon-blue) !important;
+            border: 1.5px solid rgba(0, 210, 255, 0.55);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.25), inset 0 0 8px rgba(0, 210, 255, 0.06);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none !important;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+        }
+
+        .btn-demo-white::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(0, 240, 255, 0.25), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .btn-demo-white:hover {
+            background: rgba(0, 210, 255, 0.18) !important;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 18px rgba(0, 210, 255, 0.55), inset 0 0 10px rgba(0, 210, 255, 0.12);
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        .btn-demo-white:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-action-row {
+            display: flex;
+            gap: 6px;
+            align-items: stretch;
+        }
+
+        .btn-action-row>button {
+            flex: 1 1 50%;
+            min-width: 0;
+        }
+
         /* Product Cards */
         .product-card {
             background-color: var(--card-bg) !important;
@@ -400,12 +446,13 @@
                 <div class="desktop-nav-container">
                     <a href="#" class="nav-link-custom"><i class="fas fa-house text-purple-500"></i>Home</a>
                     <a href="pc-panel.html" class="block nav-link-custom py-1">
-    <i class="fas fa-desktop text-purple-500"></i> PC PANEL
-</a>
+                        <i class="fas fa-desktop text-purple-500"></i> PC PANEL
+                    </a>
                     <a href="#mobile-section" class="nav-link-custom"><i
                             class="fab fa-android text-purple-500"></i>Android Panel</a>
                     <a href="#" class="nav-link-custom"><i class="fas fa-headset text-purple-500"></i>Contact Us</a>
-                    <a href="about.html" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About Us</a>
+                    <a href="about.html" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About
+                        Us</a>
                 </div>
 
                 <div class="hidden sm:flex items-center gap-2">
@@ -515,38 +562,62 @@
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openPremiumPage()">
                     <img src="d2.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">Danger Zone Pack</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('Danger Zone Pack')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openExternalPremiumPage()">
                     <img src="e1.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">VNX External Pack</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('VNX External Pack')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openInternalPremiumPage()">
                     <img src="i1.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">VnX Premium Internal</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('VnX Premium Internal')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openModMenuPopup()">
                     <img src="m2.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">VnX Mod Menu</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('VnX Mod Menu')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openUidBypassPopup()">
                     <img src="b1.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">UID Bypass</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('UID Bypass')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
                 <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openBrModPopup()">
                     <img src="br1.png" class="w-full h-32 object-cover rounded-lg">
                     <h1 class="text-sm font-bold text-center mt-4">VNX BR MODS</h1>
-                    <button class="w-full btn-neon-purple mt-3 py-2 rounded-lg text-xs font-bold uppercase">Buy
-                        Now</button>
+                    <div class="btn-action-row mt-3">
+                        <button onclick="showDemoAlert('VNX BR MODS')"
+                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
+                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
+                    </div>
                 </div>
             </div>
             <p> </p>
@@ -560,16 +631,56 @@
                         </h3>
                     </div>
 
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
+                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
                             <div class="relative overflow-hidden rounded-xl aspect-square">
                                 <img src="a1.png" class="w-full h-full object-cover">
                             </div>
                             <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
                                 <h1 class="text-sm font-bold text-gray-200 mb-3">Proxy Free Fire</h1>
-                                <button onclick="openMobilePremiumPage()"
-                                    class="w-full btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase mt-auto">Buy
-                                    Now</button>
+                                <div class="btn-action-row mt-auto">
+                                    <button onclick="showDemoAlert('Proxy Free Fire')"
+                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
+                                            class="fas fa-play"
+                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                                    <button onclick="openMobilePremiumPage()"
+                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
+                            <div class="relative overflow-hidden rounded-xl aspect-square">
+                                <img src="nmr.png" class="w-full h-full object-cover">
+                            </div>
+                            <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
+                                <h1 class="text-sm font-bold text-gray-200 mb-3">Root Mobile Pannel</h1>
+                                <div class="btn-action-row mt-auto">
+                                    <button onclick="showDemoAlert('Root Mobile Pannel')"
+                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
+                                            class="fas fa-play"
+                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                                    <button onclick="openRootMobilePopup()"
+                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
+                            <div class="relative overflow-hidden rounded-xl aspect-square">
+                                <img src="rm1.png" class="w-full h-full object-cover">
+                            </div>
+                            <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
+                                <h1 class="text-sm font-bold text-gray-200 mb-3">Non Root Mobile Pannel</h1>
+                                <div class="btn-action-row mt-auto">
+                                    <button onclick="showDemoAlert('Non Root Mobile Pannel')"
+                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
+                                            class="fas fa-play"
+                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
+                                    <button onclick="openNonRootMobilePopup()"
+                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
+                                        Now</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1425,6 +1536,284 @@
         </div>
 
 
+        <!-- ===================== ROOT MOBILE PANNEL POPUP ===================== -->
+        <div id="vnxRootMobilePopup"
+            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
+
+            <div
+                style="background:#070b12; border: 2px solid #ffd700; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(255, 215, 0, 0.25); max-height: 90vh; overflow-y: auto;">
+
+                <button onclick="closeVnxRootMobilePopup()"
+                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
+
+                <div style="margin-bottom: 20px;">
+                    <h2 style="font-size: 22px; font-weight: 800; color: #ffd700; margin-bottom: 5px;">[ Root Mobile
+                        Pannel — Mod Menu ]</h2>
+                    <p style="font-size: 11px; color: #9c8a3a; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
+                </div>
+
+                <div
+                    style="background: rgba(255, 215, 0, 0.04); border: 1px solid rgba(255, 215, 0, 0.18); border-radius: 12px; padding: 15px; margin-bottom: 20px; font-size: 13px; color: #ccdce0; line-height: 1.8; text-align: left;">
+                    <p style="margin: 0;">🤖 Mod Menu Mobile - Root</p>
+                    <p style="margin: 0;">🔇 Silent Kill</p>
+                    <p style="margin: 0;">⚙️ Exploits — <span style="color:#ffd700; font-weight:bold;">EM
+                            BREVE...</span></p>
+                    <p style="margin: 0;">🦈 ESP'S</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Name</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Line</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Box</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Skeleton</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Distance</p>
+                    <p style="margin: 0; padding-left: 18px;">— Show Health</p>
+                </div>
+
+                <p style="font-size: 12px; color: #78909c; text-align: left; margin-bottom: 10px;">👑 CHOOSE MODS PLAN:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px;">
+
+                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '1 Day', 60)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">1 Day</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳60</div>
+                    </div>
+
+                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '7 Days', 150)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">7 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳150</div>
+                    </div>
+
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
+                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '15 Days', 300)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">15 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳300</div>
+                    </div>
+
+                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '30 Days', 600)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #ffd700; font-weight: 600;">30 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳600</div>
+                    </div>
+                </div>
+
+                <button onclick="goToRootMobilePaymentPage()"
+                    style="width: 100%; padding: 14px; background: #ffd700; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
+                    SELECTED PLAN</button>
+            </div>
+        </div>
+
+        <div id="vnxRootMobilePaymentPopup"
+            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
+
+            <div
+                style="background:#0e1724; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+
+                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                    <button id="rootMobileMethodBtnBkash" onclick="switchRootMobilePaymentMethod('Bkash')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
+                    <button id="rootMobileMethodBtnNagad" onclick="switchRootMobilePaymentMethod('Nagad')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
+                    <button id="rootMobileMethodBtnBinance" onclick="switchRootMobilePaymentMethod('Binance')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
+                    <span style="font-size: 13px; color: #90a4ae;">Enter Transaction ID</span>
+                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span
+                            id="rootMobilePaymentPopupAmount" style="color:#ffd700;">0</span>৳</span>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <input type="text" id="rootMobileTrxIdInput" placeholder="Enter Transaction ID"
+                        style="width:100%; padding:14px; background:#070b12; border:1px solid #25354c; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
+                </div>
+
+                <div
+                    style="font-size: 12px; color: #b0bec5; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
+                    <p id="rootMobilePaymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
+                    <p id="rootMobilePaymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.</p>
+                    <p id="rootMobilePaymentStep3">• Write the following number as the recipient number:</p>
+                </div>
+
+                <div id="rootMobileRecipientWrapper"
+                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
+                    <span id="rootMobileRecipientLabel">Recipient Number</span>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span id="rootMobileRecipientNumber">01832680252</span>
+                        <button onclick="copyRootMobileRecipientNumber()"
+                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
+                            Copy</button>
+                    </div>
+                </div>
+
+                <div
+                    style="font-size: 11px; color: #627d88; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
+                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
+                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
+                </div>
+
+                <button id="rootMobileVerifyPaymentBtn" onclick="verifyRootMobileSubmittedTrx()"
+                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
+
+                <div style="text-align: center;">
+                    <span onclick="cancelRootMobilePaymentFlow()"
+                        style="font-size:12px; color:#90a4ae; cursor:pointer; text-decoration:underline;">Cancel
+                        Payment</span>
+                </div>
+
+            </div>
+        </div>
+        <!-- ===================== END ROOT MOBILE PANNEL POPUP ===================== -->
+
+
+        <!-- ===================== NON ROOT MOBILE PANNEL POPUP ===================== -->
+        <div id="vnxNonRootMobilePopup"
+            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
+
+            <div
+                style="background:#070b12; border: 2px solid #ff0055; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(255, 0, 85, 0.25); max-height: 90vh; overflow-y: auto;">
+
+                <button onclick="closeVnxNonRootMobilePopup()"
+                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
+
+                <div style="margin-bottom: 20px;">
+                    <h2 style="font-size: 22px; font-weight: 800; color: #ff0055; margin-bottom: 5px;">[ Drip Client —
+                        Non Root Panel ]</h2>
+                    <p style="font-size: 11px; color: #9c3a55; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
+                </div>
+
+                <div
+                    style="background: rgba(255, 0, 85, 0.04); border: 1px solid rgba(255, 0, 85, 0.18); border-radius: 12px; padding: 15px; margin-bottom: 20px; font-size: 13px; color: #ccdce0; line-height: 1.8; text-align: left;">
+                    <p style="margin: 0; color: #ff0055; font-weight: bold;">⭐️ DRIP CLIENT NON ROOT PANEL</p>
+                    <p style="margin: 0;">🎯 Aimbot Lagit</p>
+                    <p style="margin: 0;">🚫 No Recoil</p>
+                    <p style="margin: 0;">🤖 Aimbot Rage</p>
+                    <p style="margin: 0;">🔫 AWM Aimbot</p>
+                    <p style="margin: 0;">🏃 Soulder Speed Hack</p>
+                    <p style="margin: 0;">🎯 HS Rate: 120%</p>
+                    <p style="margin: 0;">🦈 Esp Line</p>
+                    <p style="margin: 0;">📦 Esp Box</p>
+                    <p style="margin: 0;">❤️ Esp Health</p>
+                    <p style="margin: 0;">🏷️ Esp Name</p>
+                    <p
+                        style="margin: 0; color: #ff0055; font-size: 11px; font-weight: bold; margin-top: 5px; text-align: center;">
+                        🅲🆂 / 🅱🆁 Rank — Working</p>
+                </div>
+
+                <p style="font-size: 12px; color: #78909c; text-align: left; margin-bottom: 10px;">👑 CHOOSE MODS PLAN:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px;">
+
+                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '1 Day', 100)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">1 Day</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳100</div>
+                    </div>
+
+                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '3 Days', 200)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">3 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳200</div>
+                    </div>
+
+                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '7 Days', 400)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">7 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳400</div>
+                    </div>
+
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
+                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '15 Days', 500)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #90a4ae;">15 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳500</div>
+                    </div>
+
+                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '30 Days', 800)"
+                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
+                        <div style="font-size: 11px; color: #ff0055; font-weight: 600;">30 Days</div>
+                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳800</div>
+                    </div>
+                </div>
+
+                <button onclick="goToNonRootMobilePaymentPage()"
+                    style="width: 100%; padding: 14px; background: #ff0055; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #fff; box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
+                    SELECTED PLAN</button>
+            </div>
+        </div>
+
+        <div id="vnxNonRootMobilePaymentPopup"
+            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
+
+            <div
+                style="background:#0e1724; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+
+                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                    <button id="nonRootMobileMethodBtnBkash" onclick="switchNonRootMobilePaymentMethod('Bkash')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
+                    <button id="nonRootMobileMethodBtnNagad" onclick="switchNonRootMobilePaymentMethod('Nagad')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
+                    <button id="nonRootMobileMethodBtnBinance" onclick="switchNonRootMobilePaymentMethod('Binance')"
+                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
+                    <span style="font-size: 13px; color: #90a4ae;">Enter Transaction ID</span>
+                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span
+                            id="nonRootMobilePaymentPopupAmount" style="color:#ff0055;">0</span>৳</span>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <input type="text" id="nonRootMobileTrxIdInput" placeholder="Enter Transaction ID"
+                        style="width:100%; padding:14px; background:#070b12; border:1px solid #25354c; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
+                </div>
+
+                <div
+                    style="font-size: 12px; color: #b0bec5; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
+                    <p id="nonRootMobilePaymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
+                    <p id="nonRootMobilePaymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.
+                    </p>
+                    <p id="nonRootMobilePaymentStep3">• Write the following number as the recipient number:</p>
+                </div>
+
+                <div id="nonRootMobileRecipientWrapper"
+                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
+                    <span id="nonRootMobileRecipientLabel">Recipient Number</span>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span id="nonRootMobileRecipientNumber">01832680252</span>
+                        <button onclick="copyNonRootMobileRecipientNumber()"
+                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
+                            Copy</button>
+                    </div>
+                </div>
+
+                <div
+                    style="font-size: 11px; color: #627d88; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
+                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
+                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
+                </div>
+
+                <button id="nonRootMobileVerifyPaymentBtn" onclick="verifyNonRootMobileSubmittedTrx()"
+                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
+
+                <div style="text-align: center;">
+                    <span onclick="cancelNonRootMobilePaymentFlow()"
+                        style="font-size:12px; color:#90a4ae; cursor:pointer; text-decoration:underline;">Cancel
+                        Payment</span>
+                </div>
+
+            </div>
+        </div>
+        <!-- ===================== END NON ROOT MOBILE PANNEL POPUP ===================== -->
+
+
         <div id="vnxBrModsPaymentPopup"
             style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
 
@@ -1633,6 +2022,293 @@
 
             function closeVnxBrModsPopup() {
                 document.getElementById('vnxBrModsPopup').style.display = 'none';
+            }
+
+
+            // ==========================================
+            // ROOT MOBILE PANNEL POPUP LOGIC (mirrors BR Mods flow)
+            // ==========================================
+            let rootMobileSelectedPlanName = null;
+            let rootMobileSelectedPlanPrice = 0;
+            let rootMobileSelectedMethod = 'Bkash';
+
+            const rootMobilePaymentConfigs = {
+                Bkash: {
+                    number: '01832680252',
+                    color: '#e2136e',
+                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
+                    step2: 'Click on Send Money.',
+                    step3: 'Write the following number as the recipient number:'
+                },
+                Nagad: {
+                    number: '01977036709',
+                    color: '#f37021',
+                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
+                    step2: 'Click on Send Money.',
+                    step3: 'Write the following number as the recipient number:'
+                },
+                Binance: {
+                    number: '556924108',
+                    color: '#f3ba2f',
+                    step1: 'Open your Binance App and navigate to Binance Pay.',
+                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
+                    step3: 'Write the following ID as the recipient target:'
+                }
+            };
+
+            // Triggered when a plan is clicked inside the Root Mobile plan popup
+            function selectRootMobilePlan(element, name, price) {
+                rootMobileSelectedPlanName = name;
+                rootMobileSelectedPlanPrice = price;
+
+                document.querySelectorAll('.rootmobile-plan-card').forEach(card => {
+                    card.style.borderColor = '#22333b';
+                    card.style.boxShadow = 'none';
+                    card.style.background = '#0c131a';
+                });
+
+                element.style.borderColor = '#ffd700';
+                element.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.4)';
+                element.style.background = 'rgba(255, 215, 0, 0.05)';
+            }
+
+            // Fired by "BUY SELECTED PLAN" button inside the Root Mobile plan popup
+            function goToRootMobilePaymentPage() {
+                if (!rootMobileSelectedPlanName) {
+                    alert("Please select a plan first!");
+                    return;
+                }
+
+                document.getElementById('vnxRootMobilePopup').style.display = 'none';
+                document.getElementById('rootMobilePaymentPopupAmount').innerText = rootMobileSelectedPlanPrice;
+                document.getElementById('rootMobileTrxIdInput').value = '';
+
+                switchRootMobilePaymentMethod(rootMobileSelectedMethod);
+                document.getElementById('vnxRootMobilePaymentPopup').style.display = 'flex';
+            }
+
+            // Handles structural rendering changes when switching payment tabs
+            function switchRootMobilePaymentMethod(method) {
+                rootMobileSelectedMethod = method;
+                const config = rootMobilePaymentConfigs[method];
+
+                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
+                    const btn = document.getElementById('rootMobileMethodBtn' + m);
+                    btn.style.background = '#172233';
+                    btn.style.borderColor = '#25354c';
+                    btn.style.boxShadow = 'none';
+                    btn.style.color = 'white';
+                });
+
+                const activeBtn = document.getElementById('rootMobileMethodBtn' + method);
+                activeBtn.style.background = config.color;
+                activeBtn.style.borderColor = config.color;
+                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
+                if (method === 'Binance') activeBtn.style.color = '#000';
+
+                document.getElementById('rootMobilePaymentStep1').innerText = "• " + config.step1;
+                document.getElementById('rootMobilePaymentStep2').innerText = "• " + config.step2;
+                document.getElementById('rootMobilePaymentStep3').innerText = "• " + config.step3;
+
+                const wrapper = document.getElementById('rootMobileRecipientWrapper');
+                wrapper.style.background = config.color;
+                if (method === 'Binance') wrapper.style.color = '#000'; else wrapper.style.color = '#fff';
+                document.getElementById('rootMobileRecipientNumber').innerText = config.number;
+
+                const verifyBtn = document.getElementById('rootMobileVerifyPaymentBtn');
+                verifyBtn.style.background = config.color;
+                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
+                if (method === 'Binance') verifyBtn.style.color = '#000'; else verifyBtn.style.color = '#fff';
+            }
+
+            // Single-tap copy of recipient number/ID
+            function copyRootMobileRecipientNumber() {
+                const numText = document.getElementById('rootMobileRecipientNumber').innerText;
+                navigator.clipboard.writeText(numText).then(() => {
+                    alert("Copied to clipboard: " + numText);
+                }).catch(() => {
+                    alert("Failed to auto-copy. Please copy manually.");
+                });
+            }
+
+            // Final form checker when clicking VERIFY
+            function verifyRootMobileSubmittedTrx() {
+                const inputVal = document.getElementById('rootMobileTrxIdInput').value.trim();
+                if (!inputVal) {
+                    alert("Please input your Transaction ID first!");
+                    return;
+                }
+
+                alert(`Verifying TrxID: ${inputVal}\nMethod: ${rootMobileSelectedMethod}\nPlan: ${rootMobileSelectedPlanName} (${rootMobileSelectedPlanPrice}৳)`);
+            }
+
+            // Back operation
+            function cancelRootMobilePaymentFlow() {
+                document.getElementById('vnxRootMobilePaymentPopup').style.display = 'none';
+                document.getElementById('vnxRootMobilePopup').style.display = 'flex';
+            }
+
+            // Opens the Root Mobile plan popup (called from the product card)
+            function openRootMobilePopup() {
+                rootMobileSelectedPlanName = null;
+                document.querySelectorAll('.rootmobile-plan-card').forEach(card => {
+                    card.style.borderColor = '#22333b';
+                    card.style.boxShadow = 'none';
+                    card.style.background = '#0c131a';
+                });
+                document.getElementById('vnxRootMobilePopup').style.display = 'flex';
+            }
+
+            function closeVnxRootMobilePopup() {
+                document.getElementById('vnxRootMobilePopup').style.display = 'none';
+            }
+
+
+            // ==========================================
+            // NON ROOT MOBILE PANNEL (DRIP CLIENT) POPUP LOGIC (mirrors Root Mobile flow)
+            // ==========================================
+            let nonRootMobileSelectedPlanName = null;
+            let nonRootMobileSelectedPlanPrice = 0;
+            let nonRootMobileSelectedMethod = 'Bkash';
+
+            const nonRootMobilePaymentConfigs = {
+                Bkash: {
+                    number: '01832680252',
+                    color: '#e2136e',
+                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
+                    step2: 'Click on Send Money.',
+                    step3: 'Write the following number as the recipient number:'
+                },
+                Nagad: {
+                    number: '01977036709',
+                    color: '#f37021',
+                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
+                    step2: 'Click on Send Money.',
+                    step3: 'Write the following number as the recipient number:'
+                },
+                Binance: {
+                    number: '556924108',
+                    color: '#f3ba2f',
+                    step1: 'Open your Binance App and navigate to Binance Pay.',
+                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
+                    step3: 'Write the following ID as the recipient target:'
+                }
+            };
+
+            // Triggered when a plan is clicked inside the Non Root Mobile plan popup
+            function selectNonRootMobilePlan(element, name, price) {
+                nonRootMobileSelectedPlanName = name;
+                nonRootMobileSelectedPlanPrice = price;
+
+                document.querySelectorAll('.nonrootmobile-plan-card').forEach(card => {
+                    card.style.borderColor = '#22333b';
+                    card.style.boxShadow = 'none';
+                    card.style.background = '#0c131a';
+                });
+
+                element.style.borderColor = '#ff0055';
+                element.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.4)';
+                element.style.background = 'rgba(255, 0, 85, 0.05)';
+            }
+
+            // Fired by "BUY SELECTED PLAN" button inside the Non Root Mobile plan popup
+            function goToNonRootMobilePaymentPage() {
+                if (!nonRootMobileSelectedPlanName) {
+                    alert("Please select a plan first!");
+                    return;
+                }
+
+                document.getElementById('vnxNonRootMobilePopup').style.display = 'none';
+                document.getElementById('nonRootMobilePaymentPopupAmount').innerText = nonRootMobileSelectedPlanPrice;
+                document.getElementById('nonRootMobileTrxIdInput').value = '';
+
+                switchNonRootMobilePaymentMethod(nonRootMobileSelectedMethod);
+                document.getElementById('vnxNonRootMobilePaymentPopup').style.display = 'flex';
+            }
+
+            // Handles structural rendering changes when switching payment tabs
+            function switchNonRootMobilePaymentMethod(method) {
+                nonRootMobileSelectedMethod = method;
+                const config = nonRootMobilePaymentConfigs[method];
+
+                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
+                    const btn = document.getElementById('nonRootMobileMethodBtn' + m);
+                    btn.style.background = '#172233';
+                    btn.style.borderColor = '#25354c';
+                    btn.style.boxShadow = 'none';
+                    btn.style.color = 'white';
+                });
+
+                const activeBtn = document.getElementById('nonRootMobileMethodBtn' + method);
+                activeBtn.style.background = config.color;
+                activeBtn.style.borderColor = config.color;
+                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
+                if (method === 'Binance') activeBtn.style.color = '#000';
+
+                document.getElementById('nonRootMobilePaymentStep1').innerText = "• " + config.step1;
+                document.getElementById('nonRootMobilePaymentStep2').innerText = "• " + config.step2;
+                document.getElementById('nonRootMobilePaymentStep3').innerText = "• " + config.step3;
+
+                const wrapper = document.getElementById('nonRootMobileRecipientWrapper');
+                wrapper.style.background = config.color;
+                if (method === 'Binance') wrapper.style.color = '#000'; else wrapper.style.color = '#fff';
+                document.getElementById('nonRootMobileRecipientNumber').innerText = config.number;
+
+                const verifyBtn = document.getElementById('nonRootMobileVerifyPaymentBtn');
+                verifyBtn.style.background = config.color;
+                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
+                if (method === 'Binance') verifyBtn.style.color = '#000'; else verifyBtn.style.color = '#fff';
+            }
+
+            // Single-tap copy of recipient number/ID
+            function copyNonRootMobileRecipientNumber() {
+                const numText = document.getElementById('nonRootMobileRecipientNumber').innerText;
+                navigator.clipboard.writeText(numText).then(() => {
+                    alert("Copied to clipboard: " + numText);
+                }).catch(() => {
+                    alert("Failed to auto-copy. Please copy manually.");
+                });
+            }
+
+            // Final form checker when clicking VERIFY
+            function verifyNonRootMobileSubmittedTrx() {
+                const inputVal = document.getElementById('nonRootMobileTrxIdInput').value.trim();
+                if (!inputVal) {
+                    alert("Please input your Transaction ID first!");
+                    return;
+                }
+
+                alert(`Verifying TrxID: ${inputVal}\nMethod: ${nonRootMobileSelectedMethod}\nPlan: ${nonRootMobileSelectedPlanName} (${nonRootMobileSelectedPlanPrice}৳)`);
+            }
+
+            // Back operation
+            function cancelNonRootMobilePaymentFlow() {
+                document.getElementById('vnxNonRootMobilePaymentPopup').style.display = 'none';
+                document.getElementById('vnxNonRootMobilePopup').style.display = 'flex';
+            }
+
+            // Opens the Non Root Mobile plan popup (called from the product card)
+            function openNonRootMobilePopup() {
+                nonRootMobileSelectedPlanName = null;
+                document.querySelectorAll('.nonrootmobile-plan-card').forEach(card => {
+                    card.style.borderColor = '#22333b';
+                    card.style.boxShadow = 'none';
+                    card.style.background = '#0c131a';
+                });
+                document.getElementById('vnxNonRootMobilePopup').style.display = 'flex';
+            }
+
+            function closeVnxNonRootMobilePopup() {
+                document.getElementById('vnxNonRootMobilePopup').style.display = 'none';
+            }
+
+
+            // ==========================================
+            // GLOBAL DEMO BUTTON HANDLER (placeholder - update with real demo links later)
+            // ==========================================
+            function showDemoAlert(productName) {
+                event.stopPropagation();
+                alert("Demo link coming soon for: " + productName);
             }
 
 
