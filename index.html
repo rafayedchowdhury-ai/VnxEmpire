@@ -3,2366 +3,938 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Home - Venox Empire</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Discover the ultimate destination for gaming products at Evolution Association. Shop the latest Panel Android, iPhone, PC, and more online." />
 
-    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/tailwindcss.css">
+    <title>Venox Empire — Premium Free Fire Panels (PC & Mobile)</title>
+    <meta name="description"
+        content="Venox Empire — Bangladesh's trusted source for premium Free Fire panels. PC External, Internal, Mod Menu, UID Bypass, BR Mods and Android Root/Non-Root panels. Safe, stable and instant delivery.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Venox Empire — Premium Free Fire Panels">
+    <meta property="og:description"
+        content="Safe, stable & trusted Free Fire panels for PC and Android. Instant delivery, 24/7 support.">
+    <meta property="og:type" content="website">
+
+    <!-- Emoji favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/bootstrap/bootstrap.min.css">
+
+    <!-- Tailwind (official CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: '#0a0a0f',
+                        surface: '#14141f',
+                        surface2: '#1c1c2b',
+                        primary: '#a855f7',
+                        accent: '#22d3ee',
+                    },
+                },
+            },
+        };
+    </script>
 
     <style>
         :root {
-            --neon-purple: #bc13fe;
-            --neon-glow: #00f0ff;
-            --dark-bg: #0b0b12;
-            --card-bg: #141423;
-            --text-light: #e2e8f0;
-            --neon-red: #ff0055;
-            --neon-green: #00ff66;
-            --neon-blue: #00d2ff;
+            --bg: #0a0a0f;
+            --surface: #14141f;
+            --surface-2: #1c1c2b;
+            --primary: #a855f7;
+            --primary-strong: #b026ff;
+            --accent: #22d3ee;
+            --text: #e8e8f0;
+            --muted: #9494a8;
+            --border: rgba(255, 255, 255, 0.08);
 
-            /* Payment Colors */
-            --bkash-color: #e2136e;
-            --nagad-color: #f7941d;
-            --binance-color: #f3ba2f;
+            --bkash: #e2136e;
+            --nagad: #f37021;
+            --binance: #f3ba2f;
+        }
+
+        * {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
+            background: var(--bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--neon-purple);
+            background: var(--surface-2);
             border-radius: 10px;
         }
 
-        /* Navbar Sticky Premium */
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Subtle glow used sparingly */
+        .glow-primary {
+            box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+        }
+
+        /* Header */
         .header {
-            background-color: rgba(20, 20, 35, 0.95) !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--neon-purple);
-            box-shadow: 0 4px 20px rgba(188, 19, 254, 0.2);
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
         }
 
-        .neon-text-glow {
-            text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
-        }
-
-        /* Nav Links Styling to force inline on Desktop */
-        .desktop-nav-container {
-            display: none;
-        }
-
-        @media (min-width: 1024px) {
-            .desktop-nav-container {
-                display: flex !important;
-                align-items: center;
-                gap: 24px;
-            }
-
-            .mobile-toggle-btn {
-                display: none !important;
-            }
-        }
-
-        .nav-link-custom {
-            color: #d1cbd0 !important;
+        .nav-link {
+            color: var(--muted);
             font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none !important;
+            text-decoration: none;
+            transition: color .2s ease;
             white-space: nowrap;
         }
 
-        .nav-link-custom:hover {
-            color: var(--neon-purple) !important;
-            text-shadow: 0 0 8px var(--neon-purple);
-        }
-
-        /* Notice Board */
-        .notice-style {
-            background: linear-gradient(135deg, #1e1e38, #141423);
-            border: 1px solid var(--neon-purple) !important;
-            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
         }
 
         /* Buttons */
-        .btn-neon-purple {
-            background: transparent;
-            color: #fff !important;
-            border: 2px solid var(--neon-purple);
-            box-shadow: 0 0 10px var(--neon-purple);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none !important;
-        }
-
-        .btn-neon-purple:hover {
-            background: var(--neon-purple);
-            box-shadow: 0 0 20px var(--neon-purple);
-        }
-
-        .btn-neon-cyan {
-            background: var(--neon-purple);
-            color: #fff !important;
-            border: 2px solid var(--neon-purple);
-            box-shadow: 0 0 10px var(--neon-purple);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none !important;
-        }
-
-        .btn-neon-cyan:hover {
-            box-shadow: 0 0 20px var(--neon-purple);
-            opacity: 0.9;
-        }
-
-        /* Demo Button - glassy cyan neon outline, pairs with Buy Now */
-        .btn-demo-white {
-            position: relative;
-            background: rgba(0, 210, 255, 0.08) !important;
-            color: var(--neon-blue) !important;
-            border: 1.5px solid rgba(0, 210, 255, 0.55);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.25), inset 0 0 8px rgba(0, 210, 255, 0.06);
-            backdrop-filter: blur(4px);
-            transition: all 0.3s ease-in-out;
-            text-decoration: none !important;
-            letter-spacing: 0.5px;
-            overflow: hidden;
-        }
-
-        .btn-demo-white::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(0, 240, 255, 0.25), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-
-        .btn-demo-white:hover {
-            background: rgba(0, 210, 255, 0.18) !important;
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 18px rgba(0, 210, 255, 0.55), inset 0 0 10px rgba(0, 210, 255, 0.12);
-            color: #fff !important;
-            transform: translateY(-2px);
-        }
-
-        .btn-demo-white:hover::before {
-            transform: translateX(100%);
-        }
-
-        .btn-action-row {
-            display: flex;
-            gap: 6px;
-            align-items: stretch;
-        }
-
-        .btn-action-row>button {
-            flex: 1 1 50%;
-            min-width: 0;
-        }
-
-        /* Product Cards */
-        .product-card {
-            background-color: var(--card-bg) !important;
-            border: 1px solid rgba(188, 19, 254, 0.1);
-            transition: all 0.4s ease-out;
-        }
-
-        .product-card:hover {
-            border-color: var(--neon-purple);
-            box-shadow: 0 0 25px rgba(188, 19, 254, 0.4);
-            transform: translateY(-8px);
-        }
-
-        .special-bundle-section {
-            background: rgba(15, 15, 25, 0.6);
-            border: 2px dashed rgba(188, 19, 254, 0.4);
-        }
-
-        .monitor-trigger {
-            background: #111;
-            border: 4px solid #222;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            border-radius: 12px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            transition: all .2s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .04em;
         }
 
-        /* POPUPS */
+        .btn-primary {
+            background: var(--primary);
+            color: #0a0a0f;
+        }
 
-        .premium-popup-overlay,
-        .payment-popup-overlay {
+        .btn-primary:hover {
+            background: #b366ff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .chip {
+            background: rgba(168, 85, 247, 0.12);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        /* Section heading */
+        .section-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* Modal */
+        .modal {
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 10000;
+            z-index: 1000;
             overflow-y: auto;
             padding: 20px;
-            background: rgba(5, 5, 10, 0.95);
+            background: rgba(5, 5, 9, 0.85);
+            backdrop-filter: blur(4px);
         }
 
-        .premium-page-content {
-            background: linear-gradient(145deg, #0f0014 0%, #000000 50%, #1a0007 100%);
-            border: 3px solid var(--neon-purple);
-            box-shadow: 0 0 40px rgba(188, 19, 254, 0.4);
-            max-width: 700px;
+        .modal.open {
+            display: block;
+        }
+
+        .modal-card {
+            background: var(--surface);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 22px;
+            max-width: 640px;
             margin: 40px auto;
             position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            animation: pop .25s ease;
         }
 
-        /* External Green Theme Popup Style */
-        .external-popup-content {
-            background: linear-gradient(145deg, #001205 0%, #000000 50%, #050d08 100%);
-            border: 3px solid var(--neon-green) !important;
-            box-shadow: 0 0 40px rgba(0, 255, 102, 0.3) !important;
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
         }
 
-        /* Internal Blue Theme Popup Style */
-        .internal-popup-content {
-            background: linear-gradient(145deg, #000c1a 0%, #000000 50%, #011326 100%);
-            border: 3px solid var(--neon-blue) !important;
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.3) !important;
-        }
-
-        .feature-item {
+        .feature-group {
             background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid var(--neon-purple);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--primary);
+            border-radius: 12px;
         }
 
-        .feature-item-green {
-            background: rgba(0, 255, 102, 0.02);
-            border-left: 4px solid var(--neon-green);
+        .plan {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all .2s ease;
+            text-align: center;
         }
 
-        .feature-item-blue {
-            background: rgba(0, 210, 255, 0.02);
-            border-left: 4px solid var(--neon-blue);
+        .plan:hover {
+            border-color: rgba(168, 85, 247, 0.5);
         }
 
-        .plan-item {
-            background: rgba(188, 19, 254, 0.05);
-            border: 1px solid rgba(188, 19, 254, 0.2);
-            transition: all 0.3s ease;
+        .plan.selected {
+            border-color: var(--primary);
+            background: rgba(168, 85, 247, 0.12);
+            box-shadow: 0 0 0 1px var(--primary) inset;
         }
 
-        .plan-item:hover {
-            border-color: var(--neon-purple);
-            background: rgba(188, 19, 254, 0.1);
-        }
-
-        .plan-item-green {
-            background: rgba(0, 255, 102, 0.04);
-            border: 1px solid rgba(0, 255, 102, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .plan-item-green:hover {
-            border-color: var(--neon-green);
-            background: rgba(0, 255, 102, 0.08);
-        }
-
-        .plan-item-blue {
-            background: rgba(0, 210, 255, 0.04);
-            border: 1px solid rgba(0, 210, 255, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .plan-item-blue:hover {
-            border-color: var(--neon-blue);
-            background: rgba(0, 210, 255, 0.08);
-        }
-
-        .payment-container {
-            background: #19121a;
-            max-width: 500px;
-            margin: 50px auto;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .payment-tabs-wrapper {
-            background: #120910;
-            padding: 10px;
-            border-radius: 18px;
-            margin: 15px;
-            display: flex;
-            gap: 8px;
-        }
-
-        .payment-tabs-wrapper button {
+        /* Payment */
+        .pay-tab {
             flex: 1;
             padding: 12px 5px;
-            font-weight: bold;
-            font-size: 14px;
-            color: #8c8c9c;
-            background: transparent;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
             border-radius: 12px;
+            text-transform: uppercase;
             cursor: pointer;
+            transition: all .2s ease;
         }
 
-        .payment-container[data-method="bkash"] .tab-bkash {
-            background: var(--bkash-color) !important;
-            color: white !important;
-        }
-
-        .payment-container[data-method="nagad"] .tab-nagad {
-            background: var(--nagad-color) !important;
-            color: white !important;
-        }
-
-        .payment-container[data-method="binance"] .tab-binance {
-            background: #e5b323 !important;
-            color: #000 !important;
-        }
-
-        .payment-body {
-            padding: 0 24px 24px 24px;
-        }
-
-        .pay-input-box {
-            background: #0d050c;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .pay-input {
+            background: var(--bg);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 14px;
-            color: white;
+            color: #fff;
             width: 100%;
             outline: none;
             font-size: 15px;
         }
 
-        .number-display-box {
+        .pay-input:focus {
+            border-color: var(--primary);
+        }
+
+        .recipient-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-radius: 14px;
-            padding: 14px 20px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 15px 0;
+            padding: 14px 18px;
+            font-weight: 700;
+            color: #fff;
         }
 
-        .payment-container[data-method="bkash"] .dynamic-bg {
-            background: var(--bkash-color);
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 2000;
+            transition: transform .3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .payment-container[data-method="nagad"] .dynamic-bg {
-            background: var(--nagad-color);
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
         }
 
-        .payment-container[data-method="binance"] .dynamic-bg {
-            background: #262111;
-            border: 1px solid var(--binance-color);
-            color: var(--binance-color);
+        /* Carousel dots */
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all .2s ease;
         }
 
-        .payment-container[data-method="bkash"] .dynamic-btn {
-            background: var(--bkash-color);
-            color: white;
+        .dot.active {
+            width: 22px;
+            background: var(--primary);
         }
 
-        .payment-container[data-method="nagad"] .dynamic-btn {
-            background: var(--nagad-color);
-            color: white;
-        }
-
-        .payment-container[data-method="binance"] .dynamic-btn {
-            background: var(--binance-color);
-            color: #000;
-        }
-
-        .instruction-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 12px;
-            font-size: 13px;
-            color: #d1cbd0;
-            list-style: none;
-            line-height: 1.5;
-        }
-
-        .instruction-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            font-size: 18px;
-            top: -2px;
-        }
-
-        .payment-container[data-method="bkash"] .instruction-list li::before {
-            color: var(--bkash-color);
-        }
-
-        .payment-container[data-method="nagad"] .instruction-list li::before {
-            color: var(--nagad-color);
-        }
-
-        .payment-container[data-method="binance"] .instruction-list li::before {
-            color: var(--binance-color);
-        }
-
-        #mobile-menu.hidden {
-            display: none;
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="header sticky top-0 z-50">
-        <div class="container mx-auto py-3 px-4 flex items-center justify-between">
-
-            <a href="#"
-                class="text-xl md:text-2xl font-extrabold tracking-wider text-white neon-text-glow flex items-center gap-2 pr-4 text-decoration-none">
-                <i class="fas fa-bolt text-purple-500"></i>Venox Empire
+    <!-- ====================== HEADER ====================== -->
+    <header class="header sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto py-3 px-4 flex items-center justify-between">
+            <a href="#top"
+                class="font-display text-lg md:text-xl font-extrabold tracking-wider text-white flex items-center gap-2">
+                <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
             </a>
 
-            <div class="flex items-center gap-4 lg:gap-6">
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="#top" class="nav-link active"><i class="fas fa-house"></i>Home</a>
+                <a href="#pc-section" class="nav-link"><i class="fas fa-desktop"></i>PC Panel</a>
+                <a href="#mobile-section" class="nav-link"><i class="fab fa-android"></i>Android Panel</a>
+                <a href="#why" class="nav-link"><i class="fas fa-shield-halved"></i>Why Us</a>
+                <a href="#contact" class="nav-link"><i class="fas fa-headset"></i>Contact</a>
+            </nav>
 
-                <div class="desktop-nav-container">
-                    <a href="#" class="nav-link-custom"><i class="fas fa-house text-purple-500"></i>Home</a>
-                    <a href="pc-panel.html" class="block nav-link-custom py-1">
-                        <i class="fas fa-desktop text-purple-500"></i> PC PANEL
-                    </a>
-                    <a href="#mobile-section" class="nav-link-custom"><i
-                            class="fab fa-android text-purple-500"></i>Android Panel</a>
-                    <a href="#" class="nav-link-custom"><i class="fas fa-headset text-purple-500"></i>Contact Us</a>
-                    <a href="about.html" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About
-                        Us</a>
-                </div>
-
-                <div class="hidden sm:flex items-center gap-2">
-                    <a href="login.html"
-                        class="btn-neon-purple px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Login</a>
-                    <a href="login.html"
-                        class="btn-neon-cyan px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Register</a>
-                </div>
-
-                <button onclick="toggleMobileMenu()"
-                    class="mobile-toggle-btn text-white hover:text-purple-400 text-xl focus:outline-none border-none bg-transparent cursor-pointer lg:hidden">
+            <div class="flex items-center gap-2">
+                <a href="login.html" class="btn btn-ghost px-4 py-1.5 text-xs hidden sm:inline-flex">Login</a>
+                <a href="login.html" class="btn btn-primary px-4 py-1.5 text-xs hidden sm:inline-flex">Register</a>
+                <button onclick="toggleMobileMenu()" aria-label="Open menu"
+                    class="lg:hidden text-white text-xl bg-transparent border-none cursor-pointer w-9 h-9">
                     <i class="fas fa-bars"></i>
                 </button>
-
             </div>
         </div>
 
-        <div id="mobile-menu"
-            class="hidden lg:hidden container mx-auto px-4 pb-4 space-y-3 border-t border-purple-900/40 pt-3">
-            <a href="#" class="block nav-link-custom py-1"><i class="fas fa-house text-purple-500"></i> Home</a>
-            <a href="#pc-section" class="block nav-link-custom py-1"><i class="fas fa-desktop text-purple-500"></i> PC
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-white/5 px-4 py-3 flex flex-col gap-3">
+            <a href="#top" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-house"></i>Home</a>
+            <a href="#pc-section" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-desktop"></i>PC
                 Panel</a>
-            <a href="#mobile-section" class="block nav-link-custom py-1"><i class="fab fa-android text-purple-500"></i>
-                Android Panel</a>
-            <a href="#" class="block nav-link-custom py-1"><i class="fas fa-headset text-purple-500"></i> Contact Us</a>
-            <a href="#" class="block nav-link-custom py-1"><i class="fas fa-circle-info text-purple-500"></i> About
-                Us</a>
+            <a href="#mobile-section" class="nav-link" onclick="toggleMobileMenu()"><i
+                    class="fab fa-android"></i>Android Panel</a>
+            <a href="#why" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-shield-halved"></i>Why Us</a>
+            <a href="#contact" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-headset"></i>Contact</a>
+            <div class="flex gap-2 pt-1 sm:hidden">
+                <a href="login.html" class="btn btn-ghost py-2 flex-1 text-xs">Login</a>
+                <a href="login.html" class="btn btn-primary py-2 flex-1 text-xs">Register</a>
+            </div>
+        </div>
+    </header>
 
-            <div class="flex sm:hidden gap-2 pt-2">
-                <a href="login.html"
-                    class="w-1/2 text-center btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Login</a>
-                <a href="login.html"
-                    class="w-1/2 text-center btn-neon-cyan py-2 rounded-lg text-xs font-bold uppercase">Register</a>
+    <!-- ====================== HERO ====================== -->
+    <section id="top" class="hero-grid relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16 text-center">
+            <span class="badge chip mb-5"><i class="fas fa-circle text-[8px] text-green-400"></i> Servers Online ·
+                Instant Delivery</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white text-balance leading-tight text-glow">
+                Premium Free Fire Panels<br class="hidden md:block"> for PC &amp; Android
+            </h1>
+            <p class="text-[var(--muted)] mt-5 max-w-xl mx-auto text-pretty">
+                Safe, stable and undetected panels trusted by thousands of players across Bangladesh.
+                Smooth performance, regular updates and 24/7 support.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <a href="#pc-section" class="btn btn-primary px-6 py-3 text-sm">Browse PC Panels</a>
+                <a href="#mobile-section" class="btn btn-outline px-6 py-3 text-sm">Android Panels</a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-12">
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">5K+</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Happy Users</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">99%</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Uptime</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">24/7</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== LIMITED OFFER CAROUSEL ====================== -->
+    <section class="max-w-2xl mx-auto px-4 my-10">
+        <div class="card p-5 sm:p-7">
+            <div class="text-center mb-5">
+                <span class="badge chip"><i class="fas fa-fire"></i> Exclusive Limited Time Offer</span>
+                <h2 class="text-white text-lg md:text-xl font-bold mt-3">Complete Premium Package</h2>
+                <p class="text-sm text-[var(--muted)] mt-1">
+                    <span class="line-through opacity-60">৳1000</span>
+                    <span class="text-primary font-bold text-base">৳600</span> / 30 Days — all-in-one PC deal
+                </p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-xl group" id="carouselViewport">
+                <div class="flex transition-transform duration-500 ease-in-out" id="carouselTrack"></div>
+
+                <button onclick="moveCarousel(-1)" aria-label="Previous slide"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-primary hover:text-black text-white w-9 h-9 rounded-full border border-white/10 flex items-center justify-center z-10 transition opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
+                <button onclick="moveCarousel(1)" aria-label="Next slide"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-primary hover:text-black text-white w-9 h-9 rounded-full border border-white/10 flex items-center justify-center z-10 transition opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-center gap-2 mt-4" id="carouselDots"></div>
+
+            <button onclick="openProduct('complete')" class="btn btn-primary w-full py-3 mt-5 text-sm">
+                <i class="fas fa-bolt"></i> Grab The Offer
+            </button>
+        </div>
+    </section>
+
+    <!-- ====================== PC SECTION ====================== -->
+    <section id="pc-section" class="max-w-6xl mx-auto px-4 my-14 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fas fa-desktop text-primary"></i> PC Panels</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Free Fire PC Panel Section</h2>
+        </div>
+        <div id="pcGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"></div>
+    </section>
+
+    <!-- ====================== MOBILE SECTION ====================== -->
+    <section id="mobile-section" class="max-w-6xl mx-auto px-4 my-14 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fab fa-android text-green-400"></i> Android Panels</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Free Fire Mobile Panel Section</h2>
+        </div>
+        <div id="mobileGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></div>
+    </section>
+
+    <!-- ====================== WHY US ====================== -->
+    <section id="why" class="max-w-6xl mx-auto px-4 my-16 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fas fa-shield-halved text-primary"></i> Why Choose Us</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Built For Serious Players</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="card p-6 text-center">
+                <i class="fas fa-shield-halved text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Safe &amp; Undetected</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">No memory modify. Stable, tested and trusted across all
+                    servers.</p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-bolt text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Instant Delivery</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Automatic key delivery right after your payment is verified.
+                </p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-arrows-rotate text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Regular Updates</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Frequent updates keep every panel working and optimized.</p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-headset text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">24/7 Support</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Friendly support team ready to help you any time of the day.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== PRODUCT DETAIL MODAL ====================== -->
+    <div id="productModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card p-6 md:p-8">
+            <button onclick="closeModal('productModal')" aria-label="Close"
+                class="absolute top-4 right-5 text-white text-2xl bg-transparent border-none cursor-pointer hover:text-primary">&times;</button>
+
+            <div class="text-center mb-6">
+                <span id="pmBadge" class="badge chip"></span>
+                <h2 id="pmTitle" class="text-2xl md:text-3xl font-black text-white mt-3 text-glow"></h2>
+                <p id="pmDesc" class="text-sm text-[var(--muted)] mt-2"></p>
+            </div>
+
+            <div id="pmFeatures" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1"></div>
+
+            <div class="mb-6">
+                <p class="text-[var(--muted)] text-xs uppercase tracking-wider mb-3 text-center">Choose Your Plan</p>
+                <div id="pmPlans" class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg mx-auto"></div>
+            </div>
+
+            <div class="border-t border-dashed border-white/10 pt-5">
+                <button onclick="goToPayment()" class="btn btn-primary w-full py-3 text-sm">
+                    <i class="fas fa-credit-card"></i> Buy Selected Plan
+                </button>
             </div>
         </div>
     </div>
-    <p> </p>
 
-    <div id="exclusive-limited-box"
-        class="border-2 border-dashed border-purple-600 rounded-3xl p-6 sm:p-8 mt-12 mb-12 flex flex-col items-center justify-center bg-[#0a0410]/60 mx-auto"
-        style="max-width: 650px; width: 95%; box-shadow: 0 0 25px rgba(188, 19, 254, 0.35);">
+    <!-- ====================== PAYMENT MODAL ====================== -->
+    <div id="paymentModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card p-6 md:p-7" style="max-width:480px;">
+            <button onclick="closeModal('paymentModal')" aria-label="Close"
+                class="absolute top-4 right-5 text-white text-2xl bg-transparent border-none cursor-pointer hover:text-primary">&times;</button>
 
-        <h2 class="text-white text-xl md:text-2xl font-bold mb-6 flex items-center gap-2 tracking-wide text-center">
-            <span class="text-yellow-500">⚠️</span> EXCLUSIVE LIMITED TIME OFFER <span class="text-yellow-500">⚠️</span>
-        </h2>
+            <h3 class="font-display text-white font-bold text-center mb-1">Complete Payment</h3>
+            <p id="payProductName" class="text-center text-xs text-[var(--muted)] mb-5"></p>
 
-        <div class="relative mx-auto overflow-hidden rounded-xl group" id="exclusive-slider-viewport"
-            style="max-width: 500px; width: 100%;">
-
-            <div class="flex transition-transform duration-500 ease-in-out items-center" id="carousel-track"
-                style="transform: translateX(0%);">
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="d2.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 1">
-                </div>
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="b1.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 2">
-                </div>
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="br1.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 3">
-                </div>
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="i1.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 4">
-                </div>
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="e1.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 5">
-                </div>
-
-                <div class="w-full flex-shrink-0 flex justify-center p-1">
-                    <img src="a1.png" class="w-full h-auto object-contain rounded-xl shadow-lg" alt="Offer 6">
-                </div>
-
+            <div class="flex gap-2 mb-5">
+                <button class="pay-tab" data-method="bkash" onclick="setMethod('bkash')">bKash</button>
+                <button class="pay-tab" data-method="nagad" onclick="setMethod('nagad')">Nagad</button>
+                <button class="pay-tab" data-method="binance" onclick="setMethod('binance')">Binance</button>
             </div>
 
-            <button onclick="prevOfferSlide()"
-                class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-purple-900 text-white w-9 h-9 rounded-full border border-purple-500 flex items-center justify-center z-10 transition-all opacity-0 group-hover:opacity-100 focus:outline-none font-bold text-lg"
-                style="box-shadow: 0 0 10px rgba(188, 19, 254, 0.6);">
-                &#10094;
-            </button>
+            <div class="flex justify-between items-center mb-3 text-sm">
+                <span class="text-[var(--muted)]">Enter Transaction ID</span>
+                <span class="text-white font-semibold">Amount: <span id="payAmount"
+                        class="text-primary">600</span>৳</span>
+            </div>
 
-            <button onclick="nextOfferSlide()"
-                class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-purple-900 text-white w-9 h-9 rounded-full border border-purple-500 flex items-center justify-center z-10 transition-all opacity-0 group-hover:opacity-100 focus:outline-none font-bold text-lg"
-                style="box-shadow: 0 0 10px rgba(188, 19, 254, 0.6);">
-                &#10095;
+            <input type="text" id="trxInput" class="pay-input mb-4" placeholder="Enter Transaction ID">
+
+            <div id="payInstructions" class="text-sm text-[var(--muted)] leading-relaxed"></div>
+
+            <div id="recipientBox" class="recipient-box my-4">
+                <span id="recipientLabel" class="text-sm font-normal opacity-90">Recipient Number</span>
+                <div class="flex items-center gap-3">
+                    <span id="recipientNumber" class="tracking-wide"></span>
+                    <button onclick="copyRecipient()"
+                        class="bg-white/15 hover:bg-white/25 text-white text-xs px-2.5 py-1 rounded-lg border-none cursor-pointer">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+            </div>
+
+            <p class="text-xs text-[var(--muted)] leading-relaxed mb-5">
+                Confirm by entering your PIN / authorizing the transaction, then enter the Transaction ID above and tap
+                Verify.
+            </p>
+
+            <button onclick="verifyPayment()" id="verifyBtn" class="btn btn-primary w-full py-3 text-sm">Verify
+                Payment</button>
+            <button onclick="closeModal('paymentModal')"
+                class="w-full text-center text-xs text-[var(--muted)] mt-4 underline bg-transparent border-none cursor-pointer">
+                Cancel Payment
             </button>
         </div>
     </div>
 
-    <p> </p>
-
-    <section class="my-12" id="pc-section">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <h3
-                    class="text-xl md:text-2xl font-extrabold tracking-wider uppercase text-white flex items-center gap-2">
-                    <i class="fas fa-desktop text-purple-500"></i> Free Fire PC Pannel Section
-                </h3>
-            </div>
-
-            <p> </p>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-12" style="margin-bottom: 20px;">
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openPremiumPage()">
-                    <img src="d2.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">Danger Zone Pack</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('Danger Zone Pack')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openExternalPremiumPage()">
-                    <img src="e1.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">VNX External Pack</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('VNX External Pack')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openInternalPremiumPage()">
-                    <img src="i1.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">VnX Premium Internal</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('VnX Premium Internal')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openModMenuPopup()">
-                    <img src="m2.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">VnX Mod Menu</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('VnX Mod Menu')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openUidBypassPopup()">
-                    <img src="b1.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">UID Bypass</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('UID Bypass')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-                <div class="product-card rounded-xl p-4 cursor-pointer m-2" onclick="openBrModPopup()">
-                    <img src="br1.png" class="w-full h-32 object-cover rounded-lg">
-                    <h1 class="text-sm font-bold text-center mt-4">VNX BR MODS</h1>
-                    <div class="btn-action-row mt-3">
-                        <button onclick="showDemoAlert('VNX BR MODS')"
-                            class="btn-demo-white py-2 rounded-lg text-xs font-bold uppercase"><i class="fas fa-play"
-                                style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                        <button class="btn-neon-purple py-2 rounded-lg text-xs font-bold uppercase">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-            <p> </p>
-
-            <section class="my-12" id="mobile-section">
-                <div class="container mx-auto">
-                    <div class="flex items-center justify-center gap-4 mb-8">
-                        <h3
-                            class="text-xl md:text-2xl font-extrabold tracking-wider uppercase text-white flex items-center gap-2">
-                            <i class="fab fa-android text-green-400"></i> Free Fire Mobile Pannel Section
-                        </h3>
-                    </div>
-
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-10">
-                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
-                            <div class="relative overflow-hidden rounded-xl aspect-square">
-                                <img src="a1.png" class="w-full h-full object-cover">
-                            </div>
-                            <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
-                                <h1 class="text-sm font-bold text-gray-200 mb-3">Proxy Free Fire</h1>
-                                <div class="btn-action-row mt-auto">
-                                    <button onclick="showDemoAlert('Proxy Free Fire')"
-                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
-                                            class="fas fa-play"
-                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                                    <button onclick="openMobilePremiumPage()"
-                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
-                                        Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
-                            <div class="relative overflow-hidden rounded-xl aspect-square">
-                                <img src="nmr.png" class="w-full h-full object-cover">
-                            </div>
-                            <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
-                                <h1 class="text-sm font-bold text-gray-200 mb-3">Root Mobile Pannel</h1>
-                                <div class="btn-action-row mt-auto">
-                                    <button onclick="showDemoAlert('Root Mobile Pannel')"
-                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
-                                            class="fas fa-play"
-                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                                    <button onclick="openRootMobilePopup()"
-                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
-                                        Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-card rounded-2xl p-3 flex flex-col h-full cursor-pointer m-2">
-                            <div class="relative overflow-hidden rounded-xl aspect-square">
-                                <img src="rm1.png" class="w-full h-full object-cover">
-                            </div>
-                            <div class="pt-4 pb-2 text-center flex-grow flex flex-col justify-between">
-                                <h1 class="text-sm font-bold text-gray-200 mb-3">Non Root Mobile Pannel</h1>
-                                <div class="btn-action-row mt-auto">
-                                    <button onclick="showDemoAlert('Non Root Mobile Pannel')"
-                                        class="btn-demo-white py-1.5 text-xs rounded-lg font-bold uppercase"><i
-                                            class="fas fa-play"
-                                            style="font-size:9px; margin-right:4px;"></i>Demo</button>
-                                    <button onclick="openNonRootMobilePopup()"
-                                        class="btn-neon-purple py-1.5 text-xs rounded-lg font-bold uppercase">Buy
-                                        Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="premiumPage" class="premium-popup-overlay">
-            <div class="premium-page-content rounded-3xl p-6 md:p-8 relative">
-                <button onclick="closePremiumPage()"
-                    class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-purple-500 transition border-none bg-transparent">&times;</button>
-                <div class="text-center mb-8">
-                    <span
-                        class="bg-purple-600/20 text-purple-400 border border-purple-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Mega
-                        Offer</span>
-                    <h2 class="text-2xl md:text-4xl font-black mt-3 text-white neon-text-glow tracking-tight">COMPLETE
-                        PREMIUM PACKAGE</h2>
-                    <p class="text-gray-300 text-sm mt-2">🔥 মাত্র 600৳-এ পুরো ১ মাসের জন্য পাচ্ছেন অল-ইন-ওয়ান ডিল!</p>
-                </div>
-                <div class="space-y-3 mb-8">
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> External Premium</span><span
-                            class="text-xs text-purple-400 font-mono">[ACTIVE]</span></div>
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> Internal Premium</span><span
-                            class="text-xs text-purple-400 font-mono">[ACTIVE]</span></div>
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> Internal Mod Menu Brutal</span><span
-                            class="text-xs text-purple-400 font-mono">[BRUTAL]</span></div>
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> BR Mod (Dangerous Panel)</span><span
-                            class="text-xs text-purple-400 font-mono">[DANGEROUS]</span></div>
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> UID Bypass</span><span
-                            class="text-xs text-purple-400 font-mono">[SECURE]</span></div>
-                    <div class="feature-item p-3.5 rounded-xl flex items-center justify-between"><span
-                            class="text-white font-medium text-sm flex items-center gap-3"><i
-                                class="fas fa-check-circle text-purple-500"></i> Emote Panel</span><span
-                            class="text-xs text-green-400 font-mono">[VISUAL]</span></div>
-                </div>
-                <div class="border-t border-dashed border-gray-800 pt-6 text-center">
-                    <div class="mb-4">
-                        <span class="text-gray-400 text-xs block uppercase tracking-wider">Subscription Fee</span>
-                        <span class="text-3xl md:text-4xl font-black text-white"
-                            style="text-shadow: 0 0 15px #bc13fe;">600৳ <span
-                                class="text-sm text-gray-400 font-normal">/ 30 Days</span></span>
-                    </div>
-                    <button onclick="triggerBuyNowFromPremium('600')"
-                        class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY
-                        NOW</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="externalPremiumPage" class="premium-popup-overlay">
-            <div class="premium-page-content external-popup-content rounded-3xl p-6 md:p-8 relative">
-                <button onclick="closeExternalPremiumPage()"
-                    class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-green-500 transition border-none bg-transparent">&times;</button>
-
-                <div class="text-center mb-6">
-                    <span
-                        class="bg-green-600/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🔥
-                        VNX EXTERNAL — PC 🔥</span>
-                    <h2 class="text-2xl md:text-4xl font-black mt-3 text-white tracking-tight"
-                        style="text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-green);">VNX EXTERNAL</h2>
-                    <p class="text-gray-300 text-sm mt-2">The Ultimate Private External System. Smooth & Highly
-                        Optimized Performance!</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1">
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[AIMBOT FUNCTIONS]</span>
-                        • AI Aimbot<br>• Head = ✔ Fully Safe • Stable • Trusted<br>• Neck = ✔ Fully Safe • Stable •
-                        Trusted<br>• Drag = ✔ Fully Safe • Stable • Trusted<br>• [ Freeze Enemy Function ]
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[FOV FUNCTIONS]</span>
-                        • 2x Scope = ✔ Fully Safe • Stable • Trusted<br>• 4x Scope = ✔ Fully Safe • Stable • Trusted
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[HELP FUNCTIONS]</span>
-                        • Make Male = Reduced Fake Damage • Safe<br>• No Recoil = ✔ Fully Safe • Stable<br>• Glitch Fire
-                        = ✔ Fully Safe • Stable<br>• Reset Guest = ✔ Not Patched • Still Working
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[SNIPER FUNCTIONS]</span>
-                        • Sniper Scope = ✔ Undetected • Trusted (BD/PK/IND/MENA)<br>• Sniper Location = ✔ All Locations
-                        Supported
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[LOCATION FUNCTIONS]</span>
-                        • Normal Chams Menu<br>• Blue & White Chams Menu<br>• ESP Line x64 Bit Streamer Location
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[MINI BRUTAL FUNCTIONS]</span>
-                        • Camera Left = ✔ Safe • Tested<br>• Super Fast Landing = ✔ Safe • Tested<br>• Fly Car
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[SPECIAL FUNCTIONS]</span>
-                        • Only Glue Hack = ✔ Fully Safe<br>• Climb Wall = Fun Feature
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-green-400 font-bold block mb-1">[SECURITY FUNCTIONS]</span>
-                        • Detect Remote Access<br>• Scan & Kill Suspicious Processes<br>• Boost FPS<br>• DLL
-                        Cleaner<br>• PC & Emulator Cleaner<br>• Temp / Network / Windows Cleaner
-                    </div>
-                    <div class="feature-item-green p-2.5 rounded-xl text-white text-xs sm:col-span-2">
-                        <span class="text-green-400 font-bold block mb-1">[STREAMER FUNCTIONS]</span>
-                        • Stream Mode = Hide From Taskbar & Task Manager<br>• Always Stream Mode = Panel Starts With
-                        Stream Mode<br>• Auto PC Optimization
-                    </div>
-                </div>
-
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE EXT
-                        PLAN</span>
-                    <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                        <div class="plan-item-green p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectExternalPlan('600')">
-                            <div class="text-xs text-gray-400 font-bold">Monthly Plan</div>
-                            <div class="text-md font-black text-white mt-1">৳600</div>
-                        </div>
-                        <div class="plan-item-green p-3 rounded-xl text-center cursor-pointer active-ext-plan"
-                            onclick="selectExternalPlan('2500')"
-                            style="border-color: var(--neon-green); background: rgba(0, 255, 102, 0.12);">
-                            <div class="text-xs text-green-400 font-bold">Permanent Plan</div>
-                            <div class="text-md font-black text-white mt-1">৳2500</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center border-t border-dashed border-gray-800 pt-4">
-                    <button onclick="triggerBuyNowFromExternalPremium()"
-                        class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY
-                        SELECTED PLAN</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="internalPremiumPage" class="premium-popup-overlay">
-            <div class="premium-page-content internal-popup-content rounded-3xl p-6 md:p-8 relative">
-                <button onclick="closeInternalPremiumPage()"
-                    class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-blue-500 transition border-none bg-transparent">&times;</button>
-
-                <div class="text-center mb-6">
-                    <span
-                        class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🚀
-                        VnX PREMIUM INTERNAL — FULL DOMINATION MODE 🚀</span>
-                    <h2 class="text-2xl md:text-4xl font-black mt-3 text-white tracking-tight"
-                        style="text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-blue);">VnX PREMIUM INTERNAL</h2>
-                    <p class="text-gray-300 text-sm mt-2">💎 Smooth • Safe • Powerful Domination System</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1">
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs sm:col-span-2">
-                        <span class="text-blue-400 font-bold block mb-1">🛡️ WHY VnX IS DIFFERENT?</span>
-                        • No Memory Modify (Safe)<br>• Zero Lag ⚡ High FPS<br>• Clean & Stable Performance<br>• Works on
-                        All Servers 🌍<br>• Trusted by Users 👑
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[AIMBOT INTERNAL]</span>
-                        • AI Aimbot<br>• Headshot = ✔ 100% Hit Rate • No Enemy Escape<br>• Lock = ✔ Instant Lock •
-                        Always On Target<br>• Damage = ✔ Real Damage • No Fake Hit
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[FREEZE ENEMY]</span>
-                        • Perfect Freeze<br>• Trigger = ✔ Auto Freeze On When You Fire<br>• Effect = ✔ No Move • No
-                        Reaction • Easy Kill<br>• Safety = ✔ Lifetime Safe • Stable
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[AIMBOT EXTERNAL]</span>
-                        • AI Aimbot<br>• Aim = ✔ Smart • Only Real Value<br>• Track = ✔ Smooth Tracking • High
-                        Accuracy<br>• Status = ✔ Safe • Hard To Detect
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[SNIPER FUNCTIONS]</span>
-                        • Sniper Aimbot<br>• Shot = ✔ Every Shot = Confirm Hit<br>• Range = ✔ Perfect Long Range
-                        Accuracy
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[ESP FUNCTIONS]</span>
-                        • ESP Master + Health Line<br>• Vision = ✔ See Enemies Anywhere<br>• Health = ✔ Real-Time HP
-                        Visible<br>• Location = ✔ Show Enemy Location After Death
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs">
-                        <span class="text-blue-400 font-bold block mb-1">[ITEM FUNCTIONS]</span>
-                        • All Items ESP<br>• Loot = ✔ Spot Every Loot Instantly<br>• Speed = ✔ Faster Gameplay • Better
-                        Control
-                    </div>
-                    <div class="feature-item-blue p-2.5 rounded-xl text-white text-xs sm:col-span-2">
-                        <span class="text-blue-400 font-bold block mb-1">[HIDDEN PRO TOOLS]</span>
-                        • Hidden Pro Tools<br>• Control = ✔ Advanced Custom Settings<br>• Use = ✔ Built Built For
-                        Serious Players
-                    </div>
-                </div>
-
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE INT
-                        PLAN</span>
-                    <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                        <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectInternalPlan('700')">
-                            <div class="text-xs text-gray-400 font-bold">Monthly Plan</div>
-                            <div class="text-md font-black text-white mt-1">৳700</div>
-                        </div>
-                        <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer active-int-plan"
-                            onclick="selectInternalPlan('3500')"
-                            style="border-color: var(--neon-blue); background: rgba(0, 210, 255, 0.12);">
-                            <div class="text-xs text-blue-400 font-bold">Permanent Plan</div>
-                            <div class="text-md font-black text-white mt-1">৳3500</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center border-t border-dashed border-gray-800 pt-4">
-                    <button onclick="triggerBuyNowFromInternalPremium()"
-                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY
-                        SELECTED PLAN</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="modMenuPopup" class="premium-popup-overlay">
-            <div class="premium-page-content internal-popup-content rounded-3xl p-6 md:p-8 relative">
-                <button onclick="closeModMenuPopup()"
-                    class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-blue-500 transition border-none bg-transparent">&times;</button>
-                <div class="text-center mb-6">
-                    <span
-                        class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🚀
-                        VnX MOD MENU — UNLEASH FULL CONTROL 🚀</span>
-                </div>
-                <div
-                    class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1 text-xs text-white">
-                    <div class="feature-item-blue p-2.5 rounded-xl"><b>[LOGIN OPTIONS]</b><br>FF Normal / x86 / Max
-                        India</div>
-                    <div class="feature-item-blue p-2.5 rounded-xl"><b>[AIMBOT SYSTEM]</b><br>Aimbot
-                        (Hex/Legit/Rage/Silent)<br>Aim Lock • No Recoil • Rapid Fire</div>
-                </div>
-                <div class="mb-6">
-                    <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                        <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectModPlan('700')">
-                            <div class="text-xs text-gray-400 font-bold">Monthly</div>
-                            <div class="text-md font-black text-white mt-1">৳700</div>
-                        </div>
-                        <div class="plan-item-blue p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectModPlan('3500')">
-                            <div class="text-xs text-blue-400 font-bold">Permanent</div>
-                            <div class="text-md font-black text-white mt-1">৳3500</div>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="triggerBuyModMenu()"
-                    class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY
-                    SELECTED PLAN</button>
-            </div>
-        </div>
-
-        <div id="mobilePremiumPage" class="premium-popup-overlay">
-            <div class="premium-page-content rounded-3xl p-6 md:p-8 relative">
-                <button onclick="closeMobilePremiumPage()"
-                    class="absolute top-4 right-6 text-white text-3xl font-bold outline-none hover:text-purple-500 transition border-none bg-transparent">&times;</button>
-
-                <div class="text-center mb-6">
-                    <span
-                        class="bg-green-600/20 text-green-400 border border-green-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">🔥
-                        PROXY PANEL — ANDROID 🔥</span>
-                    <h2 class="text-2xl md:text-4xl font-black mt-3 text-white neon-text-glow tracking-tight">PROXY FREE
-                        FIRE</h2>
-                    <p class="text-purple-400 text-sm mt-2 font-medium">The New Generation Android Proxy Panel. Works on
-                        Playstore Normal FREE FIRE!</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-60 overflow-y-auto pr-1">
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Non-Root Supported</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Works On Official Free Fire</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Smooth & Stable Performance</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Fast & Easy Installation</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Safe Panel System</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Head Precision</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Neck Precision</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Head + Neck Assist</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Legit Mode</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Back Jump</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Fast Weapon Switch</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Movement Speed Control</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Jump Height Control</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Optimized Performance</div>
-                    <div class="feature-item p-2 rounded-xl text-white text-xs flex items-center gap-2"><i
-                            class="fas fa-check-circle text-purple-500"></i> Regular Updates</div>
-                </div>
-
-                <div class="mb-6">
-                    <span class="text-gray-400 text-xs block uppercase tracking-wider mb-3 text-center">💰 CHOOSE YOUR
-                        PLAN</span>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        <div class="plan-item p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectMobilePlan('120')">
-                            <div class="text-xs text-gray-400 font-bold">1 Day</div>
-                            <div class="text-md font-black text-white mt-1">৳120 / $1</div>
-                        </div>
-                        <div class="plan-item p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectMobilePlan('250')">
-                            <div class="text-xs text-gray-400 font-bold">3 Days</div>
-                            <div class="text-md font-black text-white mt-1">৳250 / $2.5</div>
-                        </div>
-                        <div class="plan-item p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectMobilePlan('450')">
-                            <div class="text-xs text-gray-400 font-bold">7 Days</div>
-                            <div class="text-md font-black text-white mt-1">৳450 / $4.5</div>
-                        </div>
-                        <div class="plan-item p-3 rounded-xl text-center cursor-pointer"
-                            onclick="selectMobilePlan('800')" ,
-                            style="border-color: var(--neon-purple); background: rgba(188, 19, 254, 0.15);">
-                            <div class="text-xs text-purple-400 font-bold">30 Days</div>
-                            <div class="text-md font-black text-white mt-1">৳800 / $8</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center border-t border-dashed border-gray-800 pt-4">
-                    <button onclick="triggerBuyNowFromMobilePremium()"
-                        class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-3 rounded-xl hover:opacity-90 shadow-lg text-center uppercase tracking-wider text-sm border-none">BUY
-                        SELECTED PLAN</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="paymentModal" class="payment-popup-overlay">
-            <div class="payment-container" id="paymentContainer" data-method="bkash">
-                <div class="payment-tabs-wrapper">
-                    <button class="tab-bkash" onclick="setPaymentMethod('bkash')">Bkash</button>
-                    <button class="tab-nagad" onclick="setPaymentMethod('nagad')">Nagad</button>
-                    <button class="tab-binance" onclick="setPaymentMethod('binance')">Binance</button>
-                </div>
-                <div class="payment-body">
-                    <div class="flex justify-between items-center mb-4 text-sm font-semibold">
-                        <span style="color: #8c8c9c;">Enter Transaction ID</span>
-                        <span class="text-white">Amount: <span id="paymentAmountDisplay">600</span>৳</span>
-                    </div>
-                    <div class="mb-4"><input type="text" id="transactionIdInput" class="pay-input-box"
-                            placeholder="Enter Transaction ID"></div>
-                    <div id="dynamicInstructions"></div>
-                    <button onclick="verifyPayment()"
-                        class="w-full dynamic-btn py-3 rounded-xl font-bold uppercase tracking-wider text-sm mt-6 shadow-lg border-none">VERIFY</button>
-                    <button onclick="closePaymentPage()"
-                        class="w-full text-center text-xs text-gray-500 mt-4 block underline bg-transparent border-none cursor-pointer">Cancel
-                        Payment</button>
-                </div>
-            </div>
-        </div>
-
-        <footer class="border-t border-purple-900 bg-gray-950 py-6 text-center text-sm text-gray-500">
-            <div class="container mx-auto px-4">
-                <p>&copy; 2026 Evolution Association. All Rights Reserved.</p>
-            </div>
-        </footer>
-        <script>
-            const paymentData = {
-                bkash: { number: "01832680252", instructions: `<ul class="instruction-list"><li>*247# Dial to go to your BKASH mobile menu or go to the BKASH app.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send Money</span>.</li><li>Write the following number as the recipient number:</li></ul>` },
-                nagad: { number: "01977036709", instructions: `<ul class="instruction-list"><li>*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send Money</span>.</li><li>Write the following number as the recipient number:</li></ul>` },
-                binance: { number: "49823798", instructions: `<ul class="instruction-list"><li>Open your Binance App and navigate to Binance Pay.</li><li>Click on <span style="color: #ffb703; font-weight:bold;">Send</span> via Pay ID / UID.</li><li>Write the following UID as the recipient account:</li></ul>` }
-            };
-
-            let selectedAmount = "600";
-
-            function setPaymentMethod(method) {
-                const container = document.getElementById('paymentContainer');
-                container.setAttribute('data-method', method);
-                const data = paymentData[method];
-                const label = method === 'binance' ? 'Binance UID' : 'Recipient Number';
-                document.getElementById('dynamicInstructions').innerHTML = `
-            ${data.instructions}
-            <div class="number-display-box dynamic-bg">
-                <span class="text-sm font-normal block opacity-80">${label}</span>
-                <span id="targetNumber" class="tracking-wide">${data.number}</span>
-                <button onclick="copyNumber('${data.number}')" class="bg-white/10 hover:bg-white/20 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1 border-none text-white cursor-pointer"><i class="fas fa-copy"></i> Copy</button>
-            </div>
-            <ul class="instruction-list"><li>To confirm, now enter your PIN or Authorize transaction.</li><li>Now enter your Transaction ID in the box above and click VERIFY.</li></ul>`;
-            }
-
-            function selectMobilePlan(amount) {
-                selectedAmount = amount;
-                const items = document.querySelectorAll('#mobilePremiumPage .plan-item');
-                items.forEach(item => { item.style.borderColor = 'rgba(188, 19, 254, 0.2)'; item.style.background = 'rgba(188, 19, 254, 0.05)'; });
-                event.currentTarget.style.borderColor = '#bc13fe';
-                event.currentTarget.style.background = 'rgba(188, 19, 254, 0.15)';
-            }
-
-            function selectExternalPlan(amount) {
-                selectedAmount = amount;
-                const items = document.querySelectorAll('.plan-item-green');
-                items.forEach(item => { item.style.borderColor = 'rgba(0, 255, 102, 0.15)'; item.style.background = 'rgba(0, 255, 102, 0.04)'; });
-                event.currentTarget.style.borderColor = '#00ff66';
-                event.currentTarget.style.background = 'rgba(0, 255, 102, 0.12)';
-            }
-
-            function selectInternalPlan(amount) {
-                selectedAmount = amount;
-                const items = document.querySelectorAll('.plan-item-blue');
-                items.forEach(item => { item.style.borderColor = 'rgba(0, 210, 255, 0.15)'; item.style.background = 'rgba(0, 210, 255, 0.04)'; });
-                event.currentTarget.style.borderColor = '#00d2ff';
-                event.currentTarget.style.background = 'rgba(0, 210, 255, 0.12)';
-            }
-
-            function copyNumber(text) { navigator.clipboard.writeText(text).then(() => alert("Copied: " + text)); }
-
-            // PC Danger Zone Popup
-            function openPremiumPage() { document.getElementById('premiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "600"; }
-            function closePremiumPage() { document.getElementById('premiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
-
-            // PC External Popup
-            function openExternalPremiumPage() { document.getElementById('externalPremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "2500"; }
-            function closeExternalPremiumPage() { document.getElementById('externalPremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
-
-            // PC Internal Popup
-            function openInternalPremiumPage() { document.getElementById('internalPremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "3500"; }
-            function closeInternalPremiumPage() { document.getElementById('internalPremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
-
-            //Mod Menu Zone
-            function openModMenuPopup() { document.getElementById('modMenuPopup').style.display = 'block'; }
-            function closeModMenuPopup() { document.getElementById('modMenuPopup').style.display = 'none'; }
-            function triggerBuyModMenu() { /* আপনার পেমেন্ট পেজ খোলার কোড */ }
-
-
-            // Mobile Popup
-            function openMobilePremiumPage() { document.getElementById('mobilePremiumPage').style.display = 'block'; document.body.style.overflow = 'hidden'; selectedAmount = "800"; }
-            function closeMobilePremiumPage() { document.getElementById('mobilePremiumPage').style.display = 'none'; document.body.style.overflow = 'auto'; }
-
-            function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
-
-            function openPaymentPage(amount) {
-                selectedAmount = amount;
-                document.getElementById('paymentAmountDisplay').innerText = selectedAmount;
-                document.getElementById('paymentModal').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                setPaymentMethod('bkash');
-            }
-
-            function closePaymentPage() {
-                document.getElementById('paymentModal').style.display = 'none';
-                if (document.getElementById('premiumPage').style.display !== 'block' && document.getElementById('mobilePremiumPage').style.display !== 'block' && document.getElementById('externalPremiumPage').style.display !== 'block' && document.getElementById('internalPremiumPage').style.display !== 'block') {
-                    document.body.style.overflow = 'auto';
-                }
-            }
-
-            function triggerBuyNowFromPremium(amount) { closePremiumPage(); openPaymentPage(amount); }
-            function triggerBuyNowFromExternalPremium() { closeExternalPremiumPage(); openPaymentPage(selectedAmount); }
-            function triggerBuyNowFromInternalPremium() { closeInternalPremiumPage(); openPaymentPage(selectedAmount); }
-            function triggerBuyNowFromMobilePremium() { closeMobilePremiumPage(); openPaymentPage(selectedAmount); }
-
-            function verifyPayment() {
-                const txId = document.getElementById('transactionIdInput').value;
-                if (!txId.trim()) alert("Please enter a valid Transaction ID!");
-                else alert("Verifying Transaction ID: " + txId + " for Amount: " + selectedAmount + "৳");
-            }
-            //Mod Menu Zone
-            function openModMenuPopup() {
-                document.getElementById('modMenuPopup').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModMenuPopup() {
-                document.getElementById('modMenuPopup').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-
-            function selectModPlan(amount) {
-                selectedAmount = amount;
-
-                const items = document.querySelectorAll('#modMenuPopup .plan-item-blue');
-
-                items.forEach(item => {
-                    item.style.borderColor = 'rgba(0, 210, 255, 0.15)';
-                    item.style.background = 'rgba(0, 210, 255, 0.04)';
-                });
-
-                event.currentTarget.style.borderColor = '#00d2ff';
-                event.currentTarget.style.background = 'rgba(0, 210, 255, 0.12)';
-            }
-
-            function triggerBuyModMenu() {
-                closeModMenuPopup();
-                openPaymentPage(selectedAmount);
-            }
-        </script>
-
-        <div id="uidBypassPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#0b0b12; border: 2px solid #bc13fe; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);">
-
-                <button onclick="closeUidBypassPopup()"
-                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
-
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 22px; font-weight: 800; color: #bc13fe; margin-bottom: 5px;">[ Free UID Bypass
-                        is ready ]</h2>
-                    <p style="font-size: 11px; color: #666; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
-                </div>
-
-                <div
-                    style="background: rgba(188, 19, 254, 0.03); border: 1px solid rgba(188, 19, 254, 0.1); border-radius: 12px; padding: 15px; margin-bottom: 25px; font-size: 13px; color: #ccc; line-height: 1.8; text-align: left;">
-                    <p style="margin: 0;">🚀 100% STABLE & TESTED</p>
-                    <p style="margin: 0;">✅ NO BAN | ✅ NO BLACKLIST</p>
-                    <p
-                        style="margin: 0; color: #bc13fe; font-size: 11px; font-weight: bold; margin-top: 5px; text-align: center;">
-                        👑 PREMIUM • CUSTOM CLIENTS ONLY</p>
-                </div>
-
-                <p style="font-size: 12px; color: #888; text-align: left; margin-bottom: 10px;">👑 CHOOSE BYPASS PLAN:
+    <!-- ====================== FOOTER ====================== -->
+    <footer id="contact" class="border-t border-white/5 mt-16 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <a href="#top" class="font-display text-lg font-extrabold text-white flex items-center gap-2">
+                    <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
+                </a>
+                <p class="text-sm text-[var(--muted)] mt-3 max-w-sm">
+                    Premium Free Fire panels for PC and Android. Safe, stable and trusted by the community.
+                    For entertainment and private use only.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px;">
-
-                    <div class="bypass-plan-card" onclick="selectBypassPlan(this, '1 Week', 600)"
-                        style="border: 1px solid #333; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #111119;">
-                        <div style="font-size: 11px; color: #aaa;">1 Week</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳600</div>
-                    </div>
-
-                    <div class="bypass-plan-card" onclick="selectBypassPlan(this, '2 Weeks', 1100)"
-                        style="border: 1px solid #333; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #111119;">
-                        <div style="font-size: 11px; color: #aaa;">2 Weeks</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1100</div>
-                    </div>
-
-                    <div class="bypass-plan-card" onclick="selectBypassPlan(this, '3 Weeks', 1550)"
-                        style="border: 1px solid #333; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #111119;">
-                        <div style="font-size: 11px; color: #aaa;">3 Weeks</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1550</div>
-                    </div>
-
+                <div class="flex items-center gap-3 mt-4">
+                    <a href="#" aria-label="Telegram"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="WhatsApp"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="YouTube"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
-                    <div class="bypass-plan-card" onclick="selectBypassPlan(this, '1 Month', 1250)"
-                        style="border: 1px solid #333; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #111119;">
-                        <div style="font-size: 11px; color: #aaa;">1 Month</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1250</div>
-                    </div>
-
-                    <div class="bypass-plan-card" onclick="selectBypassPlan(this, 'Permanent', 3000)"
-                        style="border: 1px solid #333; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #111119;">
-                        <div style="font-size: 11px; color: #bc13fe; font-weight: 600;">Permanent</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳3000</div>
-                    </div>
-                </div>
-
-                <button onclick="goToPaymentPage()"
-                    style="width: 100%; padding: 14px; background: #bc13fe; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #fff; box-shadow: 0 4px 15px rgba(188, 19, 254, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
-                    SELECTED PLAN</button>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Products</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="#pc-section" class="hover:text-white">PC Panels</a></li>
+                    <li><a href="#mobile-section" class="hover:text-white">Android Panels</a></li>
+                    <li><a href="#why" class="hover:text-white">Why Choose Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Support</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">Terms &amp; Refund</a></li>
+                </ul>
             </div>
         </div>
-
-
-        <div id="uidBypassPaymentPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#13131c; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-
-                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                    <button id="methodBtnBkash" onclick="switchPaymentMethod('Bkash')"
-                        style="flex:1; padding:12px; background:#1e1e2a; border:1px solid #333; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
-                    <button id="methodBtnNagad" onclick="switchPaymentMethod('Nagad')"
-                        style="flex:1; padding:12px; background:#1e1e2a; border:1px solid #333; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
-                    <button id="methodBtnBinance" onclick="switchPaymentMethod('Binance')"
-                        style="flex:1; padding:12px; background:#1e1e2a; border:1px solid #333; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
-                </div>
-
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
-                    <span style="font-size: 13px; color: #888;">Enter Transaction ID</span>
-                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span id="paymentPopupAmount"
-                            style="color:#bc13fe;">0</span>৳</span>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <input type="text" id="trxIdInput" placeholder="Enter Transaction ID"
-                        style="width:100%; padding:14px; background:#0b0b12; border:1px solid #333; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
-                </div>
-
-                <div
-                    style="font-size: 12px; color: #aaa; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
-                    <p id="paymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
-                    <p id="paymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.</p>
-                    <p id="paymentStep3">• Write the following number as the recipient number:</p>
-                </div>
-
-                <div id="recipientWrapper"
-                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
-                    <span id="recipientLabel">Recipient Number</span>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <span id="recipientNumber">01832680252</span>
-                        <button onclick="copyRecipientNumber()"
-                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
-                            Copy</button>
-                    </div>
-                </div>
-
-                <div
-                    style="font-size: 11px; color: #666; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
-                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
-                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
-                </div>
-
-                <button id="verifyPaymentBtn" onclick="verifySubmittedTrx()"
-                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
-
-                <div style="text-align: center;">
-                    <span onclick="cancelPaymentFlow()"
-                        style="font-size:12px; color:#888; cursor:pointer; text-decoration:underline;">Cancel
-                        Payment</span>
-                </div>
-
-            </div>
+        <div class="border-t border-white/5 py-5 text-center text-xs text-[var(--muted)]">
+            &copy; <span id="year"></span> Venox Empire. All Rights Reserved.
         </div>
+    </footer>
 
+    <div id="toast" class="toast"></div>
 
-        <script>
-            // State storage variables
-            let bypassSelectedPlanName = null;
-            let bypassSelectedPlanPrice = 0;
-            let bypassSelectedMethod = 'Bkash'; // Default chosen tab
-
-            // Object containing exact config info per gateway method
-            const paymentConfigs = {
-                Bkash: {
-                    number: '01832680252',
-                    color: '#e2136e',
-                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Nagad: {
-                    number: '01977036709',
-                    color: '#f37021',
-                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Binance: {
-                    number: '556924108', // আপনার বাইনান্স পে আইডি থাকলে এখানে বসান
-                    color: '#f3ba2f',
-                    step1: 'Open your Binance App and navigate to Binance Pay.',
-                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
-                    step3: 'Write the following ID as the recipient target:'
-                }
-            };
-
-            // Triggered when a plan is clicked inside Popup 1
-            function selectBypassPlan(element, name, price) {
-                bypassSelectedPlanName = name;
-                bypassSelectedPlanPrice = price;
-
-                // Clear active classes/styles from all boxes
-                document.querySelectorAll('.bypass-plan-card').forEach(card => {
-                    card.style.borderColor = '#333';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#111119';
-                });
-
-                // Apply distinct target purple glow effect on chosen card
-                element.style.borderColor = '#bc13fe';
-                element.style.boxShadow = '0 0 15px rgba(188, 19, 254, 0.4)';
-                element.style.background = 'rgba(188, 19, 254, 0.05)';
+    <!-- ====================== SCRIPT ====================== -->
+    <script>
+        /* ============================================================
+           SINGLE SOURCE OF TRUTH — edit products, prices & images here
+           ============================================================ */
+        const PAYMENT = {
+            bkash: {
+                label: 'bKash', color: 'var(--bkash)', number: '01832680252', recipient: 'Recipient Number',
+                steps: ['Dial *247# or open the bKash app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
+            },
+            nagad: {
+                label: 'Nagad', color: 'var(--nagad)', number: '01977036709', recipient: 'Recipient Number',
+                steps: ['Dial *167# or open the Nagad app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
+            },
+            binance: {
+                label: 'Binance', color: 'var(--binance)', number: '556924108', recipient: 'Binance Pay ID',
+                steps: ['Open Binance App → Binance Pay.', 'Choose <b>Send</b> via Pay ID / UID.', 'Use the UID below as recipient:']
             }
+        };
 
-            // Fired by "BUY SELECTED PLAN" button inside Popup 1
-            function goToPaymentPage() {
-                if (!bypassSelectedPlanName) {
-                    alert("Please select a plan first!");
-                    return;
-                }
-
-                // Hide Plan popup, load up corresponding dynamic variables, show Payment Option UI
-                document.getElementById('uidBypassPopup').style.display = 'none';
-                document.getElementById('paymentPopupAmount').innerText = bypassSelectedPlanPrice;
-                document.getElementById('trxIdInput').value = ''; // Reset input container field
-
-                switchPaymentMethod(bypassSelectedMethod); // Auto sync styling for default active tab
-                document.getElementById('uidBypassPaymentPopup').style.display = 'flex';
+        const PRODUCTS = {
+            complete: {
+                name: 'Complete Premium Package', badge: 'Mega Offer', img: 'd2.png',
+                desc: 'All-in-one PC deal — মাত্র ৳600-এ পুরো ১ মাসের সব প্যানেল!',
+                features: [
+                    { t: "What's Included", i: ['External Premium', 'Internal Premium', 'Internal Mod Menu (Brutal)', 'BR Mod (Dangerous Panel)', 'UID Bypass', 'Emote Panel'] }
+                ],
+                plans: [{ label: '30 Days', price: 600 }]
+            },
+            external: {
+                name: 'VNX External', badge: 'PC · External', img: 'e1.png',
+                desc: 'The ultimate private external system — smooth & highly optimized.',
+                features: [
+                    { t: 'Aimbot', i: ['AI Aimbot — Head / Neck / Drag', 'Fully safe, stable & trusted', 'Freeze Enemy function'] },
+                    { t: 'FOV', i: ['2x Scope', '4x Scope — safe & stable'] },
+                    { t: 'Helper', i: ['No Recoil', 'Glitch Fire', 'Reset Guest (working)'] },
+                    { t: 'Sniper', i: ['Undetected scope (BD/PK/IND/MENA)', 'All locations supported'] },
+                    { t: 'Visual', i: ['Normal / Blue / White Chams', 'ESP Line x64'] },
+                    { t: 'Security', i: ['Detect remote access', 'Boost FPS', 'PC / Emulator cleaner', 'Stream mode'] }
+                ],
+                plans: [{ label: 'Monthly', price: 600 }, { label: 'Permanent', price: 2500 }]
+            },
+            internal: {
+                name: 'VnX Premium Internal', badge: 'PC · Internal', img: 'i1.png',
+                desc: 'Smooth • Safe • Powerful domination system.',
+                features: [
+                    { t: 'Why VnX', i: ['No Memory Modify (safe)', 'Zero lag • High FPS', 'Works on all servers'] },
+                    { t: 'Aimbot Internal', i: ['AI Aimbot — 100% hit rate', 'Instant lock on target', 'Real damage, no fake hit'] },
+                    { t: 'Freeze Enemy', i: ['Auto freeze on fire', 'No move • no reaction', 'Lifetime safe'] },
+                    { t: 'Aimbot External', i: ['Smart aim — real value', 'Smooth tracking', 'Hard to detect'] },
+                    { t: 'Sniper', i: ['Every shot = confirm hit', 'Perfect long range'] },
+                    { t: 'ESP', i: ['ESP Master + Health line', 'See enemies anywhere', 'Show location after death'] },
+                    { t: 'Item', i: ['All items ESP', 'Spot every loot', 'Faster gameplay'] }
+                ],
+                plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
+            },
+            modmenu: {
+                name: 'VnX Mod Menu', badge: 'PC · Mod Menu', img: 'm2.png',
+                desc: 'Unleash full control with the advanced mod menu.',
+                features: [
+                    { t: 'Login Options', i: ['FF Normal / x86 / Max India'] },
+                    { t: 'Aimbot System', i: ['Hex / Legit / Rage / Silent', 'Aim Lock • No Recoil • Rapid Fire'] }
+                ],
+                plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
+            },
+            uidbypass: {
+                name: 'UID Bypass', badge: 'PC · Secure', img: 'b1.png',
+                desc: '100% stable & tested — no ban, no blacklist. Custom clients only.',
+                features: [
+                    { t: 'Highlights', i: ['100% stable & tested', 'No ban • No blacklist', 'Premium custom clients only'] }
+                ],
+                plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
+            },
+            brmods: {
+                name: 'VNX BR Mods V3', badge: 'PC · Brutal', img: 'br1.png',
+                desc: 'Root 100% safe & optimized battle-royale mod suite.',
+                features: [
+                    { t: 'Combat', i: ['Aimbot Lite & Silent Aim', 'Ghost Hack & Speed Hack'] },
+                    { t: 'Visual', i: ["ESP's & Magnet Lite", 'Root safe & optimized'] }
+                ],
+                plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
+            },
+            proxy: {
+                name: 'Proxy Free Fire', badge: 'Android · Non-Root', img: 'a1.png',
+                desc: 'New generation Android proxy panel — works on Play Store Free Fire.',
+                features: [
+                    { t: 'Compatibility', i: ['Non-Root supported', 'Works on official Free Fire', 'Fast & easy installation'] },
+                    { t: 'Aim', i: ['Head / Neck precision', 'Head + Neck assist', 'Legit mode'] },
+                    { t: 'Movement', i: ['Back Jump', 'Fast weapon switch', 'Movement & jump control'] }
+                ],
+                plans: [{ label: '1 Day', price: 120 }, { label: '3 Days', price: 250 }, { label: '7 Days', price: 450 }, { label: '30 Days', price: 800 }]
+            },
+            rootmobile: {
+                name: 'Root Mobile Panel', badge: 'Android · Root', img: 'nmr.png',
+                desc: 'Root mod menu with full ESP and silent kill.',
+                features: [
+                    { t: 'Core', i: ['Mod Menu (Root)', 'Silent Kill', 'Exploits — coming soon'] },
+                    { t: 'ESP', i: ['Name • Line • Box', 'Skeleton • Distance • Health'] }
+                ],
+                plans: [{ label: '1 Day', price: 60 }, { label: '7 Days', price: 150 }, { label: '15 Days', price: 300 }, { label: '30 Days', price: 600 }]
+            },
+            nonrootmobile: {
+                name: 'Drip Client — Non Root', badge: 'Android · Non-Root', img: 'rm1.png',
+                desc: 'Non-root client with legit & rage aimbot. CS / BR rank working.',
+                features: [
+                    { t: 'Aimbot', i: ['Aimbot Legit & Rage', 'AWM Aimbot', 'No Recoil', 'HS Rate 120%'] },
+                    { t: 'ESP', i: ['Esp Line • Box', 'Esp Health • Name'] },
+                    { t: 'Movement', i: ['Shoulder Speed Hack'] }
+                ],
+                plans: [{ label: '1 Day', price: 100 }, { label: '3 Days', price: 200 }, { label: '7 Days', price: 400 }, { label: '15 Days', price: 500 }, { label: '30 Days', price: 800 }]
             }
+        };
 
-            // Handles the core structural rendering changes when switching tabs inside Popup 2
-            function switchPaymentMethod(method) {
-                bypassSelectedMethod = method;
-                const config = paymentConfigs[method];
+        const PC_ORDER = ['complete', 'external', 'internal', 'modmenu', 'uidbypass', 'brmods'];
+        const MOBILE_ORDER = ['proxy', 'rootmobile', 'nonrootmobile'];
 
-                // 1. Reset standard inactive visual tabs styles
-                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
-                    const btn = document.getElementById('methodBtn' + m);
-                    btn.style.background = '#1e1e2a';
-                    btn.style.borderColor = '#333';
-                    btn.style.boxShadow = 'none';
-                });
+        /* ---------------- Render product cards ---------------- */
+        function priceFrom(p) {
+            const min = Math.min(...p.plans.map(x => x.price));
+            return min;
+        }
 
-                // 2. Set Active styles dynamically matching target brand theme colors
-                const activeBtn = document.getElementById('methodBtn' + method);
-                activeBtn.style.background = config.color;
-                activeBtn.style.borderColor = config.color;
-                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
-
-                // 3. Populate dynamic strings based on active config definition 
-                document.getElementById('paymentStep1').innerText = "• " + config.step1;
-                document.getElementById('paymentStep2').innerText = "• " + config.step2;
-                document.getElementById('paymentStep3').innerText = "• " + config.step3;
-
-                // 4. Transform color schemes and recipient information layouts
-                const wrapper = document.getElementById('recipientWrapper');
-                wrapper.style.background = config.color;
-                document.getElementById('recipientNumber').innerText = config.number;
-
-                // 5. Update verify submit button coloration themes flawlessly
-                const verifyBtn = document.getElementById('verifyPaymentBtn');
-                verifyBtn.style.background = config.color;
-                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
-            }
-
-            // Utility component to perform single-tap copies natively
-            function copyRecipientNumber() {
-                const numText = document.getElementById('recipientNumber').innerText;
-                navigator.clipboard.writeText(numText).then(() => {
-                    alert("Copied to clipboard: " + numText);
-                }).catch(() => {
-                    alert("Failed to auto-copy. Please copy manually.");
-                });
-            }
-
-            // Final form checker processing when click VERIFY
-            function verifySubmittedTrx() {
-                const inputVal = document.getElementById('trxIdInput').value.trim();
-                if (!inputVal) {
-                    alert("Please input your Transaction ID first!");
-                    return;
-                }
-
-                // আপনার ব্যাকএন্ড ইন্টিগ্রেশন প্রসেস লজিক এখানে দিন
-                alert(`Verifying TrxID: ${inputVal}\nMethod: ${bypassSelectedMethod}\nPlan: ${bypassSelectedPlanName} (${bypassSelectedPlanPrice}৳)`);
-            }
-
-            // Back operation actions
-            function cancelPaymentFlow() {
-                document.getElementById('uidBypassPaymentPopup').style.display = 'none';
-                document.getElementById('uidBypassPopup').style.display = 'flex'; // Return to step 1
-            }
-
-            // Window controller visibility hooks 
-            function openUidBypassPopup() {
-                // Reset states cleanly on a fresh initialize trigger click
-                bypassSelectedPlanName = null;
-                document.querySelectorAll('.bypass-plan-card').forEach(card => {
-                    card.style.borderColor = '#333';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#111119';
-                });
-                document.getElementById('uidBypassPopup').style.display = 'flex';
-            }
-
-            function closeUidBypassPopup() {
-                document.getElementById('uidBypassPopup').style.display = 'none';
-            }
-        </script>
-
-        <div id="vnxBrModsPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#070b12; border: 2px solid #00f0ff; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);">
-
-                <button onclick="closeVnxBrModsPopup()"
-                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
-
-                <div style="margin-bottom: 25px;">
-                    <h2 style="font-size: 22px; font-weight: 800; color: #00f0ff; margin-bottom: 5px;">[ VnX BR Mods V3
-                        is ready ]</h2>
-                    <p style="font-size: 11px; color: #558b93; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
+        function cardHtml(id) {
+            const p = PRODUCTS[id];
+            return `
+            <div class="card p-3 flex flex-col">
+                <div class="overflow-hidden rounded-xl aspect-[4/3] bg-bg">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy"
+                        class="w-full h-full object-cover" onerror="this.style.opacity=.25">
                 </div>
-
-                <div
-                    style="background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0, 240, 255, 0.15); border-radius: 12px; padding: 15px; margin-bottom: 25px; font-size: 13px; color: #ccdce0; line-height: 1.8; text-align: left;">
-                    <p style="margin: 0;">🤖 AIMBOT LITE & SILENT AIM</p>
-                    <p style="margin: 0;">🦈 ESP'S & MAGNET LITE</p>
-                    <p style="margin: 0;">⚡ GHOST HACK & SPEED HACK</p>
-                    <p
-                        style="margin: 0; color: #00f0ff; font-size: 11px; font-weight: bold; margin-top: 5px; text-align: center;">
-                        🛡️ ROOT 100% SAFE & OPTIMIZED</p>
+                <h3 class="text-sm font-bold text-white text-center mt-3 mb-1">${p.name}</h3>
+                <p class="text-xs text-[var(--muted)] text-center mb-3">from <span class="text-primary font-bold">৳${priceFrom(p)}</span></p>
+                <div class="flex gap-2 mt-auto">
+                    <button onclick="showDemo('${p.name}')" class="btn btn-ghost flex-1 py-2 text-xs"><i class="fas fa-play"></i>Demo</button>
+                    <button onclick="openProduct('${id}')" class="btn btn-primary flex-1 py-2 text-xs">Buy</button>
                 </div>
-
-                <p style="font-size: 12px; color: #78909c; text-align: left; margin-bottom: 10px;">👑 CHOOSE MODS PLAN:
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px;">
-
-                    <div class="brmods-plan-card" onclick="selectBrModsPlan(this, '1 Week', 600)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">1 Week</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳600</div>
-                    </div>
-
-                    <div class="brmods-plan-card" onclick="selectBrModsPlan(this, '2 Weeks', 1100)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">2 Weeks</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1100</div>
-                    </div>
-
-                    <div class="brmods-plan-card" onclick="selectBrModsPlan(this, '3 Weeks', 1550)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">3 Weeks</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1550</div>
-                    </div>
-
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
-                    <div class="brmods-plan-card" onclick="selectBrModsPlan(this, '1 Month', 1250)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">1 Month</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳1250</div>
-                    </div>
-
-                    <div class="brmods-plan-card" onclick="selectBrModsPlan(this, 'Permanent', 3000)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #00f0ff; font-weight: 600;">Permanent</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳3000</div>
-                    </div>
-                </div>
-
-                <button onclick="goToBrModsPaymentPage()"
-                    style="width: 100%; padding: 14px; background: #00f0ff; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
-                    SELECTED PLAN</button>
-            </div>
-        </div>
-
-
-        <!-- ===================== ROOT MOBILE PANNEL POPUP ===================== -->
-        <div id="vnxRootMobilePopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#070b12; border: 2px solid #ffd700; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(255, 215, 0, 0.25); max-height: 90vh; overflow-y: auto;">
-
-                <button onclick="closeVnxRootMobilePopup()"
-                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
-
-                <div style="margin-bottom: 20px;">
-                    <h2 style="font-size: 22px; font-weight: 800; color: #ffd700; margin-bottom: 5px;">[ Root Mobile
-                        Pannel — Mod Menu ]</h2>
-                    <p style="font-size: 11px; color: #9c8a3a; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
-                </div>
-
-                <div
-                    style="background: rgba(255, 215, 0, 0.04); border: 1px solid rgba(255, 215, 0, 0.18); border-radius: 12px; padding: 15px; margin-bottom: 20px; font-size: 13px; color: #ccdce0; line-height: 1.8; text-align: left;">
-                    <p style="margin: 0;">🤖 Mod Menu Mobile - Root</p>
-                    <p style="margin: 0;">🔇 Silent Kill</p>
-                    <p style="margin: 0;">⚙️ Exploits — <span style="color:#ffd700; font-weight:bold;">EM
-                            BREVE...</span></p>
-                    <p style="margin: 0;">🦈 ESP'S</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Name</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Line</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Box</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Skeleton</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Distance</p>
-                    <p style="margin: 0; padding-left: 18px;">— Show Health</p>
-                </div>
-
-                <p style="font-size: 12px; color: #78909c; text-align: left; margin-bottom: 10px;">👑 CHOOSE MODS PLAN:
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px;">
-
-                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '1 Day', 60)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">1 Day</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳60</div>
-                    </div>
-
-                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '7 Days', 150)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">7 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳150</div>
-                    </div>
-
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
-                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '15 Days', 300)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">15 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳300</div>
-                    </div>
-
-                    <div class="rootmobile-plan-card" onclick="selectRootMobilePlan(this, '30 Days', 600)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #ffd700; font-weight: 600;">30 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳600</div>
-                    </div>
-                </div>
-
-                <button onclick="goToRootMobilePaymentPage()"
-                    style="width: 100%; padding: 14px; background: #ffd700; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #000; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
-                    SELECTED PLAN</button>
-            </div>
-        </div>
-
-        <div id="vnxRootMobilePaymentPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#0e1724; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-
-                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                    <button id="rootMobileMethodBtnBkash" onclick="switchRootMobilePaymentMethod('Bkash')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
-                    <button id="rootMobileMethodBtnNagad" onclick="switchRootMobilePaymentMethod('Nagad')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
-                    <button id="rootMobileMethodBtnBinance" onclick="switchRootMobilePaymentMethod('Binance')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
-                </div>
-
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
-                    <span style="font-size: 13px; color: #90a4ae;">Enter Transaction ID</span>
-                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span
-                            id="rootMobilePaymentPopupAmount" style="color:#ffd700;">0</span>৳</span>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <input type="text" id="rootMobileTrxIdInput" placeholder="Enter Transaction ID"
-                        style="width:100%; padding:14px; background:#070b12; border:1px solid #25354c; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
-                </div>
-
-                <div
-                    style="font-size: 12px; color: #b0bec5; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
-                    <p id="rootMobilePaymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
-                    <p id="rootMobilePaymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.</p>
-                    <p id="rootMobilePaymentStep3">• Write the following number as the recipient number:</p>
-                </div>
-
-                <div id="rootMobileRecipientWrapper"
-                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
-                    <span id="rootMobileRecipientLabel">Recipient Number</span>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <span id="rootMobileRecipientNumber">01832680252</span>
-                        <button onclick="copyRootMobileRecipientNumber()"
-                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
-                            Copy</button>
-                    </div>
-                </div>
-
-                <div
-                    style="font-size: 11px; color: #627d88; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
-                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
-                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
-                </div>
-
-                <button id="rootMobileVerifyPaymentBtn" onclick="verifyRootMobileSubmittedTrx()"
-                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
-
-                <div style="text-align: center;">
-                    <span onclick="cancelRootMobilePaymentFlow()"
-                        style="font-size:12px; color:#90a4ae; cursor:pointer; text-decoration:underline;">Cancel
-                        Payment</span>
-                </div>
-
-            </div>
-        </div>
-        <!-- ===================== END ROOT MOBILE PANNEL POPUP ===================== -->
-
-
-        <!-- ===================== NON ROOT MOBILE PANNEL POPUP ===================== -->
-        <div id="vnxNonRootMobilePopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#070b12; border: 2px solid #ff0055; max-width: 500px; width: 100%; padding: 30px; border-radius: 20px; position: relative; color: white; text-align: center; box-shadow: 0 0 20px rgba(255, 0, 85, 0.25); max-height: 90vh; overflow-y: auto;">
-
-                <button onclick="closeVnxNonRootMobilePopup()"
-                    style="position:absolute; top:15px; right:20px; font-size:24px; border:none; background:none; color:white; cursor:pointer;">&times;</button>
-
-                <div style="margin-bottom: 20px;">
-                    <h2 style="font-size: 22px; font-weight: 800; color: #ff0055; margin-bottom: 5px;">[ Drip Client —
-                        Non Root Panel ]</h2>
-                    <p style="font-size: 11px; color: #9c3a55; letter-spacing: 1px;">VENOX EMPIRE — OFFICIAL</p>
-                </div>
-
-                <div
-                    style="background: rgba(255, 0, 85, 0.04); border: 1px solid rgba(255, 0, 85, 0.18); border-radius: 12px; padding: 15px; margin-bottom: 20px; font-size: 13px; color: #ccdce0; line-height: 1.8; text-align: left;">
-                    <p style="margin: 0; color: #ff0055; font-weight: bold;">⭐️ DRIP CLIENT NON ROOT PANEL</p>
-                    <p style="margin: 0;">🎯 Aimbot Lagit</p>
-                    <p style="margin: 0;">🚫 No Recoil</p>
-                    <p style="margin: 0;">🤖 Aimbot Rage</p>
-                    <p style="margin: 0;">🔫 AWM Aimbot</p>
-                    <p style="margin: 0;">🏃 Soulder Speed Hack</p>
-                    <p style="margin: 0;">🎯 HS Rate: 120%</p>
-                    <p style="margin: 0;">🦈 Esp Line</p>
-                    <p style="margin: 0;">📦 Esp Box</p>
-                    <p style="margin: 0;">❤️ Esp Health</p>
-                    <p style="margin: 0;">🏷️ Esp Name</p>
-                    <p
-                        style="margin: 0; color: #ff0055; font-size: 11px; font-weight: bold; margin-top: 5px; text-align: center;">
-                        🅲🆂 / 🅱🆁 Rank — Working</p>
-                </div>
-
-                <p style="font-size: 12px; color: #78909c; text-align: left; margin-bottom: 10px;">👑 CHOOSE MODS PLAN:
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px;">
-
-                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '1 Day', 100)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">1 Day</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳100</div>
-                    </div>
-
-                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '3 Days', 200)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">3 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳200</div>
-                    </div>
-
-                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '7 Days', 400)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">7 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳400</div>
-                    </div>
-
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px;">
-                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '15 Days', 500)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #90a4ae;">15 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳500</div>
-                    </div>
-
-                    <div class="nonrootmobile-plan-card" onclick="selectNonRootMobilePlan(this, '30 Days', 800)"
-                        style="border: 1px solid #22333b; padding: 12px 5px; border-radius: 10px; cursor: pointer; transition: 0.3s; background: #0c131a;">
-                        <div style="font-size: 11px; color: #ff0055; font-weight: 600;">30 Days</div>
-                        <div style="font-size: 15px; font-weight: bold; color: #fff; margin-top: 3px;">৳800</div>
-                    </div>
-                </div>
-
-                <button onclick="goToNonRootMobilePaymentPage()"
-                    style="width: 100%; padding: 14px; background: #ff0055; border: none; border-radius: 12px; font-weight: bold; font-size: 14px; cursor: pointer; color: #fff; box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3); text-transform: uppercase; transition: 0.2s;">BUY
-                    SELECTED PLAN</button>
-            </div>
-        </div>
-
-        <div id="vnxNonRootMobilePaymentPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#0e1724; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-
-                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                    <button id="nonRootMobileMethodBtnBkash" onclick="switchNonRootMobilePaymentMethod('Bkash')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
-                    <button id="nonRootMobileMethodBtnNagad" onclick="switchNonRootMobilePaymentMethod('Nagad')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
-                    <button id="nonRootMobileMethodBtnBinance" onclick="switchNonRootMobilePaymentMethod('Binance')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
-                </div>
-
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
-                    <span style="font-size: 13px; color: #90a4ae;">Enter Transaction ID</span>
-                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span
-                            id="nonRootMobilePaymentPopupAmount" style="color:#ff0055;">0</span>৳</span>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <input type="text" id="nonRootMobileTrxIdInput" placeholder="Enter Transaction ID"
-                        style="width:100%; padding:14px; background:#070b12; border:1px solid #25354c; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
-                </div>
-
-                <div
-                    style="font-size: 12px; color: #b0bec5; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
-                    <p id="nonRootMobilePaymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
-                    <p id="nonRootMobilePaymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.
-                    </p>
-                    <p id="nonRootMobilePaymentStep3">• Write the following number as the recipient number:</p>
-                </div>
-
-                <div id="nonRootMobileRecipientWrapper"
-                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
-                    <span id="nonRootMobileRecipientLabel">Recipient Number</span>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <span id="nonRootMobileRecipientNumber">01832680252</span>
-                        <button onclick="copyNonRootMobileRecipientNumber()"
-                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
-                            Copy</button>
-                    </div>
-                </div>
-
-                <div
-                    style="font-size: 11px; color: #627d88; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
-                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
-                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
-                </div>
-
-                <button id="nonRootMobileVerifyPaymentBtn" onclick="verifyNonRootMobileSubmittedTrx()"
-                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
-
-                <div style="text-align: center;">
-                    <span onclick="cancelNonRootMobilePaymentFlow()"
-                        style="font-size:12px; color:#90a4ae; cursor:pointer; text-decoration:underline;">Cancel
-                        Payment</span>
-                </div>
-
-            </div>
-        </div>
-        <!-- ===================== END NON ROOT MOBILE PANNEL POPUP ===================== -->
-
-
-        <div id="vnxBrModsPaymentPopup"
-            style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; padding:20px; font-family: sans-serif;">
-
-            <div
-                style="background:#0e1724; max-width: 460px; width: 100%; padding: 25px; border-radius: 20px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-
-                <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                    <button id="brModsMethodBtnBkash" onclick="switchBrModsPaymentMethod('Bkash')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BKASH</button>
-                    <button id="brModsMethodBtnNagad" onclick="switchBrModsPaymentMethod('Nagad')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">NAGAD</button>
-                    <button id="brModsMethodBtnBinance" onclick="switchBrModsPaymentMethod('Binance')"
-                        style="flex:1; padding:12px; background:#172233; border:1px solid #25354c; color:white; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.2s;">BINANCE</button>
-                </div>
-
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 5px;">
-                    <span style="font-size: 13px; color: #90a4ae;">Enter Transaction ID</span>
-                    <span style="font-size: 14px; font-weight: bold; color: #fff;">Amount: <span
-                            id="brModsPaymentPopupAmount" style="color:#00f0ff;">0</span>৳</span>
-                </div>
-
-                <div style="margin-bottom: 20px;">
-                    <input type="text" id="brModsTrxIdInput" placeholder="Enter Transaction ID"
-                        style="width:100%; padding:14px; background:#070b12; border:1px solid #25354c; border-radius:10px; color:white; font-size:14px; outline:none; box-sizing:border-box;">
-                </div>
-
-                <div
-                    style="font-size: 12px; color: #b0bec5; line-height: 1.7; text-align: left; margin-bottom: 20px; padding: 0 5px;">
-                    <p id="brModsPaymentStep1">• Dial corresponding mobile menu or open your Wallet App.</p>
-                    <p id="brModsPaymentStep2" style="color:#ffb703; font-weight:bold;">• Click on Send Money.</p>
-                    <p id="brModsPaymentStep3">• Write the following number as the recipient number:</p>
-                </div>
-
-                <div id="brModsRecipientWrapper"
-                    style="display:flex; justify-content:space-between; align-items:center; padding:14px; border-radius:10px; margin-bottom: 20px; font-weight:bold; font-size:15px; background: #e2136e;">
-                    <span id="brModsRecipientLabel">Recipient Number</span>
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <span id="brModsRecipientNumber">01832680252</span>
-                        <button onclick="copyBrModsRecipientNumber()"
-                            style="background:rgba(255,255,255,0.2); border:none; color:white; padding:4px 8px; border-radius:5px; font-size:11px; cursor:pointer; font-weight:bold;">📋
-                            Copy</button>
-                    </div>
-                </div>
-
-                <div
-                    style="font-size: 11px; color: #627d88; text-align: left; line-height: 1.6; margin-bottom: 20px; padding: 0 5px;">
-                    <p style="margin:4px 0;">• To confirm, now enter your PIN or Authorize transaction.</p>
-                    <p style="margin:4px 0;">• Now enter your Transaction ID in the box above and click VERIFY.</p>
-                </div>
-
-                <button id="brModsVerifyPaymentBtn" onclick="verifyBrModsSubmittedTrx()"
-                    style="width:100%; padding:14px; border:none; border-radius:10px; font-weight:bold; font-size:14px; cursor:pointer; text-transform:uppercase; color:#fff; transition:0.2s; margin-bottom: 12px;">VERIFY</button>
-
-                <div style="text-align: center;">
-                    <span onclick="cancelBrModsPaymentFlow()"
-                        style="font-size:12px; color:#90a4ae; cursor:pointer; text-decoration:underline;">Cancel
-                        Payment</span>
-                </div>
-
-            </div>
-        </div>
-
-
-        <script>
-            // State storage variables (Unique for BR Mods)
-            let brModsSelectedPlanName = null;
-            let brModsSelectedPlanPrice = 0;
-            let brModsSelectedMethod = 'Bkash';
-
-            // Object containing exact config info per gateway method
-            const brModsPaymentConfigs = {
-                Bkash: {
-                    number: '01832680252',
-                    color: '#e2136e',
-                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Nagad: {
-                    number: '01977036709',
-                    color: '#f37021',
-                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Binance: {
-                    number: '556924108',
-                    color: '#f3ba2f',
-                    step1: 'Open your Binance App and navigate to Binance Pay.',
-                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
-                    step3: 'Write the following ID as the recipient target:'
-                }
-            };
-
-            // Triggered when a plan is clicked inside Popup 1
-            function selectBrModsPlan(element, name, price) {
-                brModsSelectedPlanName = name;
-                brModsSelectedPlanPrice = price;
-
-                // Clear active classes/styles from all boxes
-                document.querySelectorAll('.brmods-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-
-                // Apply distinct target cyan glow effect on chosen card
-                element.style.borderColor = '#00f0ff';
-                element.style.boxShadow = '0 0 15px rgba(0, 240, 255, 0.4)';
-                element.style.background = 'rgba(0, 240, 255, 0.05)';
-            }
-
-            // Fired by "BUY SELECTED PLAN" button inside Popup 1
-            function goToBrModsPaymentPage() {
-                if (!brModsSelectedPlanName) {
-                    alert("Please select a plan first!");
-                    return;
-                }
-
-                // Hide Plan popup, load up corresponding dynamic variables, show Payment Option UI
-                document.getElementById('vnxBrModsPopup').style.display = 'none';
-                document.getElementById('brModsPaymentPopupAmount').innerText = brModsSelectedPlanPrice;
-                document.getElementById('brModsTrxIdInput').value = '';
-
-                switchBrModsPaymentMethod(brModsSelectedMethod);
-                document.getElementById('vnxBrModsPaymentPopup').style.display = 'flex';
-            }
-
-            // Handles the core structural rendering changes when switching tabs inside Popup 2
-            function switchBrModsPaymentMethod(method) {
-                brModsSelectedMethod = method;
-                const config = brModsPaymentConfigs[method];
-
-                // 1. Reset standard inactive visual tabs styles
-                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
-                    const btn = document.getElementById('brModsMethodBtn' + m);
-                    btn.style.background = '#172233';
-                    btn.style.borderColor = '#25354c';
-                    btn.style.boxShadow = 'none';
-                    btn.style.color = 'white';
-                });
-
-                // 2. Set Active styles dynamically matching target brand theme colors
-                const activeBtn = document.getElementById('brModsMethodBtn' + method);
-                activeBtn.style.background = config.color;
-                activeBtn.style.borderColor = config.color;
-                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
-                if (method === 'Binance') activeBtn.style.color = '#000'; // Black text for binance tab readability
-
-                // 3. Populate dynamic strings based on active config definition 
-                document.getElementById('brModsPaymentStep1').innerText = "• " + config.step1;
-                document.getElementById('brModsPaymentStep2').innerText = "• " + config.step2;
-                document.getElementById('brModsPaymentStep3').innerText = "• " + config.step3;
-
-                // 4. Transform color schemes and recipient information layouts
-                const wrapper = document.getElementById('brModsRecipientWrapper');
-                wrapper.style.background = config.color;
-                if (method === 'Binance') wrapper.style.color = '#000'; else wrapper.style.color = '#fff';
-                document.getElementById('brModsRecipientNumber').innerText = config.number;
-
-                // 5. Update verify submit button coloration themes flawlessly
-                const verifyBtn = document.getElementById('brModsVerifyPaymentBtn');
-                verifyBtn.style.background = config.color;
-                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
-                if (method === 'Binance') verifyBtn.style.color = '#000'; else verifyBtn.style.color = '#fff';
-            }
-
-            // Utility component to perform single-tap copies natively
-            function copyBrModsRecipientNumber() {
-                const numText = document.getElementById('brModsRecipientNumber').innerText;
-                navigator.clipboard.writeText(numText).then(() => {
-                    alert("Copied to clipboard: " + numText);
-                }).catch(() => {
-                    alert("Failed to auto-copy. Please copy manually.");
-                });
-            }
-
-            // Final form checker processing when click VERIFY
-            function verifyBrModsSubmittedTrx() {
-                const inputVal = document.getElementById('brModsTrxIdInput').value.trim();
-                if (!inputVal) {
-                    alert("Please input your Transaction ID first!");
-                    return;
-                }
-
-                alert(`Verifying TrxID: ${inputVal}\nMethod: ${brModsSelectedMethod}\nPlan: ${brModsSelectedPlanName} (${brModsSelectedPlanPrice}৳)`);
-            }
-
-            // Back operation actions
-            function cancelBrModsPaymentFlow() {
-                document.getElementById('vnxBrModsPaymentPopup').style.display = 'none';
-                document.getElementById('vnxBrModsPopup').style.display = 'flex';
-            }
-
-            // এই ফাংশনটির নাম পরিবর্তন করে openBrModPopup করা হলো
-            function openBrModPopup() {
-                brModsSelectedPlanName = null;
-                document.querySelectorAll('.brmods-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-                document.getElementById('vnxBrModsPopup').style.display = 'flex';
-            }
-
-            function closeVnxBrModsPopup() {
-                document.getElementById('vnxBrModsPopup').style.display = 'none';
-            }
-
-
-            // ==========================================
-            // ROOT MOBILE PANNEL POPUP LOGIC (mirrors BR Mods flow)
-            // ==========================================
-            let rootMobileSelectedPlanName = null;
-            let rootMobileSelectedPlanPrice = 0;
-            let rootMobileSelectedMethod = 'Bkash';
-
-            const rootMobilePaymentConfigs = {
-                Bkash: {
-                    number: '01832680252',
-                    color: '#e2136e',
-                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Nagad: {
-                    number: '01977036709',
-                    color: '#f37021',
-                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Binance: {
-                    number: '556924108',
-                    color: '#f3ba2f',
-                    step1: 'Open your Binance App and navigate to Binance Pay.',
-                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
-                    step3: 'Write the following ID as the recipient target:'
-                }
-            };
-
-            // Triggered when a plan is clicked inside the Root Mobile plan popup
-            function selectRootMobilePlan(element, name, price) {
-                rootMobileSelectedPlanName = name;
-                rootMobileSelectedPlanPrice = price;
-
-                document.querySelectorAll('.rootmobile-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-
-                element.style.borderColor = '#ffd700';
-                element.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.4)';
-                element.style.background = 'rgba(255, 215, 0, 0.05)';
-            }
-
-            // Fired by "BUY SELECTED PLAN" button inside the Root Mobile plan popup
-            function goToRootMobilePaymentPage() {
-                if (!rootMobileSelectedPlanName) {
-                    alert("Please select a plan first!");
-                    return;
-                }
-
-                document.getElementById('vnxRootMobilePopup').style.display = 'none';
-                document.getElementById('rootMobilePaymentPopupAmount').innerText = rootMobileSelectedPlanPrice;
-                document.getElementById('rootMobileTrxIdInput').value = '';
-
-                switchRootMobilePaymentMethod(rootMobileSelectedMethod);
-                document.getElementById('vnxRootMobilePaymentPopup').style.display = 'flex';
-            }
-
-            // Handles structural rendering changes when switching payment tabs
-            function switchRootMobilePaymentMethod(method) {
-                rootMobileSelectedMethod = method;
-                const config = rootMobilePaymentConfigs[method];
-
-                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
-                    const btn = document.getElementById('rootMobileMethodBtn' + m);
-                    btn.style.background = '#172233';
-                    btn.style.borderColor = '#25354c';
-                    btn.style.boxShadow = 'none';
-                    btn.style.color = 'white';
-                });
-
-                const activeBtn = document.getElementById('rootMobileMethodBtn' + method);
-                activeBtn.style.background = config.color;
-                activeBtn.style.borderColor = config.color;
-                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
-                if (method === 'Binance') activeBtn.style.color = '#000';
-
-                document.getElementById('rootMobilePaymentStep1').innerText = "• " + config.step1;
-                document.getElementById('rootMobilePaymentStep2').innerText = "• " + config.step2;
-                document.getElementById('rootMobilePaymentStep3').innerText = "• " + config.step3;
-
-                const wrapper = document.getElementById('rootMobileRecipientWrapper');
-                wrapper.style.background = config.color;
-                if (method === 'Binance') wrapper.style.color = '#000'; else wrapper.style.color = '#fff';
-                document.getElementById('rootMobileRecipientNumber').innerText = config.number;
-
-                const verifyBtn = document.getElementById('rootMobileVerifyPaymentBtn');
-                verifyBtn.style.background = config.color;
-                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
-                if (method === 'Binance') verifyBtn.style.color = '#000'; else verifyBtn.style.color = '#fff';
-            }
-
-            // Single-tap copy of recipient number/ID
-            function copyRootMobileRecipientNumber() {
-                const numText = document.getElementById('rootMobileRecipientNumber').innerText;
-                navigator.clipboard.writeText(numText).then(() => {
-                    alert("Copied to clipboard: " + numText);
-                }).catch(() => {
-                    alert("Failed to auto-copy. Please copy manually.");
-                });
-            }
-
-            // Final form checker when clicking VERIFY
-            function verifyRootMobileSubmittedTrx() {
-                const inputVal = document.getElementById('rootMobileTrxIdInput').value.trim();
-                if (!inputVal) {
-                    alert("Please input your Transaction ID first!");
-                    return;
-                }
-
-                alert(`Verifying TrxID: ${inputVal}\nMethod: ${rootMobileSelectedMethod}\nPlan: ${rootMobileSelectedPlanName} (${rootMobileSelectedPlanPrice}৳)`);
-            }
-
-            // Back operation
-            function cancelRootMobilePaymentFlow() {
-                document.getElementById('vnxRootMobilePaymentPopup').style.display = 'none';
-                document.getElementById('vnxRootMobilePopup').style.display = 'flex';
-            }
-
-            // Opens the Root Mobile plan popup (called from the product card)
-            function openRootMobilePopup() {
-                rootMobileSelectedPlanName = null;
-                document.querySelectorAll('.rootmobile-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-                document.getElementById('vnxRootMobilePopup').style.display = 'flex';
-            }
-
-            function closeVnxRootMobilePopup() {
-                document.getElementById('vnxRootMobilePopup').style.display = 'none';
-            }
-
-
-            // ==========================================
-            // NON ROOT MOBILE PANNEL (DRIP CLIENT) POPUP LOGIC (mirrors Root Mobile flow)
-            // ==========================================
-            let nonRootMobileSelectedPlanName = null;
-            let nonRootMobileSelectedPlanPrice = 0;
-            let nonRootMobileSelectedMethod = 'Bkash';
-
-            const nonRootMobilePaymentConfigs = {
-                Bkash: {
-                    number: '01832680252',
-                    color: '#e2136e',
-                    step1: '*247# Dial to go to your BKASH mobile menu or go to the BKASH app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Nagad: {
-                    number: '01977036709',
-                    color: '#f37021',
-                    step1: '*167# Dial to go to your NAGAD mobile menu or go to the NAGAD app.',
-                    step2: 'Click on Send Money.',
-                    step3: 'Write the following number as the recipient number:'
-                },
-                Binance: {
-                    number: '556924108',
-                    color: '#f3ba2f',
-                    step1: 'Open your Binance App and navigate to Binance Pay.',
-                    step2: 'Click on Send and choose Pay ID / Crypto Address.',
-                    step3: 'Write the following ID as the recipient target:'
-                }
-            };
-
-            // Triggered when a plan is clicked inside the Non Root Mobile plan popup
-            function selectNonRootMobilePlan(element, name, price) {
-                nonRootMobileSelectedPlanName = name;
-                nonRootMobileSelectedPlanPrice = price;
-
-                document.querySelectorAll('.nonrootmobile-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-
-                element.style.borderColor = '#ff0055';
-                element.style.boxShadow = '0 0 15px rgba(255, 0, 85, 0.4)';
-                element.style.background = 'rgba(255, 0, 85, 0.05)';
-            }
-
-            // Fired by "BUY SELECTED PLAN" button inside the Non Root Mobile plan popup
-            function goToNonRootMobilePaymentPage() {
-                if (!nonRootMobileSelectedPlanName) {
-                    alert("Please select a plan first!");
-                    return;
-                }
-
-                document.getElementById('vnxNonRootMobilePopup').style.display = 'none';
-                document.getElementById('nonRootMobilePaymentPopupAmount').innerText = nonRootMobileSelectedPlanPrice;
-                document.getElementById('nonRootMobileTrxIdInput').value = '';
-
-                switchNonRootMobilePaymentMethod(nonRootMobileSelectedMethod);
-                document.getElementById('vnxNonRootMobilePaymentPopup').style.display = 'flex';
-            }
-
-            // Handles structural rendering changes when switching payment tabs
-            function switchNonRootMobilePaymentMethod(method) {
-                nonRootMobileSelectedMethod = method;
-                const config = nonRootMobilePaymentConfigs[method];
-
-                ['Bkash', 'Nagad', 'Binance'].forEach(m => {
-                    const btn = document.getElementById('nonRootMobileMethodBtn' + m);
-                    btn.style.background = '#172233';
-                    btn.style.borderColor = '#25354c';
-                    btn.style.boxShadow = 'none';
-                    btn.style.color = 'white';
-                });
-
-                const activeBtn = document.getElementById('nonRootMobileMethodBtn' + method);
-                activeBtn.style.background = config.color;
-                activeBtn.style.borderColor = config.color;
-                activeBtn.style.boxShadow = `0 0 10px ${config.color}55`;
-                if (method === 'Binance') activeBtn.style.color = '#000';
-
-                document.getElementById('nonRootMobilePaymentStep1').innerText = "• " + config.step1;
-                document.getElementById('nonRootMobilePaymentStep2').innerText = "• " + config.step2;
-                document.getElementById('nonRootMobilePaymentStep3').innerText = "• " + config.step3;
-
-                const wrapper = document.getElementById('nonRootMobileRecipientWrapper');
-                wrapper.style.background = config.color;
-                if (method === 'Binance') wrapper.style.color = '#000'; else wrapper.style.color = '#fff';
-                document.getElementById('nonRootMobileRecipientNumber').innerText = config.number;
-
-                const verifyBtn = document.getElementById('nonRootMobileVerifyPaymentBtn');
-                verifyBtn.style.background = config.color;
-                verifyBtn.style.boxShadow = `0 4px 12px ${config.color}44`;
-                if (method === 'Binance') verifyBtn.style.color = '#000'; else verifyBtn.style.color = '#fff';
-            }
-
-            // Single-tap copy of recipient number/ID
-            function copyNonRootMobileRecipientNumber() {
-                const numText = document.getElementById('nonRootMobileRecipientNumber').innerText;
-                navigator.clipboard.writeText(numText).then(() => {
-                    alert("Copied to clipboard: " + numText);
-                }).catch(() => {
-                    alert("Failed to auto-copy. Please copy manually.");
-                });
-            }
-
-            // Final form checker when clicking VERIFY
-            function verifyNonRootMobileSubmittedTrx() {
-                const inputVal = document.getElementById('nonRootMobileTrxIdInput').value.trim();
-                if (!inputVal) {
-                    alert("Please input your Transaction ID first!");
-                    return;
-                }
-
-                alert(`Verifying TrxID: ${inputVal}\nMethod: ${nonRootMobileSelectedMethod}\nPlan: ${nonRootMobileSelectedPlanName} (${nonRootMobileSelectedPlanPrice}৳)`);
-            }
-
-            // Back operation
-            function cancelNonRootMobilePaymentFlow() {
-                document.getElementById('vnxNonRootMobilePaymentPopup').style.display = 'none';
-                document.getElementById('vnxNonRootMobilePopup').style.display = 'flex';
-            }
-
-            // Opens the Non Root Mobile plan popup (called from the product card)
-            function openNonRootMobilePopup() {
-                nonRootMobileSelectedPlanName = null;
-                document.querySelectorAll('.nonrootmobile-plan-card').forEach(card => {
-                    card.style.borderColor = '#22333b';
-                    card.style.boxShadow = 'none';
-                    card.style.background = '#0c131a';
-                });
-                document.getElementById('vnxNonRootMobilePopup').style.display = 'flex';
-            }
-
-            function closeVnxNonRootMobilePopup() {
-                document.getElementById('vnxNonRootMobilePopup').style.display = 'none';
-            }
-
-
-            // ==========================================
-            // GLOBAL DEMO BUTTON HANDLER (placeholder - update with real demo links later)
-            // ==========================================
-            function showDemoAlert(productName) {
-                event.stopPropagation();
-                alert("Demo link coming soon for: " + productName);
-            }
-
-
-            // ==========================================
-            // EXCLUSIVE CAROUSEL AUTO-PLAY & CLICK LOGIC
-            // ==========================================
-            // State management variables for this slider
-            let currentOfferIndex = 0;
-            const totalOfferSlides = 6; // We have 6 images total
-            const offerTrack = document.getElementById('carousel-track');
-            let offerAutoplayTimer; // To store the setInterval reference
-
-            // Primary function to update the slide position based on currentOfferIndex
-            function updateOfferSlider() {
-                // Calculate the translateX percentage based on the index
-                // Each slide takes 100% of the viewport width
-                offerTrack.style.transform = `translateX(-${currentOfferIndex * 100}%)`;
-            }
-
-            // Function to handle the "next" operation (manually or auto)
-            function nextOfferSlide() {
-                // Increment index, loop back to 0 if we hit the end
-                currentOfferIndex = (currentOfferIndex + 1) % totalOfferSlides;
-                updateOfferSlider();
-
-                // Very important: Reset the auto-play timer when manual intervention happens
-                resetOfferTimer();
-            }
-
-            // Function to handle the "previous" operation manually
-            function prevOfferSlide() {
-                // Decrement index, loop to the last slide if we go below 0
-                currentOfferIndex = (currentOfferIndex - 1 + totalOfferSlides) % totalOfferSlides;
-                updateOfferSlider();
-
-                // Very important: Reset the auto-play timer
-                resetOfferTimer();
-            }
-
-            // Logic to clear and restart the auto-play timer so it doesn't jump immediately after a click
-            function resetOfferTimer() {
-                // Stop the current timer
-                clearInterval(offerAutoplayTimer);
-                // Start a fresh timer for 3.5 seconds
-                offerAutoplayTimer = setInterval(nextOfferSlide, 3500);
-            }
-
-            // First time setup: Start the auto-play loop when the page loads
-            // 3500 milliseconds = 3.5 seconds per slide
-            offerAutoplayTimer = setInterval(nextOfferSlide, 3500);
-        </script>
-
-
-
+            </div>`;
+        }
+
+        document.getElementById('pcGrid').innerHTML = PC_ORDER.map(cardHtml).join('');
+        document.getElementById('mobileGrid').innerHTML = MOBILE_ORDER.map(cardHtml).join('');
+
+        /* ---------------- Carousel ---------------- */
+        const carouselImgs = ['d2.png', 'e1.png', 'i1.png', 'b1.png', 'br1.png', 'a1.png'];
+        let carIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const dotsWrap = document.getElementById('carouselDots');
+        track.innerHTML = carouselImgs.map((src, i) =>
+            `<div class="w-full flex-shrink-0 p-1"><img src="${src}" alt="Offer ${i + 1}" class="w-full h-auto object-contain rounded-xl" onerror="this.style.opacity=.25"></div>`
+        ).join('');
+        dotsWrap.innerHTML = carouselImgs.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goCarousel(${i})"></span>`).join('');
+
+        function renderCarousel() {
+            track.style.transform = `translateX(-${carIndex * 100}%)`;
+            [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === carIndex));
+        }
+        function moveCarousel(dir) {
+            carIndex = (carIndex + dir + carouselImgs.length) % carouselImgs.length;
+            renderCarousel();
+        }
+        function goCarousel(i) { carIndex = i; renderCarousel(); }
+        let carTimer = setInterval(() => moveCarousel(1), 4000);
+        document.getElementById('carouselViewport').addEventListener('mouseenter', () => clearInterval(carTimer));
+        document.getElementById('carouselViewport').addEventListener('mouseleave', () => carTimer = setInterval(() => moveCarousel(1), 4000));
+
+        /* ---------------- Product modal ---------------- */
+        let currentProduct = null;
+        let selectedPlan = null;
+
+        function openProduct(id) {
+            const p = PRODUCTS[id];
+            currentProduct = id;
+            document.getElementById('pmBadge').textContent = p.badge;
+            document.getElementById('pmTitle').textContent = p.name;
+            document.getElementById('pmDesc').textContent = p.desc;
+
+            document.getElementById('pmFeatures').innerHTML = p.features.map((g, idx) => `
+                <div class="feature-group p-3 text-xs text-white ${p.features.length % 2 && idx === p.features.length - 1 ? 'sm:col-span-2' : ''}">
+                    <span class="text-primary font-bold block mb-1.5">${g.t}</span>
+                    ${g.i.map(x => `<div class="text-[var(--muted)] leading-relaxed">• ${x}</div>`).join('')}
+                </div>`).join('');
+
+            document.getElementById('pmPlans').innerHTML = p.plans.map((pl, i) => `
+                <div class="plan p-3" data-i="${i}" onclick="selectPlan(${i})">
+                    <div class="text-xs text-[var(--muted)] font-semibold">${pl.label}</div>
+                    <div class="text-base font-black text-white mt-1">৳${pl.price}</div>
+                </div>`).join('');
+
+            selectPlan(0);
+            openModal('productModal');
+        }
+
+        function selectPlan(i) {
+            selectedPlan = i;
+            [...document.querySelectorAll('#pmPlans .plan')].forEach(el =>
+                el.classList.toggle('selected', +el.dataset.i === i));
+        }
+
+        function goToPayment() {
+            if (currentProduct === null || selectedPlan === null) return;
+            const p = PRODUCTS[currentProduct];
+            const plan = p.plans[selectedPlan];
+            closeModal('productModal');
+            document.getElementById('payProductName').textContent = `${p.name} — ${plan.label}`;
+            document.getElementById('payAmount').textContent = plan.price;
+            document.getElementById('trxInput').value = '';
+            setMethod('bkash');
+            openModal('paymentModal');
+        }
+
+        /* ---------------- Payment ---------------- */
+        function setMethod(method) {
+            const cfg = PAYMENT[method];
+            document.querySelectorAll('.pay-tab').forEach(t => {
+                const active = t.dataset.method === method;
+                t.style.background = active ? cfg.color : '';
+                t.style.color = active ? (method === 'binance' ? '#000' : '#fff') : '';
+                t.style.borderColor = active ? cfg.color : '';
+            });
+            document.getElementById('payInstructions').innerHTML =
+                '<ul class="space-y-1.5 list-disc pl-4">' + cfg.steps.map(s => `<li>${s}</li>`).join('') + '</ul>';
+
+            const box = document.getElementById('recipientBox');
+            box.style.background = cfg.color;
+            box.style.color = method === 'binance' ? '#000' : '#fff';
+            document.getElementById('recipientLabel').textContent = cfg.recipient;
+            document.getElementById('recipientNumber').textContent = cfg.number;
+
+            const vb = document.getElementById('verifyBtn');
+            vb.style.background = cfg.color;
+            vb.style.color = method === 'binance' ? '#000' : '#fff';
+        }
+
+        function copyRecipient() {
+            const num = document.getElementById('recipientNumber').textContent;
+            navigator.clipboard.writeText(num).then(() => toast('Copied: ' + num))
+                .catch(() => toast('Copy failed — copy manually'));
+        }
+
+        function verifyPayment() {
+            const trx = document.getElementById('trxInput').value.trim();
+            if (!trx) { toast('Please enter a valid Transaction ID'); return; }
+            const amount = document.getElementById('payAmount').textContent;
+            toast('Verifying Trx ' + trx + ' · ৳' + amount);
+            // TODO: connect your backend verification here
+        }
+
+        /* ---------------- Modal helpers ---------------- */
+        function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            if (!document.querySelector('.modal.open')) document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); }));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); });
+
+        /* ---------------- Misc ---------------- */
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+        function showDemo(name) { toast('Demo for ' + name + ' coming soon'); }
+        let toastTimer;
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
