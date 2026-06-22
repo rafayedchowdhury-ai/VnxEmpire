@@ -1,191 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
-    <title>About Us & Rules | VenoX Empire</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About Us &amp; Rules — Venox Empire</title>
+    <meta name="description"
+        content="Learn about Venox Empire — Bangladesh's trusted source for premium Free Fire panels. Read our story, values and community rules.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About Us &amp; Rules — Venox Empire">
+    <meta property="og:description" content="Trust, quality and excellence. Read our story and community rules.">
+    <meta property="og:type" content="website">
+
+    <!-- Emoji favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind (official CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: '#0a0a0f',
+                        surface: '#14141f',
+                        surface2: '#1c1c2b',
+                        primary: '#a855f7',
+                        accent: '#22d3ee',
+                    },
+                },
+            },
+        };
+    </script>
+
     <style>
-    /* গ্লো ইফেক্ট এবং বাটন স্টাইল */
-    .neon-text-glow { text-shadow: 0 0 10px rgba(188, 19, 254, 0.8); }
-    .nav-link-custom { display: flex; align-items: center; gap: 8px; color: #d1d5db; font-weight: 600; transition: 0.3s; }
-    .nav-link-custom:hover { color: #a855f7; }
-    .btn-neon-purple { background: #6b21a8; color: white; box-shadow: 0 0 10px rgba(107, 33, 168, 0.5); }
-    .btn-neon-cyan { background: #4023aa; color: white; box-shadow: 0 0 10px rgba(8, 145, 178, 0.5); }
-</style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #14141f;
+            --surface-2: #1c1c2b;
+            --primary: #a855f7;
+            --accent: #22d3ee;
+            --text: #e8e8f0;
+            --muted: #9494a8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--surface-2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .text-glow {
+            text-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: color .2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all .2s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #0a0a0f;
+        }
+
+        .btn-primary:hover {
+            background: #b366ff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .chip {
+            background: rgba(168, 85, 247, 0.12);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        .section-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* About panel */
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+        }
+
+        .panel-accent {
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Rule cards */
+        .rule {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: border-color .25s ease, transform .25s ease;
+        }
+
+        .rule:hover {
+            border-color: rgba(168, 85, 247, 0.45);
+            transform: translateY(-3px);
+        }
+
+        .rule-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(168, 85, 247, 0.12);
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        .rule-icon.danger {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
 </head>
-<body class="bg-[#0a0410] text-gray-200 font-sans antialiased selection:bg-purple-600 selection:text-white">
 
-    <div class="max-w-5xl mx-auto px-4 py-12 sm:py-16">
+<body>
 
+    <!-- ====================== HEADER ====================== -->
+    <header class="header sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto py-3 px-4 flex items-center justify-between">
+            <a href="index.html"
+                class="font-display text-lg md:text-xl font-extrabold tracking-wider text-white flex items-center gap-2">
+                <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
+            </a>
 
-        <header class="sticky top-0 z-[100] w-full bg-[#0a0410]/90 border-b border-purple-900/40">
-    <div class="container mx-auto py-3 px-4 flex items-center justify-between">
-        
-        <a href="index.html" class="text-xl md:text-2xl font-extrabold text-white neon-text-glow flex items-center gap-2">
-            <i class="fas fa-bolt text-purple-500"></i> Venox Empire
-        </a>
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="index.html" class="nav-link"><i class="fas fa-house"></i>Home</a>
+                <a href="index.html#pc-section" class="nav-link"><i class="fas fa-desktop"></i>PC Panel</a>
+                <a href="index.html#mobile-section" class="nav-link"><i class="fab fa-android"></i>Android Panel</a>
+                <a href="index.html#contact" class="nav-link"><i class="fas fa-headset"></i>Contact</a>
+                <a href="about.html" class="nav-link active"><i class="fas fa-circle-info"></i>About Us</a>
+            </nav>
 
-        <nav class="hidden md:flex items-center gap-6">
-            <a href="index.html" class="nav-link-custom"><i class="fas fa-house text-purple-500"></i>Home</a>
-            <a href="pc-panel.html" class="nav-link-custom"><i class="fas fa-desktop text-purple-500"></i>PC PANEL</a>
-            <a href="index.html#mobile-section" class="nav-link-custom"><i class="fab fa-android text-purple-500"></i>Android Panel</a>
-            <a href="#" class="nav-link-custom"><i class="fas fa-headset text-purple-500"></i>Contact Us</a>
-            <a href="about.html" class="nav-link-custom"><i class="fas fa-circle-info text-purple-500"></i>About Us</a>
-        </nav>
-
-        <div class="hidden sm:flex items-center gap-2">
-            <a href="login.html" class="btn-neon-purple px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Login</a>
-            <a href="login.html" class="btn-neon-cyan px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider">Register</a>
+            <div class="flex items-center gap-2">
+                <a href="login.html" class="btn btn-ghost px-4 py-1.5 text-xs hidden sm:inline-flex">Login</a>
+                <a href="login.html" class="btn btn-primary px-4 py-1.5 text-xs hidden sm:inline-flex">Register</a>
+                <button onclick="toggleMobileMenu()" aria-label="Open menu"
+                    class="lg:hidden text-white text-xl bg-transparent border-none cursor-pointer w-9 h-9">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</header>
-        
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600 mb-4 tracking-wider uppercase drop-shadow-[0_0_10px_rgba(188,19,254,0.5)]">
-                VenoX Empire
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-white/5 px-4 py-3 flex flex-col gap-3">
+            <a href="index.html" class="nav-link"><i class="fas fa-house"></i>Home</a>
+            <a href="index.html#pc-section" class="nav-link"><i class="fas fa-desktop"></i>PC Panel</a>
+            <a href="index.html#mobile-section" class="nav-link"><i class="fab fa-android"></i>Android Panel</a>
+            <a href="index.html#contact" class="nav-link"><i class="fas fa-headset"></i>Contact</a>
+            <a href="about.html" class="nav-link active"><i class="fas fa-circle-info"></i>About Us</a>
+            <div class="flex gap-2 pt-1 sm:hidden">
+                <a href="login.html" class="btn btn-ghost py-2 flex-1 text-xs">Login</a>
+                <a href="login.html" class="btn btn-primary py-2 flex-1 text-xs">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero-grid">
+        <div class="max-w-4xl mx-auto px-4 pt-14 pb-10 md:pt-20 md:pb-12 text-center">
+            <nav class="text-xs text-[var(--muted)] mb-5" aria-label="Breadcrumb">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <span class="mx-2 opacity-50">/</span>
+                <span class="text-white">About Us</span>
+            </nav>
+            <span class="badge chip mb-5"><i class="fas fa-circle-info"></i> Trust · Quality · Excellence</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white text-balance leading-tight text-glow">
+                About Venox Empire
             </h1>
-            <p class="text-gray-400 text-lg md:text-xl font-medium">Trust, Quality & Excellence</p>
+            <p class="text-[var(--muted)] mt-5 max-w-xl mx-auto text-pretty">
+                Bangladesh's trusted destination for premium Free Fire panels and digital products —
+                built on honesty, quality and round-the-clock support.
+            </p>
         </div>
+    </section>
 
-        <div class="border border-purple-600/40 bg-[#150a21]/80 rounded-2xl p-8 sm:p-10 mb-12 shadow-[0_0_20px_rgba(188,19,254,0.15)] relative overflow-hidden group">
-            <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-400 to-purple-800 shadow-[0_0_15px_rgba(188,19,254,0.8)]"></div>
-            
-            <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-yellow-500 text-3xl">👑</span> About Us
-            </h2>
-            
-            <div class="space-y-4 text-gray-300 text-base md:text-lg leading-relaxed">
-                <p>
-                    Welcome to <strong>VenoX Empire</strong>, your ultimate and most trusted destination for premium digital products, exclusive panels, and top-tier gaming assets. We built this empire with one core vision: to provide our community with reliable, high-quality, and completely secure services that they can truly depend on.
-                </p>
-                <p>
-                    In the digital world, trust is everything. With a strong focus on 100% authenticity, customer satisfaction, and round-the-clock professional support, we ensure that every product you purchase from us meets the highest standard of excellence. 
-                </p>
-                <p>
-                    Whether you are looking for advanced mods, secure panels, or a trustworthy community to grow with, VenoX Empire is here to deliver nothing but the best. We don't just sell products; we build long-term relationships with our clients based on honesty and transparency.
-                </p>
+    <!-- ====================== ABOUT ====================== -->
+    <section class="max-w-4xl mx-auto px-4 my-10">
+        <div class="panel panel-accent p-7 md:p-10">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="rule-icon"><i class="fas fa-crown"></i></span>
+                <h2 class="section-title text-xl md:text-2xl text-white">Our Story</h2>
             </div>
-        </div>
-
-        <div class="border border-purple-600/40 bg-[#150a21]/80 rounded-2xl p-8 sm:p-10 shadow-[0_0_20px_rgba(188,19,254,0.15)]">
-            
-            <div class="text-center border-b border-purple-600/30 pb-8 mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-wide mb-3">
-                    <span class="text-purple-500">🛡️</span> Server Rules <span class="text-purple-500">🛡️</span>
-                </h2>
-                <p class="text-gray-400 text-lg">To keep our community safe and professional, everyone must follow the rules below.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>🤝</span> Respect Everyone
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>No harassment, bullying, or toxic behavior.</li>
-                        <li>Respect all members, staff, and customers.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>🚫</span> No Spam
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Spamming messages, emojis, or links is strictly prohibited.</li>
-                        <li>Avoid unnecessary tagging or pinging members.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>📢</span> No Advertising
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Do not advertise other servers, services, or products without staff permission.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-red-400 flex items-center gap-2 mb-3">
-                        <span>🛑</span> No Scamming
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Any type of scam attempt will result in an instant permanent ban.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>📁</span> Use Correct Channels
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Use the correct channels for your questions, support, or purchases.</li>
-                        <li>Do not create unnecessary tickets.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>📜</span> Follow Discord ToS
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>All members must follow Discord Terms of Service and Community Guidelines.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>👮</span> Staff Decisions
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Respect staff decisions.</li>
-                        <li>If you have a problem, open a support ticket instead of arguing.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-red-400 flex items-center gap-2 mb-3">
-                        <span>🔒</span> No Leaking
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Sharing or leaking VenoX Empire panels, files, or private content is strictly forbidden.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-purple-400 flex items-center gap-2 mb-3">
-                        <span>💳</span> Payments
-                    </h3>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>All payments are final and non-refundable unless stated otherwise.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-[#0a0410]/50 p-5 rounded-xl border border-purple-600/20 hover:border-purple-500/50 transition-colors">
-                    <h3 class="text-xl font-semibold text-red-500 flex items-center gap-2 mb-3">
-                        <span>⚖️</span> Punishments
-                    </h3>
-                    <p class="text-gray-300 mb-2 ml-2">Breaking rules may result in:</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-1 ml-2">
-                        <li>Warning</li>
-                        <li>Mute</li>
-                        <li>Kick</li>
-                        <li class="text-red-400 font-semibold">Permanent Ban</li>
-                    </ul>
-                </div>
-
-            </div> <div class="mt-10 pt-6 border-t border-purple-600/30 text-center bg-purple-900/20 rounded-lg p-4">
-                <p class="text-purple-300 font-bold text-lg tracking-wide uppercase">
-                    By staying in VenoX Empire, you agree to follow all server rules.
+            <div class="space-y-4 text-[var(--muted)] text-sm md:text-base leading-relaxed">
+                <p>
+                    Welcome to <strong class="text-white">Venox Empire</strong>, your ultimate and most trusted
+                    destination for premium digital products, exclusive panels and top-tier gaming assets. We built
+                    this empire with one core vision: to provide our community with reliable, high-quality and
+                    completely secure services they can truly depend on.
+                </p>
+                <p>
+                    In the digital world, trust is everything. With a strong focus on 100% authenticity, customer
+                    satisfaction and round-the-clock professional support, we ensure that every product you purchase
+                    from us meets the highest standard of excellence.
+                </p>
+                <p>
+                    Whether you are looking for advanced mods, secure panels or a trustworthy community to grow with,
+                    Venox Empire is here to deliver nothing but the best. We don't just sell products; we build
+                    long-term relationships with our clients based on honesty and transparency.
                 </p>
             </div>
 
+            <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-white/5">
+                <div class="text-center">
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">5K+</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Happy Users</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">99%</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Uptime</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">24/7</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== RULES ====================== -->
+    <section class="max-w-5xl mx-auto px-4 my-14">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fas fa-shield-halved text-primary"></i> Community Rules</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Server Rules</h2>
+            <p class="text-sm text-[var(--muted)] mt-3 max-w-xl mx-auto">
+                To keep our community safe and professional, everyone must follow the rules below.
+            </p>
         </div>
 
-    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="rulesGrid"></div>
+
+        <div class="card mt-8 p-6 text-center">
+            <p class="text-[#d8b4fe] font-bold uppercase tracking-wide text-sm md:text-base">
+                By staying in Venox Empire, you agree to follow all server rules.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer id="contact" class="border-t border-white/5 mt-16">
+        <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <a href="index.html" class="font-display text-lg font-extrabold text-white flex items-center gap-2">
+                    <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
+                </a>
+                <p class="text-sm text-[var(--muted)] mt-3 max-w-sm">
+                    Premium Free Fire panels for PC and Android. Safe, stable and trusted by the community.
+                    For entertainment and private use only.
+                </p>
+                <div class="flex items-center gap-3 mt-4">
+                    <a href="#" aria-label="Telegram" class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="WhatsApp" class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Products</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="index.html#pc-section" class="hover:text-white">PC Panels</a></li>
+                    <li><a href="index.html#mobile-section" class="hover:text-white">Android Panels</a></li>
+                    <li><a href="index.html#why" class="hover:text-white">Why Choose Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Support</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">Terms &amp; Refund</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/5 py-5 text-center text-xs text-[var(--muted)]">
+            &copy; <span id="year"></span> Venox Empire. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script>
+        /* Edit your community rules here */
+        const RULES = [
+            { icon: 'fa-handshake', title: 'Respect Everyone', items: ['No harassment, bullying, or toxic behavior.', 'Respect all members, staff, and customers.'] },
+            { icon: 'fa-ban', title: 'No Spam', items: ['Spamming messages, emojis, or links is strictly prohibited.', 'Avoid unnecessary tagging or pinging members.'] },
+            { icon: 'fa-bullhorn', title: 'No Advertising', items: ['Do not advertise other servers, services, or products without staff permission.'] },
+            { icon: 'fa-circle-xmark', title: 'No Scamming', danger: true, items: ['Any type of scam attempt will result in an instant permanent ban.'] },
+            { icon: 'fa-folder-open', title: 'Use Correct Channels', items: ['Use the correct channels for questions, support, or purchases.', 'Do not create unnecessary tickets.'] },
+            { icon: 'fa-file-contract', title: 'Follow Platform ToS', items: ['All members must follow the platform Terms of Service and Community Guidelines.'] },
+            { icon: 'fa-user-shield', title: 'Staff Decisions', items: ['Respect staff decisions.', 'If you have a problem, open a support ticket instead of arguing.'] },
+            { icon: 'fa-lock', title: 'No Leaking', danger: true, items: ['Sharing or leaking Venox Empire panels, files, or private content is strictly forbidden.'] },
+            { icon: 'fa-credit-card', title: 'Payments', items: ['All payments are final and non-refundable unless stated otherwise.'] },
+            { icon: 'fa-scale-balanced', title: 'Punishments', danger: true, items: ['Warning', 'Mute', 'Kick', 'Permanent Ban'] },
+        ];
+
+        const rulesGrid = document.getElementById('rulesGrid');
+        rulesGrid.innerHTML = RULES.map(function (r) {
+            var list = r.items.map(function (i) {
+                return '<li class="flex items-start gap-2"><i class="fas fa-angle-right text-primary text-xs mt-1.5"></i><span>' + i + '</span></li>';
+            }).join('');
+            return '' +
+                '<div class="rule p-5">' +
+                '  <div class="flex items-center gap-3 mb-3">' +
+                '    <span class="rule-icon ' + (r.danger ? 'danger' : '') + '"><i class="fas ' + r.icon + '"></i></span>' +
+                '    <h3 class="font-bold text-white text-base">' + r.title + '</h3>' +
+                '  </div>' +
+                '  <ul class="text-sm text-[var(--muted)] space-y-1.5">' + list + '</ul>' +
+                '</div>';
+        }).join('');
+
+        /* Mobile menu */
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        /* Year */
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
+
 </html>
