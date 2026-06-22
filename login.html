@@ -1,328 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth - Venox Empire</title>
-    <!-- Tailwind CSS & FontAwesome -->
-    <link rel="stylesheet" href="https://ffpanel.com/assets/template/css/tailwindcss.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --neon-purple: #bc13fe;
-            --neon-glow: #00f0ff;
-            --dark-bg: #07070c;
-            --deep-ash: #1a1a24;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venox Empire - Login</title>
 
-        body {
-            background-color: var(--dark-bg);
-            background-image: 
-                radial-gradient(circle at 20% 35%, rgba(188, 19, 254, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 75%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            color: #ffffff;
-        }
+  <!-- ===== CSS ===== -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        /* Premium Glossy Glassmorphism Effect - Expanded Max Width */
-        .glossy-card {
-            background: rgba(20, 15, 30, 0.65);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(188, 19, 254, 0.25);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6),
-                        0 0 25px rgba(188, 19, 254, 0.15);
-        }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0a1e;
+      color: #ffffff;
+      padding: 20px;
+    }
 
-        /* Neon Glow Utility */
-        .neon-text {
-            text-shadow: 0 0 12px var(--neon-purple), 0 0 24px var(--neon-purple);
-        }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: #1a1330;
+      border: 1px solid #3a2a5c;
+      border-radius: 16px;
+      padding: 30px;
+    }
 
-        /* Deep Ash Input Fields with Comfort Padding */
-        .glossy-input {
-            background: var(--deep-ash) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ffffff !important;
-            padding-left: 52px !important; 
-            padding-right: 48px !important; 
-            height: 54px; /* ইনপুট বক্স একটু বড় ও প্রিমিয়াম করা হয়েছে */
-            transition: all 0.3s ease;
-        }
-        .glossy-input:focus {
-            border-color: var(--neon-purple);
-            box-shadow: 0 0 12px rgba(188, 19, 254, 0.5);
-            outline: none;
-        }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        /* Input Container Dynamic Positioning */
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+    .logo h1 {
+      font-size: 24px;
+      color: #a855f7;
+    }
 
-        /* বামের আইকন পজিশন */
-        .input-icon-left {
-            position: absolute;
-            left: 18px;
-            z-index: 10;
-            color: #9ca3af;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 18px;
-            pointer-events: none;
-            font-size: 1.1rem;
-        }
+    .logo p {
+      font-size: 14px;
+      color: #a99fc9;
+      margin-top: 6px;
+    }
 
-        /* ডানের পাসওয়ার্ড টগল আইকন (চোখ) */
-        .password-toggle-btn {
-            position: absolute;
-            right: 18px;
-            z-index: 10;
-            color: #9ca3af;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.2s;
-            font-size: 1.1rem;
-        }
-        .password-toggle-btn:hover {
-            color: var(--neon-purple);
-        }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      background: #241a3d;
+      border-radius: 10px;
+      padding: 5px;
+      margin-bottom: 24px;
+    }
 
-        /* Premium Buttons */
-        .btn-neon {
-            background: linear-gradient(135deg, #a811e2, var(--neon-purple));
-            box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
-            height: 52px;
-            transition: all 0.3s ease;
-        }
-        .btn-neon:hover {
-            box-shadow: 0 0 25px rgba(188, 19, 254, 0.7);
-            transform: translateY(-1px);
-        }
+    .tab {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: #a99fc9;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
-        /* Social Sign In Buttons with Brand Border Style */
-        .social-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #ffffff !important;
-            height: 50px;
-            transition: all 0.3s ease;
-        }
-        .social-btn:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(188, 19, 254, 0.4);
-        }
+    .tab.active {
+      background: #a855f7;
+      color: #ffffff;
+    }
 
-        .form-hidden {
-            display: none !important;
-        }
-        
-        label {
-            color: #ffffff !important;
-        }
-    </style>
+    /* Form fields */
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: #a99fc9;
+      margin-bottom: 6px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 12px;
+      background: #0f0a1e;
+      border: 1px solid #3a2a5c;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: #a855f7;
+    }
+
+    /* Show/hide password button */
+    .eye {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #a99fc9;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    /* Password strength */
+    .strength-bar {
+      height: 6px;
+      background: #241a3d;
+      border-radius: 4px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0;
+      background: #f87171;
+      transition: width 0.3s, background 0.3s;
+    }
+
+    .strength-text {
+      font-size: 12px;
+      color: #a99fc9;
+      margin-top: 4px;
+    }
+
+    /* Remember + forgot row */
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    .row label {
+      color: #a99fc9;
+      cursor: pointer;
+    }
+
+    .row a {
+      color: #c4b5fd;
+      text-decoration: none;
+    }
+
+    /* Primary button */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #a855f7;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #9333ea;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      color: #a99fc9;
+      font-size: 13px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #3a2a5c;
+    }
+
+    /* Social buttons */
+    .social {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-google {
+      background: #ffffff;
+      color: #1f1f1f;
+    }
+
+    .btn-discord {
+      background: #5865f2;
+      color: #ffffff;
+    }
+
+    .social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #a99fc9;
+    }
+
+    .footer a {
+      color: #c4b5fd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
-<body class="flex items-center justify-center p-6">
 
-    <!-- 🛠️ max-w-xl ব্যবহার করে মেইন বক্সটি অনেক বড় এবং স্পেসিয়াস করা হয়েছে -->
-    <div class="w-full max-w-xl glossy-card rounded-3xl p-10 md:p-12 relative overflow-hidden my-6">
-        
-        <!-- Top Tech Icon/Logo Frame -->
-        <div class="flex justify-center mb-8">
-            <div class="w-16 h-16 rounded-2xl bg-purple-900/40 border border-purple-500/40 flex items-center justify-center shadow-[0_0_18px_rgba(188,19,254,0.3)]">
-                <i class="fas fa-shield-halved text-3xl text-purple-400"></i>
-            </div>
-        </div>
+<body>
+  <div class="card">
 
-        <!-- ================= LOGIN FORM ================= -->
-        <div id="loginFormSection">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-black tracking-wide text-white neon-text">WELCOME BACK</h2>
-                <p class="text-gray-400 text-sm mt-3">Login to manage your premium panel access</p>
-            </div>
-
-            <!-- space-y-6 দিয়ে এলিমেন্টগুলোর মাঝখানের গ্যাপ বাড়ানো হয়েছে -->
-            <form onsubmit="handleLogin(event)" class="space-y-6">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Email Address</label>
-                    <div class="input-wrapper">
-                        <span class="input-icon-left"><i class="fas fa-envelope"></i></span>
-                        <input type="email" required class="w-full glossy-input rounded-xl" placeholder="">
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex justify-between items-center mb-2.5">
-                        <label class="block text-xs font-semibold uppercase tracking-wider">Password</label>
-                        <a href="#" class="text-xs text-purple-400 hover:underline pr-1">Forgot Password?</a>
-                    </div>
-                    <div class="input-wrapper">
-                        <span class="input-icon-left"><i class="fas fa-lock"></i></span>
-                        <input type="password" id="loginPassword" required class="w-full glossy-input rounded-xl">
-                        <button type="button" onclick="togglePassword('loginPassword', 'loginPasswordIcon')" class="password-toggle-btn">
-                            <i id="loginPasswordIcon" class="fas fa-eye-slash"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full btn-neon text-white font-bold rounded-xl uppercase tracking-wider text-sm mt-2">Sign In</button>
-            </form>
-
-            <!-- Divider -->
-            <div class="flex items-center my-8">
-                <div class="flex-1 border-t border-gray-800/60"></div>
-                <span class="px-4 text-xs text-gray-400 uppercase tracking-widest font-mono">Or connect with</span>
-                <div class="flex-1 border-t border-gray-800/60"></div>
-            </div>
-
-            <!-- Social Logins with Actual Brand Icons -->
-            <div class="grid grid-cols-2 gap-5">
-                <button onclick="socialSignIn('Google')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
-                    <!-- 🛠️ Google Actual Icon -->
-                    <svg class="w-5 h-5" viewBox="0 0 24 24">
-                        <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l3.227-3.11C18.432 2.06 15.66 1 12.24 1 6.162 1 1.232 5.925 1.232 12s4.93 11 11.008 11c6.346 0 10.564-4.455 10.564-10.75 0-.724-.078-1.275-.173-1.685H12.24z"/>
-                    </svg>
-                    Google
-                </button>
-                <button onclick="socialSignIn('Facebook')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
-                    <!-- 🛠️ Facebook Actual Icon -->
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1877F2">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                    Facebook
-                </button>
-            </div>
-
-            <!-- 🛠️ mt-10 দিয়ে এই লাইনটি আরও নিচে নামানো হয়েছে যেন দেখতে সুন্দর লাগে -->
-            <p class="text-center text-sm text-gray-400 mt-10">
-                Don't have an account? <button onclick="toggleAuthForms()" class="text-purple-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Sign Up</button>
-            </p>
-        </div>
-
-
-        <!-- ================= REGISTRATION FORM ================= -->
-        <div id="registerFormSection" class="form-hidden">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-black tracking-wide text-white neon-text">CREATE ACCOUNT</h2>
-                <p class="text-gray-400 text-sm mt-3">Get instant auto-delivery on all purchases</p>
-            </div>
-
-            <form onsubmit="handleRegister(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Username</label>
-                    <div class="input-wrapper">
-                        <span class="input-icon-left"><i class="fas fa-user"></i></span>
-                        <input type="text" required class="w-full glossy-input rounded-xl" placeholder="">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Email Address</label>
-                    <div class="input-wrapper">
-                        <span class="input-icon-left"><i class="fas fa-envelope"></i></span>
-                        <input type="email" required class="w-full glossy-input rounded-xl" placeholder="">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider mb-2.5">Password</label>
-                    <div class="input-wrapper">
-                        <span class="input-icon-left"><i class="fas fa-lock"></i></span>
-                        <input type="password" id="registerPassword" required class="w-full glossy-input rounded-xl">
-                        <button type="button" onclick="togglePassword('registerPassword', 'registerPasswordIcon')" class="password-toggle-btn">
-                            <i id="registerPasswordIcon" class="fas fa-eye-slash"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex items-start pt-2">
-                    <input type="checkbox" required id="termsCheck" class="mt-1 accent-purple-600">
-                    <label for="termsCheck" class="text-xs text-gray-400 ml-2.5 cursor-pointer select-none leading-relaxed">
-                        I agree to the <a href="#" class="text-purple-400 hover:underline">Terms of Service</a> and Privacy Policy.
-                    </label>
-                </div>
-
-                <button type="submit" class="w-full btn-neon text-white font-bold rounded-xl uppercase tracking-wider text-sm mt-3">Register Now</button>
-            </form>
-
-            <!-- Divider -->
-            <div class="flex items-center my-7">
-                <div class="flex-1 border-t border-gray-800/60"></div>
-                <span class="px-4 text-xs text-gray-400 uppercase tracking-widest font-mono">Or register with</span>
-                <div class="flex-1 border-t border-gray-800/60"></div>
-            </div>
-
-            <!-- Social Registrations with Actual Brand Icons -->
-            <div class="grid grid-cols-2 gap-5">
-                <button onclick="socialSignIn('Google')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24">
-                        <path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.275 1.565-1.88 4.604-6.887 4.604-4.33 0-7.866-3.577-7.866-8s3.536-8 7.866-8c2.46 0 4.105 1.025 5.047 1.926l3.227-3.11C18.432 2.06 15.66 1 12.24 1 6.162 1 1.232 5.925 1.232 12s4.93 11 11.008 11c6.346 0 10.564-4.455 10.564-10.75 0-.724-.078-1.275-.173-1.685H12.24z"/>
-                    </svg>
-                    Google
-                </button>
-                <button onclick="socialSignIn('Facebook')" class="social-btn rounded-xl text-sm font-semibold flex items-center justify-center gap-3 cursor-pointer">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#1877F2">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                    Facebook
-                </button>
-            </div>
-
-            <!-- Already have an account line spaced out -->
-            <p class="text-center text-sm text-gray-400 mt-8">
-                Already have an account? <button onclick="toggleAuthForms()" class="text-purple-400 font-bold hover:underline bg-transparent border-none cursor-pointer">Sign In</button>
-            </p>
-        </div>
-
+    <!-- Logo -->
+    <div class="logo">
+      <h1>Venox Empire</h1>
+      <p id="subtitle">Welcome back, sign in to continue</p>
     </div>
 
-    <script>
-        function togglePassword(inputId, iconId) {
-            const passwordInput = document.getElementById(inputId);
-            const toggleIcon = document.getElementById(iconId);
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('fa-eye-slash');
-                toggleIcon.classList.add('fa-eye');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('fa-eye');
-                toggleIcon.classList.add('fa-eye-slash');
-            }
-        }
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
+      <button class="tab" id="tabRegister" onclick="switchTab('register')">Register</button>
+    </div>
 
-        function toggleAuthForms() {
-            const loginSection = document.getElementById('loginFormSection');
-            const registerSection = document.getElementById('registerFormSection');
-            
-            loginSection.classList.toggle('form-hidden');
-            registerSection.classList.toggle('form-hidden');
-        }
+    <!-- ===== LOGIN FORM ===== -->
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="you@example.com" required />
+      </div>
 
-        function handleLogin(e) {
-            e.preventDefault();
-            alert("Login request submitted!");
-        }
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="loginPassword" placeholder="Enter password" required />
+          <button type="button" class="eye" onclick="toggleEye('loginPassword', this)">Show</button>
+        </div>
+      </div>
 
-        function handleRegister(e) {
-            e.preventDefault();
-            alert("Registration request submitted!");
-        }
+      <div class="row">
+        <label><input type="checkbox" id="rememberMe" /> Remember me</label>
+        <a href="#" onclick="event.preventDefault()">Forgot password?</a>
+      </div>
 
-        function socialSignIn(provider) {
-            alert("Redirecting to: " + provider);
-        }
-    </script>
+      <button type="submit" class="btn">Sign In</button>
+    </form>
+
+    <!-- ===== REGISTER FORM ===== -->
+    <form id="registerForm" class="hidden" onsubmit="handleRegister(event)">
+      <div class="field">
+        <label for="regUsername">Username</label>
+        <input type="text" id="regUsername" placeholder="Choose a username" required />
+      </div>
+
+      <div class="field">
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" placeholder="you@example.com" required />
+      </div>
+
+      <div class="field">
+        <label for="regPassword">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="regPassword" placeholder="Create a password" required oninput="updateStrength(this.value)" />
+          <button type="button" class="eye" onclick="toggleEye('regPassword', this)">Show</button>
+        </div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+        <div class="strength-text" id="strengthText">Password strength</div>
+      </div>
+
+      <div class="field">
+        <label for="regConfirm">Confirm password</label>
+        <div class="input-wrap">
+          <input type="password" id="regConfirm" placeholder="Re-enter password" required />
+          <button type="button" class="eye" onclick="toggleEye('regConfirm', this)">Show</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label><input type="checkbox" id="agreeTerms" required /> I agree to the Terms</label>
+      </div>
+
+      <button type="submit" class="btn">Create Account</button>
+    </form>
+
+    <!-- Divider -->
+    <div class="divider">or continue with</div>
+
+    <!-- Social buttons -->
+    <div class="social">
+      <button class="btn-google" onclick="socialLogin('Google')">
+        <svg viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <button class="btn-discord" onclick="socialLogin('Discord')">
+        <svg viewBox="0 0 24 24" fill="#fff">
+          <path d="M20.317 4.369A19.79 19.79 0 0 0 16.558 3.2a.074.074 0 0 0-.079.037c-.34.607-.719 1.4-.984 2.022a18.27 18.27 0 0 0-5.486 0 12.6 12.6 0 0 0-.997-2.022.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C1.236 7.99.576 11.52.901 15.01a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.127c-.598.349-1.22.645-1.873.892a.076.076 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 12.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+        Continue with Discord
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <p class="footer" id="footer">
+      Don't have an account? <a href="#" onclick="event.preventDefault(); switchTab('register')">Register now</a>
+    </p>
+
+  </div>
+
+  <!-- ===== JavaScript ===== -->
+  <script>
+    // Switch between Login and Register
+    function switchTab(which) {
+      var isLogin = which === "login";
+
+      document.getElementById("loginForm").classList.toggle("hidden", !isLogin);
+      document.getElementById("registerForm").classList.toggle("hidden", isLogin);
+      document.getElementById("tabLogin").classList.toggle("active", isLogin);
+      document.getElementById("tabRegister").classList.toggle("active", !isLogin);
+
+      document.getElementById("subtitle").textContent = isLogin
+        ? "Welcome back, sign in to continue"
+        : "Create your account to get started";
+
+      document.getElementById("footer").innerHTML = isLogin
+        ? "Don't have an account? <a href=\"#\" onclick=\"event.preventDefault(); switchTab('register')\">Register now</a>"
+        : "Already have an account? <a href=\"#\" onclick=\"event.preventDefault(); switchTab('login')\">Sign in</a>";
+    }
+
+    // Show / hide password
+    function toggleEye(inputId, btn) {
+      var input = document.getElementById(inputId);
+      if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "Hide";
+      } else {
+        input.type = "password";
+        btn.textContent = "Show";
+      }
+    }
+
+    // Password strength meter
+    function updateStrength(value) {
+      var score = 0;
+      if (value.length >= 6) score++;
+      if (value.length >= 10) score++;
+      if (/[A-Z]/.test(value) && /[a-z]/.test(value)) score++;
+      if (/[0-9]/.test(value)) score++;
+      if (/[^A-Za-z0-9]/.test(value)) score++;
+
+      var fill = document.getElementById("strengthFill");
+      var text = document.getElementById("strengthText");
+
+      if (value.length === 0) {
+        fill.style.width = "0";
+        text.textContent = "Password strength";
+        return;
+      }
+
+      if (score <= 2) {
+        fill.style.width = "33%";
+        fill.style.background = "#f87171";
+        text.textContent = "Weak password";
+      } else if (score <= 4) {
+        fill.style.width = "66%";
+        fill.style.background = "#fbbf24";
+        text.textContent = "Medium password";
+      } else {
+        fill.style.width = "100%";
+        fill.style.background = "#22c55e";
+        text.textContent = "Strong password";
+      }
+    }
+
+    // Login submit
+    function handleLogin(event) {
+      event.preventDefault();
+      alert("Login successful (demo)");
+    }
+
+    // Register submit
+    function handleRegister(event) {
+      event.preventDefault();
+      var pass = document.getElementById("regPassword").value;
+      var confirm = document.getElementById("regConfirm").value;
+
+      if (pass !== confirm) {
+        alert("Passwords do not match!");
+        return;
+      }
+      alert("Account created (demo)");
+    }
+
+    // Social login buttons (demo)
+    function socialLogin(name) {
+      alert(name + " login (demo)");
+    }
+  </script>
 </body>
 </html>
