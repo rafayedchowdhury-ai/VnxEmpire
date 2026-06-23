@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Venox Empire — Premium Free Fire Panels (PC & Mobile)</title>
+    <meta name="description"
+        content="Venox Empire — Bangladesh's trusted source for premium Free Fire panels. PC External, Internal, Mod Menu, UID Bypass, BR Mods and Android Root/Non-Root panels. Safe, stable and instant delivery.">
+    <meta name="theme-color" content="#0a0a0f">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Venox Empire — Premium Free Fire Panels">
+    <meta property="og:description"
+        content="Safe, stable & trusted Free Fire panels for PC and Android. Instant delivery, 24/7 support.">
+    <meta property="og:type" content="website">
+
+    <!-- Emoji favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind (official CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        bg: '#0a0a0f',
+                        surface: '#14141f',
+                        surface2: '#1c1c2b',
+                        primary: '#a855f7',
+                        accent: '#22d3ee',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #14141f;
+            --surface-2: #1c1c2b;
+            --primary: #a855f7;
+            --primary-strong: #b026ff;
+            --accent: #22d3ee;
+            --text: #e8e8f0;
+            --muted: #9494a8;
+            --border: rgba(255, 255, 255, 0.08);
+
+            --bkash: #e2136e;
+            --nagad: #f37021;
+            --binance: #f3ba2f;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--surface-2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Subtle glow used sparingly */
+        .glow-primary {
+            box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: color .2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all .2s ease;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #0a0a0f;
+        }
+
+        .btn-primary:hover {
+            background: #b366ff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .chip {
+            background: rgba(168, 85, 247, 0.12);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+        }
+
+        /* Section heading */
+        .section-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(5, 5, 9, 0.85);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.open {
+            display: block;
+        }
+
+        .modal-card {
+            background: var(--surface);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 22px;
+            max-width: 640px;
+            margin: 40px auto;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            animation: pop .25s ease;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ============ DEMO VIDEO MODAL ============ */
+        .demo-card {
+            max-width: 860px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.32);
+            background: linear-gradient(180deg, #16101f 0%, var(--surface) 30%);
+        }
+
+        .demo-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(120% 140% at 0% 0%, rgba(168, 85, 247, 0.18), transparent 55%);
+        }
+
+        .demo-head-icon {
+            flex-shrink: 0;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(145deg, var(--primary), #7c3aed);
+            box-shadow: 0 8px 22px rgba(168, 85, 247, 0.4);
+        }
+
+        .demo-close {
+            margin-left: auto;
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .demo-close:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .demo-video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .demo-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            display: block;
+        }
+
+        .demo-fallback {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+            color: var(--muted);
+            background:
+                radial-gradient(120% 120% at 50% 30%, rgba(168, 85, 247, 0.12), transparent 60%), #0a0a0f;
+            padding: 20px;
+        }
+
+        .demo-fallback i {
+            font-size: 34px;
+            color: var(--primary);
+            opacity: .7;
+        }
+
+        .demo-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding: 18px 22px 22px;
+        }
+
+        .demo-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 999px;
+            padding: 5px 12px;
+            margin-bottom: 8px;
+        }
+
+        .feature-group {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--primary);
+            border-radius: 12px;
+        }
+
+        .plan {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all .2s ease;
+            text-align: center;
+        }
+
+        .plan:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+        }
+
+        .plan.selected {
+            border-color: var(--primary);
+            background: rgba(168, 85, 247, 0.12);
+            box-shadow: 0 0 0 1px var(--primary) inset;
+        }
+
+        /* Payment */
+        .pay-tab {
+            flex: 1;
+            padding: 12px 5px;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .pay-category-tab {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            transition: all .2s ease;
+        }
+
+        .pay-category-tab:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pay-input {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            color: #fff;
+            width: 100%;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .pay-input:focus {
+            border-color: var(--primary);
+        }
+
+        .recipient-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 14px;
+            padding: 14px 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 2000;
+            transition: transform .3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Carousel dots */
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .dot.active {
+            width: 22px;
+            background: var(--primary);
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* ============ NEW PAYMENT POPUP DESIGN ============ */
+        .pay-modal {
+            max-width: 480px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.28);
+            background: linear-gradient(180deg, #16101f 0%, var(--surface) 32%);
+        }
+
+        .pay-head {
+            position: relative;
+            text-align: center;
+            padding: 26px 24px 22px;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(120% 120% at 50% -10%, rgba(168, 85, 247, 0.18), transparent 60%);
+        }
+
+        .pay-head-icon {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 22px;
+            color: #fff;
+            background: linear-gradient(145deg, var(--primary), #7c3aed);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
+        }
+
+        .pay-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .pay-close:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .pay-body {
+            padding: 22px 24px 24px;
+        }
+
+        .pay-amount-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.22);
+        }
+
+        .pay-seg {
+            display: flex;
+            gap: 6px;
+            padding: 5px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            margin-bottom: 18px;
+        }
+
+        .pay-seg button {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .pay-seg button.active {
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .method-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 8px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .method-card i {
+            font-size: 20px;
+        }
+
+        .method-card:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .method-card.active {
+            color: #fff;
+            border-color: var(--method, var(--primary));
+            background: color-mix(in srgb, var(--method, var(--primary)) 14%, transparent);
+            box-shadow: 0 0 0 1px var(--method, var(--primary)) inset;
+        }
+
+        .pay-field-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: 8px;
+        }
+
+        .recipient-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin: 14px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .recipient-card .r-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        .recipient-card .r-value {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: .04em;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all .2s ease;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .pay-steps {
+            list-style: none;
+            counter-reset: step;
+            margin-bottom: 16px;
+        }
+
+        .pay-steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 34px;
+            min-height: 24px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .pay-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            background: rgba(168, 85, 247, 0.14);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .secure-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 14px 0;
+        }
+
+        /* Verification step */
+        .pay-verify {
+            padding: 36px 28px 30px;
+            text-align: center;
+        }
+
+        .verify-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 30px;
+            color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.35);
+        }
+
+        .verify-icon.success {
+            color: #34d399;
+            background: rgba(52, 211, 153, 0.12);
+            border-color: rgba(52, 211, 153, 0.4);
+        }
+
+        .verify-spin {
+            animation: vspin 1.1s linear infinite;
+        }
+
+        @keyframes vspin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ====================== HEADER ====================== -->
+    <header class="header sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto py-3 px-4 flex items-center justify-between">
+            <a href="#top"
+                class="font-display text-lg md:text-xl font-extrabold tracking-wider text-white flex items-center gap-2">
+                <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="#top" class="nav-link active"><i class="fas fa-house"></i>Home</a>
+                <a href="#pc-section" class="nav-link"><i class="fas fa-desktop"></i>PC Panel</a>
+                <a href="#mobile-section" class="nav-link"><i class="fab fa-android"></i>Android Panel</a>
+                <a href="#why" class="nav-link"><i class="fas fa-shield-halved"></i>Why Us</a>
+                <a href="#contact" class="nav-link"><i class="fas fa-headset"></i>Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="login.html" class="btn btn-ghost px-4 py-1.5 text-xs hidden sm:inline-flex">Login</a>
+                <a href="login.html" class="btn btn-primary px-4 py-1.5 text-xs hidden sm:inline-flex">Register</a>
+                <button onclick="toggleMobileMenu()" aria-label="Open menu"
+                    class="lg:hidden text-white text-xl bg-transparent border-none cursor-pointer w-9 h-9">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-white/5 px-4 py-3 flex flex-col gap-3">
+            <a href="#top" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-house"></i>Home</a>
+            <a href="#pc-section" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-desktop"></i>PC
+                Panel</a>
+            <a href="#mobile-section" class="nav-link" onclick="toggleMobileMenu()"><i
+                    class="fab fa-android"></i>Android Panel</a>
+            <a href="#why" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-shield-halved"></i>Why Us</a>
+            <a href="#contact" class="nav-link" onclick="toggleMobileMenu()"><i class="fas fa-headset"></i>Contact</a>
+            <div class="flex gap-2 pt-1 sm:hidden">
+                <a href="login.html" class="btn btn-ghost py-2 flex-1 text-xs">Login</a>
+                <a href="login.html" class="btn btn-primary py-2 flex-1 text-xs">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================== HERO ====================== -->
+    <section id="top" class="hero-grid relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 pt-16 pb-12 md:pt-24 md:pb-16 text-center">
+            <span class="badge chip mb-5"><i class="fas fa-circle text-[8px] text-green-400"></i> Servers Online ·
+                Instant Delivery</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white text-balance leading-tight text-glow">
+                Premium Free Fire Panels<br class="hidden md:block"> for PC &amp; Android
+            </h1>
+            <p class="text-[var(--muted)] mt-5 max-w-xl mx-auto text-pretty">
+                Safe, stable and undetected panels trusted by thousands of players across Bangladesh.
+                Smooth performance, regular updates and 24/7 support.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+                <a href="#pc-section" class="btn btn-primary px-6 py-3 text-sm">Browse PC Panels</a>
+                <a href="#mobile-section" class="btn btn-outline px-6 py-3 text-sm">Android Panels</a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-12">
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">5K+</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Happy Users</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">99%</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Uptime</div>
+                </div>
+                <div>
+                    <div class="font-display text-2xl md:text-3xl font-extrabold text-white">24/7</div>
+                    <div class="text-xs text-[var(--muted)] mt-1">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== LIMITED OFFER CAROUSEL ====================== -->
+    <section class="max-w-2xl mx-auto px-4 my-10">
+        <div class="card p-5 sm:p-7">
+            <div class="text-center mb-5">
+                <span class="badge chip"><i class="fas fa-fire"></i> Exclusive Limited Time Offer</span>
+                <h2 class="text-white text-lg md:text-xl font-bold mt-3">Complete Premium Package</h2>
+                <p class="text-sm text-[var(--muted)] mt-1">
+                    <span class="line-through opacity-60">৳1000</span>
+                    <span class="text-primary font-bold text-base">৳600</span> / 30 Days — all-in-one PC deal
+                </p>
+            </div>
+
+            <div class="relative overflow-hidden rounded-xl group" id="carouselViewport">
+                <div class="flex transition-transform duration-500 ease-in-out" id="carouselTrack"></div>
+
+                <button onclick="moveCarousel(-1)" aria-label="Previous slide"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-primary hover:text-black text-white w-9 h-9 rounded-full border border-white/10 flex items-center justify-center z-10 transition opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
+                <button onclick="moveCarousel(1)" aria-label="Next slide"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-primary hover:text-black text-white w-9 h-9 rounded-full border border-white/10 flex items-center justify-center z-10 transition opacity-0 group-hover:opacity-100">
+                    <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-center gap-2 mt-4" id="carouselDots"></div>
+
+            <button onclick="openProduct('complete')" class="btn btn-primary w-full py-3 mt-5 text-sm">
+                <i class="fas fa-bolt"></i> Grab The Offer
+            </button>
+        </div>
+    </section>
+
+    <!-- ====================== PC SECTION ====================== -->
+    <section id="pc-section" class="max-w-6xl mx-auto px-4 my-14 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fas fa-desktop text-primary"></i> PC Panels</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Free Fire PC Panel Section</h2>
+        </div>
+        <div id="pcGrid" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"></div>
+    </section>
+
+    <!-- ====================== MOBILE SECTION ====================== -->
+    <section id="mobile-section" class="max-w-6xl mx-auto px-4 my-14 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fab fa-android text-green-400"></i> Android Panels</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Free Fire Mobile Panel Section</h2>
+        </div>
+        <div id="mobileGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></div>
+    </section>
+
+    <!-- ====================== WHY US ====================== -->
+    <section id="why" class="max-w-6xl mx-auto px-4 my-16 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="badge"><i class="fas fa-shield-halved text-primary"></i> Why Choose Us</span>
+            <h2 class="section-title text-xl md:text-2xl text-white mt-3">Built For Serious Players</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="card p-6 text-center">
+                <i class="fas fa-shield-halved text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Safe &amp; Undetected</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">No memory modify. Stable, tested and trusted across all
+                    servers.</p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-bolt text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Instant Delivery</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Automatic key delivery right after your payment is verified.
+                </p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-arrows-rotate text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">Regular Updates</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Frequent updates keep every panel working and optimized.</p>
+            </div>
+            <div class="card p-6 text-center">
+                <i class="fas fa-headset text-primary text-2xl"></i>
+                <h3 class="font-bold text-white mt-3 text-base">24/7 Support</h3>
+                <p class="text-sm text-[var(--muted)] mt-2">Friendly support team ready to help you any time of the day.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== PRODUCT DETAIL MODAL ====================== -->
+    <div id="productModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card p-6 md:p-8">
+            <button onclick="closeModal('productModal')" aria-label="Close"
+                class="absolute top-4 right-5 text-white text-2xl bg-transparent border-none cursor-pointer hover:text-primary">&times;</button>
+
+            <div class="text-center mb-6">
+                <span id="pmBadge" class="badge chip"></span>
+                <h2 id="pmTitle" class="text-2xl md:text-3xl font-black text-white mt-3 text-glow"></h2>
+                <p id="pmDesc" class="text-sm text-[var(--muted)] mt-2"></p>
+            </div>
+
+            <div id="pmFeatures" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6 max-h-64 overflow-y-auto pr-1"></div>
+
+            <div class="mb-6">
+                <p class="text-[var(--muted)] text-xs uppercase tracking-wider mb-3 text-center">Choose Your Plan</p>
+                <div id="pmPlans" class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-lg mx-auto"></div>
+            </div>
+
+            <div class="border-t border-dashed border-white/10 pt-5">
+                <button onclick="goToPayment()" class="btn btn-primary w-full py-3 text-sm">
+                    <i class="fas fa-credit-card"></i> Buy Selected Plan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================== DEMO VIDEO MODAL ====================== -->
+    <div id="demoModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card demo-card">
+            <div class="demo-head">
+                <div class="demo-head-icon"><i class="fas fa-play"></i></div>
+                <div>
+                    <h3 id="demoTitle" class="font-display text-white font-bold text-base leading-tight">Live Demo</h3>
+                    <p id="demoBadge" class="text-xs text-[var(--muted)] mt-0.5"></p>
+                </div>
+                <button onclick="closeDemo()" aria-label="Close" class="demo-close">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="demo-video-wrap">
+                <video id="demoVideo" controls playsinline preload="metadata" controlslist="nodownload"
+                    oncontextmenu="return false">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="demoFallback" class="demo-fallback">
+                    <i class="fas fa-film"></i>
+                    <p class="text-sm font-semibold text-white">Demo video coming soon</p>
+                    <p class="text-xs">Upload the file to see it play here.</p>
+                </div>
+            </div>
+
+            <div class="demo-body">
+                <div>
+                    <span class="demo-tag"><i class="fas fa-circle-play"></i> Gameplay Preview</span>
+                    <p id="demoDesc" class="text-sm text-[var(--muted)] leading-relaxed max-w-md"></p>
+                </div>
+                <button onclick="demoBuy()" class="btn btn-primary px-5 py-2.5 text-sm whitespace-nowrap">
+                    <i class="fas fa-cart-shopping"></i> Buy This Panel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================== PAYMENT MODAL ====================== -->
+    <div id="paymentModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card pay-modal">
+
+            <!-- Header -->
+            <div class="pay-head">
+                <button onclick="closeModal('paymentModal')" aria-label="Close" class="pay-close">
+                    <i class="fas fa-xmark"></i>
+                </button>
+                <div class="pay-head-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3 class="font-display text-white font-bold text-lg">Secure Checkout</h3>
+                <p id="payProductName" class="text-xs text-[var(--muted)] mt-1"></p>
+            </div>
+
+            <!-- ===== Payment Body ===== -->
+            <div id="paymentBody" class="pay-body">
+
+                <!-- Amount -->
+                <div class="pay-amount-card">
+                    <span class="flex items-center gap-2 text-sm text-[var(--muted)] font-semibold">
+                        <i class="fas fa-receipt text-primary"></i> Total Amount
+                    </span>
+                    <span class="text-2xl font-black text-primary">৳<span id="payAmount">600</span></span>
+                </div>
+
+                <!-- National / International Segmented Tabs -->
+                <div class="pay-seg">
+                    <button id="tabNational" onclick="setPaymentCategory('national')">
+                        <i class="fas fa-location-dot"></i> National
+                    </button>
+                    <button id="tabInternational" onclick="setPaymentCategory('international')">
+                        <i class="fas fa-globe"></i> International
+                    </button>
+                </div>
+
+                <!-- National Methods -->
+                <div id="nationalMethods">
+                    <div class="method-grid">
+                        <button class="method-card" data-method="bkash" onclick="setMethod('bkash')">
+                            <i class="fas fa-mobile-screen-button"></i> bKash
+                        </button>
+                        <button class="method-card" data-method="nagad" onclick="setMethod('nagad')">
+                            <i class="fas fa-wallet"></i> Nagad
+                        </button>
+                    </div>
+
+                    <ol id="payInstructions" class="pay-steps"></ol>
+
+                    <div id="recipientBox" class="recipient-card">
+                        <div>
+                            <div id="recipientLabel" class="r-label">Recipient Number</div>
+                            <div id="recipientNumber" class="r-value"></div>
+                        </div>
+                        <button onclick="copyRecipient()" class="copy-btn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+
+                    <label class="pay-field-label"><i class="fas fa-hashtag"></i> Transaction ID</label>
+                    <input type="text" id="trxInput" class="pay-input" placeholder="Enter your Transaction ID">
+
+                    <div class="secure-note">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <span>পেমেন্ট করার পর Transaction ID টি দিন এবং Verify চাপুন।</span>
+                    </div>
+
+                    <button onclick="verifyPayment()" id="verifyBtn" class="btn btn-primary w-full py-3 text-sm mt-1">
+                        <i class="fas fa-shield-halved"></i> Verify Payment
+                    </button>
+                </div>
+
+                <!-- International Methods -->
+                <div id="internationalMethods" style="display:none;">
+                    <div class="method-grid">
+                        <button class="method-card" data-intl="card" onclick="setIntlMethod('card')">
+                            <i class="fas fa-credit-card"></i> Card
+                        </button>
+                        <button class="method-card" data-intl="binance" onclick="setIntlMethod('binance')">
+                            <i class="fas fa-coins"></i> Binance
+                        </button>
+                    </div>
+
+                    <!-- Card Form -->
+                    <div id="cardForm">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mb-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-credit-card text-primary"></i>
+                                <span class="text-xs font-bold text-white uppercase tracking-widest">Card Details</span>
+                                <span class="ml-auto text-xs text-[var(--muted)]">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-xs text-[var(--muted)] block mb-1">Cardholder Name</label>
+                                <input type="text" id="cardName" class="pay-input" placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-xs text-[var(--muted)] block mb-1">Card Number</label>
+                                <input type="text" id="cardNumber" class="pay-input" placeholder="1234 5678 9012 3456"
+                                    maxlength="19" oninput="formatCardNumber(this)">
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="flex-1">
+                                    <label class="text-xs text-[var(--muted)] block mb-1">Expiry Date</label>
+                                    <input type="text" id="cardExpiry" class="pay-input" placeholder="MM/YY"
+                                        maxlength="5" oninput="formatExpiry(this)">
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-xs text-[var(--muted)] block mb-1">CVV</label>
+                                    <input type="password" id="cardCvv" class="pay-input" placeholder="123"
+                                        maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="secure-note">
+                            <i class="fas fa-lock text-green-400"></i>
+                            <span>Your card info is encrypted &amp; secure</span>
+                        </div>
+
+                        <button onclick="submitCard()" class="btn btn-primary w-full py-3 text-sm">
+                            <i class="fas fa-lock"></i> Pay Now
+                        </button>
+                    </div>
+
+                    <!-- Binance Pay Form -->
+                    <div id="binanceIntlForm" style="display:none;">
+                        <ol class="pay-steps">
+                            <li>Open the Binance App and go to <b>Pay</b>.</li>
+                            <li>Choose <b>Send</b> via Pay ID / UID.</li>
+                            <li>Use the Binance Pay ID below as the recipient.</li>
+                        </ol>
+
+                        <div class="recipient-card"
+                            style="border-color: rgba(243,186,47,0.4); background: rgba(243,186,47,0.08);">
+                            <div>
+                                <div class="r-label">Binance Pay ID</div>
+                                <div id="binanceId" class="r-value">949278923</div>
+                            </div>
+                            <button onclick="copyBinanceId()" class="copy-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+
+                        <label class="pay-field-label"><i class="fas fa-hashtag"></i> Transaction / Order ID</label>
+                        <input type="text" id="binanceTrx" class="pay-input" placeholder="Enter Binance Transaction ID">
+
+                        <div class="secure-note">
+                            <i class="fas fa-circle-info text-primary"></i>
+                            <span>Send the exact amount, then paste your Transaction ID and verify.</span>
+                        </div>
+
+                        <button onclick="verifyBinance()" class="btn btn-primary w-full py-3 text-sm mt-1"
+                            style="background:var(--binance); color:#0a0a0f;">
+                            <i class="fas fa-shield-halved"></i> Verify Binance Payment
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="closeModal('paymentModal')"
+                    class="w-full text-center text-xs text-[var(--muted)] mt-4 underline bg-transparent border-none cursor-pointer">
+                    Cancel Payment
+                </button>
+            </div>
+
+            <!-- ===== Verification / Email Step ===== -->
+            <div id="verifyStep" class="pay-verify" style="display:none;">
+                <!-- Verifying state -->
+                <div id="verifyProcessing">
+                    <div class="verify-icon"><i class="fas fa-spinner verify-spin"></i></div>
+                    <h3 class="font-display text-white font-bold text-lg">Payment Verification</h3>
+                    <p class="text-sm text-[var(--muted)] mt-2 mb-6 leading-relaxed">
+                        আপনার পেমেন্ট ভেরিফাই হচ্ছে। প্রোডাক্ট ডেলিভারির জন্য নিচে আপনার Gmail অ্যাড্রেস দিন।
+                    </p>
+
+                    <div class="text-left">
+                        <label class="pay-field-label"><i class="fas fa-envelope"></i> Gmail Address</label>
+                        <input type="email" id="userEmail" class="pay-input" placeholder="yourname@gmail.com">
+                    </div>
+
+                    <button onclick="submitEmail()" class="btn btn-primary w-full py-3 text-sm mt-5">
+                        <i class="fas fa-paper-plane"></i> Submit &amp; Confirm
+                    </button>
+                </div>
+
+                <!-- Success state -->
+                <div id="verifySuccess" style="display:none;">
+                    <div class="verify-icon success"><i class="fas fa-check"></i></div>
+                    <h3 class="font-display text-white font-bold text-lg">Payment Confirmed</h3>
+                    <p class="text-sm text-[var(--muted)] mt-2 mb-6 leading-relaxed">
+                        ধন্যবাদ! আপনার অর্ডার কনফার্ম হয়েছে। প্রোডাক্ট ডিটেইলস পাঠানো হবে:
+                        <br><b id="confirmEmail" class="text-white"></b>
+                    </p>
+                    <button onclick="closeModal('paymentModal')" class="btn btn-primary w-full py-3 text-sm">
+                        <i class="fas fa-check-circle"></i> Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer id="contact" class="border-t border-white/5 mt-16 scroll-mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <a href="#top" class="font-display text-lg font-extrabold text-white flex items-center gap-2">
+                    <i class="fas fa-bolt text-primary"></i>VENOX EMPIRE
+                </a>
+                <p class="text-sm text-[var(--muted)] mt-3 max-w-sm">
+                    Premium Free Fire panels for PC and Android. Safe, stable and trusted by the community.
+                    For entertainment and private use only.
+                </p>
+                <div class="flex items-center gap-3 mt-4">
+                    <a href="#" aria-label="Telegram"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="WhatsApp"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="YouTube"
+                        class="w-9 h-9 rounded-lg card flex items-center justify-center text-[var(--muted)] hover:text-white"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Products</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="#pc-section" class="hover:text-white">PC Panels</a></li>
+                    <li><a href="#mobile-section" class="hover:text-white">Android Panels</a></li>
+                    <li><a href="#why" class="hover:text-white">Why Choose Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white text-sm mb-3">Support</h4>
+                <ul class="space-y-2 text-sm text-[var(--muted)]">
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">Terms &amp; Refund</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/5 py-5 text-center text-xs text-[var(--muted)]">
+            &copy; <span id="year"></span> Venox Empire. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script>
+        /* ============================================================
+           SINGLE SOURCE OF TRUTH — edit products, prices & images here
+           ============================================================ */
+        const PAYMENT = {
+            bkash: {
+                label: 'bKash', color: 'var(--bkash)', number: '01724808246', recipient: 'bKash Number',
+                steps: ['Dial *247# or open the bKash app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
+            },
+            nagad: {
+                label: 'Nagad', color: 'var(--nagad)', number: '01724808246', recipient: 'Nagad Number',
+                steps: ['Dial *167# or open the Nagad app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
+            },
+            binance: {
+                label: 'Binance', color: 'var(--binance)', number: '949278923', recipient: 'Binance Pay ID',
+                steps: ['Open Binance App → Binance Pay.', 'Choose <b>Send</b> via Pay ID / UID.', 'Use the UID below as recipient:']
+            }
+        };
+
+        const PRODUCTS = {
+            complete: {
+                name: 'Complete Premium Package', badge: 'Mega Offer', img: 'd2.png',
+                desc: 'All-in-one PC deal — মাত্র ৳600-এ পুরো ১ মাসের সব প্যানেল!',
+                features: [
+                    { t: "What's Included", i: ['External Premium', 'Internal Premium', 'Internal Mod Menu (Brutal)', 'BR Mod (Dangerous Panel)', 'UID Bypass', 'Emote Panel'] }
+                ],
+                plans: [{ label: '30 Days', price: 600 }]
+            },
+            external: {
+                name: 'VNX External', badge: 'PC · External', img: 'e1.png', demo: 'e1.mp4',
+                desc: 'The ultimate private external system — smooth & highly optimized.',
+                features: [
+                    { t: 'Aimbot', i: ['AI Aimbot — Head / Neck / Drag', 'Fully safe, stable & trusted', 'Freeze Enemy function'] },
+                    { t: 'FOV', i: ['2x Scope', '4x Scope — safe & stable'] },
+                    { t: 'Helper', i: ['No Recoil', 'Glitch Fire', 'Reset Guest (working)'] },
+                    { t: 'Sniper', i: ['Undetected scope (BD/PK/IND/MENA)', 'All locations supported'] },
+                    { t: 'Visual', i: ['Normal / Blue / White Chams', 'ESP Line x64'] },
+                    { t: 'Security', i: ['Detect remote access', 'Boost FPS', 'PC / Emulator cleaner', 'Stream mode'] }
+                ],
+                plans: [{ label: 'Monthly', price: 600 }, { label: 'Permanent', price: 2500 }]
+            },
+            internal: {
+                name: 'VnX Premium Internal', badge: 'PC · Internal', img: 'i1.png', demo: 'i1.mp4',
+                desc: 'Smooth • Safe • Powerful domination system.',
+                features: [
+                    { t: 'Why VnX', i: ['No Memory Modify (safe)', 'Zero lag • High FPS', 'Works on all servers'] },
+                    { t: 'Aimbot Internal', i: ['AI Aimbot — 100% hit rate', 'Instant lock on target', 'Real damage, no fake hit'] },
+                    { t: 'Freeze Enemy', i: ['Auto freeze on fire', 'No move • no reaction', 'Lifetime safe'] },
+                    { t: 'Aimbot External', i: ['Smart aim — real value', 'Smooth tracking', 'Hard to detect'] },
+                    { t: 'Sniper', i: ['Every shot = confirm hit', 'Perfect long range'] },
+                    { t: 'ESP', i: ['ESP Master + Health line', 'See enemies anywhere', 'Show location after death'] },
+                    { t: 'Item', i: ['All items ESP', 'Spot every loot', 'Faster gameplay'] }
+                ],
+                plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
+            },
+            modmenu: {
+                name: 'VnX Mod Menu', badge: 'PC · Mod Menu', img: 'm2.png', demo: 'mm1.mp4',
+                desc: 'Unleash full control with the advanced mod menu.',
+                features: [
+                    { t: 'Login Options', i: ['FF Normal / x86 / Max India'] },
+                    { t: 'Aimbot System', i: ['Hex / Legit / Rage / Silent', 'Aim Lock • No Recoil • Rapid Fire'] }
+                ],
+                plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
+            },
+            uidbypass: {
+                name: 'UID Bypass', badge: 'PC · Secure', img: 'b1.png', demo: 'b1.mp4',
+                desc: '100% stable & tested — no ban, no blacklist. Custom clients only.',
+                features: [
+                    { t: 'Highlights', i: ['100% stable & tested', 'No ban • No blacklist', 'Premium custom clients only'] }
+                ],
+                plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
+            },
+            brmods: {
+                name: 'VNX BR Mods V3', badge: 'PC · Brutal', img: 'br1.png', demo: 'br1.mp4',
+                desc: 'Root 100% safe & optimized battle-royale mod suite.',
+                features: [
+                    { t: 'Combat', i: ['Aimbot Lite & Silent Aim', 'Ghost Hack & Speed Hack'] },
+                    { t: 'Visual', i: ["ESP's & Magnet Lite", 'Root safe & optimized'] }
+                ],
+                plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
+            },
+            proxy: {
+                name: 'Proxy Free Fire', badge: 'Android · Non-Root', img: 'a1.png', demo: 'a1.mp4',
+                desc: 'New generation Android proxy panel — works on Play Store Free Fire.',
+                features: [
+                    { t: 'Compatibility', i: ['Non-Root supported', 'Works on official Free Fire', 'Fast & easy installation'] },
+                    { t: 'Aim', i: ['Head / Neck precision', 'Head + Neck assist', 'Legit mode'] },
+                    { t: 'Movement', i: ['Back Jump', 'Fast weapon switch', 'Movement & jump control'] }
+                ],
+                plans: [{ label: '1 Day', price: 120 }, { label: '3 Days', price: 250 }, { label: '7 Days', price: 450 }, { label: '30 Days', price: 800 }]
+            },
+            rootmobile: {
+                name: 'Root Mobile Panel', badge: 'Android · Root', img: 'nmr.png', demo: 'rm1.mp4',
+                desc: 'Root mod menu with full ESP and silent kill.',
+                features: [
+                    { t: 'Core', i: ['Mod Menu (Root)', 'Silent Kill', 'Exploits — coming soon'] },
+                    { t: 'ESP', i: ['Name • Line • Box', 'Skeleton • Distance • Health'] }
+                ],
+                plans: [{ label: '1 Day', price: 60 }, { label: '7 Days', price: 150 }, { label: '15 Days', price: 300 }, { label: '30 Days', price: 600 }]
+            },
+            nonrootmobile: {
+                name: 'Drip Client — Non Root', badge: 'Android · Non-Root', img: 'rm1.png', demo: 'nrm1.mp4',
+                desc: 'Non-root client with legit & rage aimbot. CS / BR rank working.',
+                features: [
+                    { t: 'Aimbot', i: ['Aimbot Legit & Rage', 'AWM Aimbot', 'No Recoil', 'HS Rate 120%'] },
+                    { t: 'ESP', i: ['Esp Line • Box', 'Esp Health • Name'] },
+                    { t: 'Movement', i: ['Shoulder Speed Hack'] }
+                ],
+                plans: [{ label: '1 Day', price: 100 }, { label: '3 Days', price: 200 }, { label: '7 Days', price: 400 }, { label: '15 Days', price: 500 }, { label: '30 Days', price: 800 }]
+            }
+        };
+
+        const PC_ORDER = ['complete', 'external', 'internal', 'modmenu', 'uidbypass', 'brmods'];
+        const MOBILE_ORDER = ['proxy', 'rootmobile', 'nonrootmobile'];
+
+        /* ---------------- Render product cards ---------------- */
+        function priceFrom(p) {
+            const min = Math.min(...p.plans.map(x => x.price));
+            return min;
+        }
+
+        function cardHtml(id) {
+            const p = PRODUCTS[id];
+            return `
+            <div class="card p-3 flex flex-col">
+                <div class="overflow-hidden rounded-xl aspect-[4/3] bg-bg">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy"
+                        class="w-full h-full object-cover" onerror="this.style.opacity=.25">
+                </div>
+                <h3 class="text-sm font-bold text-white text-center mt-3 mb-1">${p.name}</h3>
+                <p class="text-xs text-[var(--muted)] text-center mb-3">from <span class="text-primary font-bold">৳${priceFrom(p)}</span></p>
+                <div class="flex gap-2 mt-auto">
+                    <button onclick="showDemo('${id}')" class="btn btn-ghost flex-1 py-2 text-xs"><i class="fas fa-play"></i>Demo</button>
+                    <button onclick="openProduct('${id}')" class="btn btn-primary flex-1 py-2 text-xs">Buy</button>
+                </div>
+            </div>`;
+        }
+
+        document.getElementById('pcGrid').innerHTML = PC_ORDER.map(cardHtml).join('');
+        document.getElementById('mobileGrid').innerHTML = MOBILE_ORDER.map(cardHtml).join('');
+
+        /* ---------------- Carousel ---------------- */
+        const carouselImgs = ['d2.png', 'e1.png', 'i1.png', 'b1.png', 'br1.png', 'a1.png'];
+        let carIndex = 0;
+        const track = document.getElementById('carouselTrack');
+        const dotsWrap = document.getElementById('carouselDots');
+        track.innerHTML = carouselImgs.map((src, i) =>
+            `<div class="w-full flex-shrink-0 p-1"><img src="${src}" alt="Offer ${i + 1}" class="w-full h-auto object-contain rounded-xl" onerror="this.style.opacity=.25"></div>`
+        ).join('');
+        dotsWrap.innerHTML = carouselImgs.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goCarousel(${i})"></span>`).join('');
+
+        function renderCarousel() {
+            track.style.transform = `translateX(-${carIndex * 100}%)`;
+            [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === carIndex));
+        }
+        function moveCarousel(dir) {
+            carIndex = (carIndex + dir + carouselImgs.length) % carouselImgs.length;
+            renderCarousel();
+        }
+        function goCarousel(i) { carIndex = i; renderCarousel(); }
+        let carTimer = setInterval(() => moveCarousel(1), 4000);
+        document.getElementById('carouselViewport').addEventListener('mouseenter', () => clearInterval(carTimer));
+        document.getElementById('carouselViewport').addEventListener('mouseleave', () => carTimer = setInterval(() => moveCarousel(1), 4000));
+
+        /* ---------------- Product modal ---------------- */
+        let currentProduct = null;
+        let selectedPlan = null;
+
+        function openProduct(id) {
+            const p = PRODUCTS[id];
+            currentProduct = id;
+            document.getElementById('pmBadge').textContent = p.badge;
+            document.getElementById('pmTitle').textContent = p.name;
+            document.getElementById('pmDesc').textContent = p.desc;
+
+            document.getElementById('pmFeatures').innerHTML = p.features.map((g, idx) => `
+                <div class="feature-group p-3 text-xs text-white ${p.features.length % 2 && idx === p.features.length - 1 ? 'sm:col-span-2' : ''}">
+                    <span class="text-primary font-bold block mb-1.5">${g.t}</span>
+                    ${g.i.map(x => `<div class="text-[var(--muted)] leading-relaxed">• ${x}</div>`).join('')}
+                </div>`).join('');
+
+            document.getElementById('pmPlans').innerHTML = p.plans.map((pl, i) => `
+                <div class="plan p-3" data-i="${i}" onclick="selectPlan(${i})">
+                    <div class="text-xs text-[var(--muted)] font-semibold">${pl.label}</div>
+                    <div class="text-base font-black text-white mt-1">৳${pl.price}</div>
+                </div>`).join('');
+
+            selectPlan(0);
+            openModal('productModal');
+        }
+
+        function selectPlan(i) {
+            selectedPlan = i;
+            [...document.querySelectorAll('#pmPlans .plan')].forEach(el =>
+                el.classList.toggle('selected', +el.dataset.i === i));
+        }
+
+        function goToPayment() {
+            if (currentProduct === null || selectedPlan === null) return;
+            const p = PRODUCTS[currentProduct];
+            const plan = p.plans[selectedPlan];
+            closeModal('productModal');
+            document.getElementById('payProductName').textContent = `${p.name} — ${plan.label}`;
+            document.getElementById('payAmount').textContent = plan.price;
+            document.getElementById('trxInput').value = '';
+            const binTrx = document.getElementById('binanceTrx');
+            if (binTrx) binTrx.value = '';
+            // reset to payment body, hide verification step
+            document.getElementById('paymentBody').style.display = 'block';
+            document.getElementById('verifyStep').style.display = 'none';
+            document.getElementById('verifyProcessing').style.display = 'block';
+            document.getElementById('verifySuccess').style.display = 'none';
+            const emailEl = document.getElementById('userEmail');
+            if (emailEl) emailEl.value = '';
+            setPaymentCategory('national');
+            openModal('paymentModal');
+        }
+
+        /* ---------------- Payment Category Tabs ---------------- */
+        function setPaymentCategory(cat) {
+            const isNational = cat === 'national';
+            document.getElementById('nationalMethods').style.display = isNational ? 'block' : 'none';
+            document.getElementById('internationalMethods').style.display = isNational ? 'none' : 'block';
+
+            const tabN = document.getElementById('tabNational');
+            const tabI = document.getElementById('tabInternational');
+            tabN.classList.toggle('active', isNational);
+            tabI.classList.toggle('active', !isNational);
+            if (isNational) {
+                setMethod('bkash');
+            } else {
+                setIntlMethod('card');
+            }
+        }
+
+        /* ---------------- National Payment ---------------- */
+        function setMethod(method) {
+            const cfg = PAYMENT[method];
+            document.querySelectorAll('#nationalMethods .method-card').forEach(t => {
+                const active = t.dataset.method === method;
+                t.classList.toggle('active', active);
+                t.style.setProperty('--method', active ? cfg.color : '');
+            });
+            document.getElementById('payInstructions').innerHTML =
+                cfg.steps.map(s => `<li>${s}</li>`).join('');
+
+            const box = document.getElementById('recipientBox');
+            box.style.borderColor = cfg.color;
+            box.style.background = 'color-mix(in srgb, ' + cfg.color + ' 12%, transparent)';
+            document.getElementById('recipientLabel').textContent = cfg.recipient;
+            document.getElementById('recipientNumber').textContent = cfg.number;
+
+            const vb = document.getElementById('verifyBtn');
+            vb.style.background = cfg.color;
+            vb.style.color = '#fff';
+        }
+
+        /* ---------------- International Payment ---------------- */
+        function setIntlMethod(method) {
+            document.getElementById('cardForm').style.display = method === 'card' ? 'block' : 'none';
+            document.getElementById('binanceIntlForm').style.display = method === 'binance' ? 'block' : 'none';
+
+            document.querySelectorAll('#internationalMethods .method-card').forEach(t => {
+                const active = t.dataset.intl === method;
+                t.classList.toggle('active', active);
+                t.style.setProperty('--method', active ? (method === 'binance' ? 'var(--binance)' : 'var(--primary)') : '');
+            });
+        }
+
+        /* Card input formatters */
+        function formatCardNumber(el) {
+            let v = el.value.replace(/\D/g, '').substring(0, 16);
+            el.value = v.replace(/(.{4})/g, '$1 ').trim();
+        }
+        function formatExpiry(el) {
+            let v = el.value.replace(/\D/g, '').substring(0, 4);
+            if (v.length >= 2) v = v.substring(0, 2) + '/' + v.substring(2);
+            el.value = v;
+        }
+
+        function submitCard() {
+            const name = document.getElementById('cardName').value.trim();
+            const num = document.getElementById('cardNumber').value.trim();
+            const exp = document.getElementById('cardExpiry').value.trim();
+            const cvv = document.getElementById('cardCvv').value.trim();
+            if (!name || !num || !exp || !cvv) { toast('Please fill all card details'); return; }
+            goToVerification();
+        }
+
+        function verifyBinance() {
+            const trx = document.getElementById('binanceTrx').value.trim();
+            if (!trx) { toast('Please enter your Binance Transaction ID'); return; }
+            goToVerification();
+        }
+
+        function copyRecipient() {
+            const num = document.getElementById('recipientNumber').textContent;
+            navigator.clipboard.writeText(num).then(() => toast('Copied: ' + num))
+                .catch(() => toast('Copy failed — copy manually'));
+        }
+
+        function copyBinanceId() {
+            const id = document.getElementById('binanceId').textContent;
+            navigator.clipboard.writeText(id).then(() => toast('Copied: ' + id))
+                .catch(() => toast('Copy failed — copy manually'));
+        }
+
+        function verifyPayment() {
+            const trx = document.getElementById('trxInput').value.trim();
+            if (!trx) { toast('Please enter a valid Transaction ID'); return; }
+            goToVerification();
+        }
+
+        /* ---------------- Verification + Email Step ---------------- */
+        function goToVerification() {
+            document.getElementById('paymentBody').style.display = 'none';
+            document.getElementById('verifyStep').style.display = 'block';
+            document.getElementById('verifyProcessing').style.display = 'block';
+            document.getElementById('verifySuccess').style.display = 'none';
+            setTimeout(() => document.getElementById('userEmail').focus(), 100);
+        }
+
+        function submitEmail() {
+            const email = document.getElementById('userEmail').value.trim();
+            const isGmail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
+            if (!email) { toast('Please enter your Gmail address'); return; }
+            if (!isGmail) { toast('Please enter a valid Gmail (@gmail.com) address'); return; }
+            document.getElementById('confirmEmail').textContent = email;
+            document.getElementById('verifyProcessing').style.display = 'none';
+            document.getElementById('verifySuccess').style.display = 'block';
+            toast('Payment confirmed · Details will be sent to your Gmail');
+            // TODO: connect your backend to record the order + email here
+        }
+
+        /* ---------------- Modal helpers ---------------- */
+        function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            if (id === 'demoModal') {
+                const v = document.getElementById('demoVideo');
+                if (v) v.pause();
+            }
+            if (!document.querySelector('.modal.open')) document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); }));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id)); });
+
+        /* ---------------- Misc ---------------- */
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+        let demoProduct = null;
+        function showDemo(id) {
+            const p = PRODUCTS[id];
+            if (!p) return;
+            demoProduct = id;
+            document.getElementById('demoTitle').textContent = p.name + ' — Live Demo';
+            document.getElementById('demoBadge').textContent = p.badge;
+            document.getElementById('demoDesc').textContent = p.desc;
+
+            const video = document.getElementById('demoVideo');
+            const fallback = document.getElementById('demoFallback');
+            if (p.demo) {
+                video.style.display = 'block';
+                fallback.style.display = 'none';
+                video.src = p.demo;
+                video.load();
+                video.onerror = () => { video.style.display = 'none'; fallback.style.display = 'flex'; };
+            } else {
+                video.removeAttribute('src');
+                video.style.display = 'none';
+                fallback.style.display = 'flex';
+            }
+            openModal('demoModal');
+            if (p.demo) { video.play().catch(() => { }); }
+        }
+
+        function closeDemo() {
+            const video = document.getElementById('demoVideo');
+            video.pause();
+            closeModal('demoModal');
+        }
+
+        function demoBuy() {
+            if (!demoProduct) return;
+            closeDemo();
+            openProduct(demoProduct);
+        }
+        let toastTimer;
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
