@@ -268,6 +268,120 @@
             }
         }
 
+        /* ============ DEMO VIDEO MODAL ============ */
+        .demo-card {
+            max-width: 860px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.32);
+            background: linear-gradient(180deg, #16101f 0%, var(--surface) 30%);
+        }
+
+        .demo-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(120% 140% at 0% 0%, rgba(168, 85, 247, 0.18), transparent 55%);
+        }
+
+        .demo-head-icon {
+            flex-shrink: 0;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(145deg, var(--primary), #7c3aed);
+            box-shadow: 0 8px 22px rgba(168, 85, 247, 0.4);
+        }
+
+        .demo-close {
+            margin-left: auto;
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .demo-close:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .demo-video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .demo-video-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            display: block;
+        }
+
+        .demo-fallback {
+            position: absolute;
+            inset: 0;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+            color: var(--muted);
+            background:
+                radial-gradient(120% 120% at 50% 30%, rgba(168, 85, 247, 0.12), transparent 60%), #0a0a0f;
+            padding: 20px;
+        }
+
+        .demo-fallback i {
+            font-size: 34px;
+            color: var(--primary);
+            opacity: .7;
+        }
+
+        .demo-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding: 18px 22px 22px;
+        }
+
+        .demo-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 999px;
+            padding: 5px 12px;
+            margin-bottom: 8px;
+        }
+
         .feature-group {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
@@ -317,9 +431,10 @@
             border: 1px solid var(--border);
             transition: all .2s ease;
         }
+
         .pay-category-tab:hover {
             color: #fff;
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .pay-input {
@@ -859,6 +974,44 @@
         </div>
     </div>
 
+    <!-- ====================== DEMO VIDEO MODAL ====================== -->
+    <div id="demoModal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card demo-card">
+            <div class="demo-head">
+                <div class="demo-head-icon"><i class="fas fa-play"></i></div>
+                <div>
+                    <h3 id="demoTitle" class="font-display text-white font-bold text-base leading-tight">Live Demo</h3>
+                    <p id="demoBadge" class="text-xs text-[var(--muted)] mt-0.5"></p>
+                </div>
+                <button onclick="closeDemo()" aria-label="Close" class="demo-close">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="demo-video-wrap">
+                <video id="demoVideo" controls playsinline preload="metadata" controlslist="nodownload"
+                    oncontextmenu="return false">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="demoFallback" class="demo-fallback">
+                    <i class="fas fa-film"></i>
+                    <p class="text-sm font-semibold text-white">Demo video coming soon</p>
+                    <p class="text-xs">Upload the file to see it play here.</p>
+                </div>
+            </div>
+
+            <div class="demo-body">
+                <div>
+                    <span class="demo-tag"><i class="fas fa-circle-play"></i> Gameplay Preview</span>
+                    <p id="demoDesc" class="text-sm text-[var(--muted)] leading-relaxed max-w-md"></p>
+                </div>
+                <button onclick="demoBuy()" class="btn btn-primary px-5 py-2.5 text-sm whitespace-nowrap">
+                    <i class="fas fa-cart-shopping"></i> Buy This Panel
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- ====================== PAYMENT MODAL ====================== -->
     <div id="paymentModal" class="modal" role="dialog" aria-modal="true">
         <div class="modal-card pay-modal">
@@ -970,7 +1123,8 @@
                                 </div>
                                 <div class="flex-1">
                                     <label class="text-xs text-[var(--muted)] block mb-1">CVV</label>
-                                    <input type="password" id="cardCvv" class="pay-input" placeholder="123" maxlength="4">
+                                    <input type="password" id="cardCvv" class="pay-input" placeholder="123"
+                                        maxlength="4">
                                 </div>
                             </div>
                         </div>
@@ -993,7 +1147,8 @@
                             <li>Use the Binance Pay ID below as the recipient.</li>
                         </ol>
 
-                        <div class="recipient-card" style="border-color: rgba(243,186,47,0.4); background: rgba(243,186,47,0.08);">
+                        <div class="recipient-card"
+                            style="border-color: rgba(243,186,47,0.4); background: rgba(243,186,47,0.08);">
                             <div>
                                 <div class="r-label">Binance Pay ID</div>
                                 <div id="binanceId" class="r-value">949278923</div>
@@ -1140,7 +1295,7 @@
                 plans: [{ label: '30 Days', price: 600 }]
             },
             external: {
-                name: 'VNX External', badge: 'PC · External', img: 'e1.png',
+                name: 'VNX External', badge: 'PC · External', img: 'e1.png', demo: 'e1.mp4',
                 desc: 'The ultimate private external system — smooth & highly optimized.',
                 features: [
                     { t: 'Aimbot', i: ['AI Aimbot — Head / Neck / Drag', 'Fully safe, stable & trusted', 'Freeze Enemy function'] },
@@ -1153,7 +1308,7 @@
                 plans: [{ label: 'Monthly', price: 600 }, { label: 'Permanent', price: 2500 }]
             },
             internal: {
-                name: 'VnX Premium Internal', badge: 'PC · Internal', img: 'i1.png',
+                name: 'VnX Premium Internal', badge: 'PC · Internal', img: 'i1.png', demo: 'i1.mp4',
                 desc: 'Smooth • Safe • Powerful domination system.',
                 features: [
                     { t: 'Why VnX', i: ['No Memory Modify (safe)', 'Zero lag • High FPS', 'Works on all servers'] },
@@ -1167,7 +1322,7 @@
                 plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
             },
             modmenu: {
-                name: 'VnX Mod Menu', badge: 'PC · Mod Menu', img: 'm2.png',
+                name: 'VnX Mod Menu', badge: 'PC · Mod Menu', img: 'm2.png', demo: 'mm1.mp4',
                 desc: 'Unleash full control with the advanced mod menu.',
                 features: [
                     { t: 'Login Options', i: ['FF Normal / x86 / Max India'] },
@@ -1176,7 +1331,7 @@
                 plans: [{ label: 'Monthly', price: 700 }, { label: 'Permanent', price: 3500 }]
             },
             uidbypass: {
-                name: 'UID Bypass', badge: 'PC · Secure', img: 'b1.png',
+                name: 'UID Bypass', badge: 'PC · Secure', img: 'b1.png', demo: 'b1.mp4',
                 desc: '100% stable & tested — no ban, no blacklist. Custom clients only.',
                 features: [
                     { t: 'Highlights', i: ['100% stable & tested', 'No ban • No blacklist', 'Premium custom clients only'] }
@@ -1184,7 +1339,7 @@
                 plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
             },
             brmods: {
-                name: 'VNX BR Mods V3', badge: 'PC · Brutal', img: 'br1.png',
+                name: 'VNX BR Mods V3', badge: 'PC · Brutal', img: 'br1.png', demo: 'br1.mp4',
                 desc: 'Root 100% safe & optimized battle-royale mod suite.',
                 features: [
                     { t: 'Combat', i: ['Aimbot Lite & Silent Aim', 'Ghost Hack & Speed Hack'] },
@@ -1193,7 +1348,7 @@
                 plans: [{ label: '1 Week', price: 600 }, { label: '2 Weeks', price: 1100 }, { label: '3 Weeks', price: 1550 }, { label: '1 Month', price: 1250 }, { label: 'Permanent', price: 3000 }]
             },
             proxy: {
-                name: 'Proxy Free Fire', badge: 'Android · Non-Root', img: 'a1.png',
+                name: 'Proxy Free Fire', badge: 'Android · Non-Root', img: 'a1.png', demo: 'a1.mp4',
                 desc: 'New generation Android proxy panel — works on Play Store Free Fire.',
                 features: [
                     { t: 'Compatibility', i: ['Non-Root supported', 'Works on official Free Fire', 'Fast & easy installation'] },
@@ -1203,7 +1358,7 @@
                 plans: [{ label: '1 Day', price: 120 }, { label: '3 Days', price: 250 }, { label: '7 Days', price: 450 }, { label: '30 Days', price: 800 }]
             },
             rootmobile: {
-                name: 'Root Mobile Panel', badge: 'Android · Root', img: 'nmr.png',
+                name: 'Root Mobile Panel', badge: 'Android · Root', img: 'nmr.png', demo: 'rm1.mp4',
                 desc: 'Root mod menu with full ESP and silent kill.',
                 features: [
                     { t: 'Core', i: ['Mod Menu (Root)', 'Silent Kill', 'Exploits — coming soon'] },
@@ -1212,7 +1367,7 @@
                 plans: [{ label: '1 Day', price: 60 }, { label: '7 Days', price: 150 }, { label: '15 Days', price: 300 }, { label: '30 Days', price: 600 }]
             },
             nonrootmobile: {
-                name: 'Drip Client — Non Root', badge: 'Android · Non-Root', img: 'rm1.png',
+                name: 'Drip Client — Non Root', badge: 'Android · Non-Root', img: 'rm1.png', demo: 'nrm1.mp4',
                 desc: 'Non-root client with legit & rage aimbot. CS / BR rank working.',
                 features: [
                     { t: 'Aimbot', i: ['Aimbot Legit & Rage', 'AWM Aimbot', 'No Recoil', 'HS Rate 120%'] },
@@ -1243,7 +1398,7 @@
                 <h3 class="text-sm font-bold text-white text-center mt-3 mb-1">${p.name}</h3>
                 <p class="text-xs text-[var(--muted)] text-center mb-3">from <span class="text-primary font-bold">৳${priceFrom(p)}</span></p>
                 <div class="flex gap-2 mt-auto">
-                    <button onclick="showDemo('${p.name}')" class="btn btn-ghost flex-1 py-2 text-xs"><i class="fas fa-play"></i>Demo</button>
+                    <button onclick="showDemo('${id}')" class="btn btn-ghost flex-1 py-2 text-xs"><i class="fas fa-play"></i>Demo</button>
                     <button onclick="openProduct('${id}')" class="btn btn-primary flex-1 py-2 text-xs">Buy</button>
                 </div>
             </div>`;
@@ -1449,6 +1604,10 @@
         function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
         function closeModal(id) {
             document.getElementById(id).classList.remove('open');
+            if (id === 'demoModal') {
+                const v = document.getElementById('demoVideo');
+                if (v) v.pause();
+            }
             if (!document.querySelector('.modal.open')) document.body.style.overflow = '';
         }
         document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); }));
@@ -1456,7 +1615,43 @@
 
         /* ---------------- Misc ---------------- */
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
-        function showDemo(name) { toast('Demo for ' + name + ' coming soon'); }
+        let demoProduct = null;
+        function showDemo(id) {
+            const p = PRODUCTS[id];
+            if (!p) return;
+            demoProduct = id;
+            document.getElementById('demoTitle').textContent = p.name + ' — Live Demo';
+            document.getElementById('demoBadge').textContent = p.badge;
+            document.getElementById('demoDesc').textContent = p.desc;
+
+            const video = document.getElementById('demoVideo');
+            const fallback = document.getElementById('demoFallback');
+            if (p.demo) {
+                video.style.display = 'block';
+                fallback.style.display = 'none';
+                video.src = p.demo;
+                video.load();
+                video.onerror = () => { video.style.display = 'none'; fallback.style.display = 'flex'; };
+            } else {
+                video.removeAttribute('src');
+                video.style.display = 'none';
+                fallback.style.display = 'flex';
+            }
+            openModal('demoModal');
+            if (p.demo) { video.play().catch(() => { }); }
+        }
+
+        function closeDemo() {
+            const video = document.getElementById('demoVideo');
+            video.pause();
+            closeModal('demoModal');
+        }
+
+        function demoBuy() {
+            if (!demoProduct) return;
+            closeDemo();
+            openProduct(demoProduct);
+        }
         let toastTimer;
         function toast(msg) {
             const t = document.getElementById('toast');
