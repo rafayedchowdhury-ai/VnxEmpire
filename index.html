@@ -309,6 +309,19 @@
             transition: all .2s ease;
         }
 
+        .pay-category-tab {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            transition: all .2s ease;
+        }
+        .pay-category-tab:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.2);
+        }
+
         .pay-input {
             background: var(--bg);
             border: 1px solid var(--border);
@@ -375,6 +388,286 @@
                 linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
+        }
+
+        /* ============ NEW PAYMENT POPUP DESIGN ============ */
+        .pay-modal {
+            max-width: 480px;
+            padding: 0;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.28);
+            background: linear-gradient(180deg, #16101f 0%, var(--surface) 32%);
+        }
+
+        .pay-head {
+            position: relative;
+            text-align: center;
+            padding: 26px 24px 22px;
+            border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(120% 120% at 50% -10%, rgba(168, 85, 247, 0.18), transparent 60%);
+        }
+
+        .pay-head-icon {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 22px;
+            color: #fff;
+            background: linear-gradient(145deg, var(--primary), #7c3aed);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
+        }
+
+        .pay-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .pay-close:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .pay-body {
+            padding: 22px 24px 24px;
+        }
+
+        .pay-amount-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            background: rgba(168, 85, 247, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.22);
+        }
+
+        .pay-seg {
+            display: flex;
+            gap: 6px;
+            padding: 5px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            margin-bottom: 18px;
+        }
+
+        .pay-seg button {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .pay-seg button.active {
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .method-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 8px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px solid var(--border);
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .method-card i {
+            font-size: 20px;
+        }
+
+        .method-card:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .method-card.active {
+            color: #fff;
+            border-color: var(--method, var(--primary));
+            background: color-mix(in srgb, var(--method, var(--primary)) 14%, transparent);
+            box-shadow: 0 0 0 1px var(--method, var(--primary)) inset;
+        }
+
+        .pay-field-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: 8px;
+        }
+
+        .recipient-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin: 14px 0;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        .recipient-card .r-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--muted);
+            margin-bottom: 3px;
+        }
+
+        .recipient-card .r-value {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: .04em;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all .2s ease;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .pay-steps {
+            list-style: none;
+            counter-reset: step;
+            margin-bottom: 16px;
+        }
+
+        .pay-steps li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 34px;
+            min-height: 24px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .pay-steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            background: rgba(168, 85, 247, 0.14);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .secure-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 14px 0;
+        }
+
+        /* Verification step */
+        .pay-verify {
+            padding: 36px 28px 30px;
+            text-align: center;
+        }
+
+        .verify-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 30px;
+            color: var(--accent);
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.35);
+        }
+
+        .verify-icon.success {
+            color: #34d399;
+            background: rgba(52, 211, 153, 0.12);
+            border-color: rgba(52, 211, 153, 0.4);
+        }
+
+        .verify-spin {
+            animation: vspin 1.1s linear infinite;
+        }
+
+        @keyframes vspin {
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -568,51 +861,202 @@
 
     <!-- ====================== PAYMENT MODAL ====================== -->
     <div id="paymentModal" class="modal" role="dialog" aria-modal="true">
-        <div class="modal-card p-6 md:p-7" style="max-width:480px;">
-            <button onclick="closeModal('paymentModal')" aria-label="Close"
-                class="absolute top-4 right-5 text-white text-2xl bg-transparent border-none cursor-pointer hover:text-primary">&times;</button>
+        <div class="modal-card pay-modal">
 
-            <h3 class="font-display text-white font-bold text-center mb-1">Complete Payment</h3>
-            <p id="payProductName" class="text-center text-xs text-[var(--muted)] mb-5"></p>
-
-            <div class="flex gap-2 mb-5">
-                <button class="pay-tab" data-method="bkash" onclick="setMethod('bkash')">bKash</button>
-                <button class="pay-tab" data-method="nagad" onclick="setMethod('nagad')">Nagad</button>
-                <button class="pay-tab" data-method="binance" onclick="setMethod('binance')">Binance</button>
+            <!-- Header -->
+            <div class="pay-head">
+                <button onclick="closeModal('paymentModal')" aria-label="Close" class="pay-close">
+                    <i class="fas fa-xmark"></i>
+                </button>
+                <div class="pay-head-icon"><i class="fas fa-shield-halved"></i></div>
+                <h3 class="font-display text-white font-bold text-lg">Secure Checkout</h3>
+                <p id="payProductName" class="text-xs text-[var(--muted)] mt-1"></p>
             </div>
 
-            <div class="flex justify-between items-center mb-3 text-sm">
-                <span class="text-[var(--muted)]">Enter Transaction ID</span>
-                <span class="text-white font-semibold">Amount: <span id="payAmount"
-                        class="text-primary">600</span>৳</span>
+            <!-- ===== Payment Body ===== -->
+            <div id="paymentBody" class="pay-body">
+
+                <!-- Amount -->
+                <div class="pay-amount-card">
+                    <span class="flex items-center gap-2 text-sm text-[var(--muted)] font-semibold">
+                        <i class="fas fa-receipt text-primary"></i> Total Amount
+                    </span>
+                    <span class="text-2xl font-black text-primary">৳<span id="payAmount">600</span></span>
+                </div>
+
+                <!-- National / International Segmented Tabs -->
+                <div class="pay-seg">
+                    <button id="tabNational" onclick="setPaymentCategory('national')">
+                        <i class="fas fa-location-dot"></i> National
+                    </button>
+                    <button id="tabInternational" onclick="setPaymentCategory('international')">
+                        <i class="fas fa-globe"></i> International
+                    </button>
+                </div>
+
+                <!-- National Methods -->
+                <div id="nationalMethods">
+                    <div class="method-grid">
+                        <button class="method-card" data-method="bkash" onclick="setMethod('bkash')">
+                            <i class="fas fa-mobile-screen-button"></i> bKash
+                        </button>
+                        <button class="method-card" data-method="nagad" onclick="setMethod('nagad')">
+                            <i class="fas fa-wallet"></i> Nagad
+                        </button>
+                    </div>
+
+                    <ol id="payInstructions" class="pay-steps"></ol>
+
+                    <div id="recipientBox" class="recipient-card">
+                        <div>
+                            <div id="recipientLabel" class="r-label">Recipient Number</div>
+                            <div id="recipientNumber" class="r-value"></div>
+                        </div>
+                        <button onclick="copyRecipient()" class="copy-btn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+
+                    <label class="pay-field-label"><i class="fas fa-hashtag"></i> Transaction ID</label>
+                    <input type="text" id="trxInput" class="pay-input" placeholder="Enter your Transaction ID">
+
+                    <div class="secure-note">
+                        <i class="fas fa-circle-info text-primary"></i>
+                        <span>পেমেন্ট করার পর Transaction ID টি দিন এবং Verify চাপুন।</span>
+                    </div>
+
+                    <button onclick="verifyPayment()" id="verifyBtn" class="btn btn-primary w-full py-3 text-sm mt-1">
+                        <i class="fas fa-shield-halved"></i> Verify Payment
+                    </button>
+                </div>
+
+                <!-- International Methods -->
+                <div id="internationalMethods" style="display:none;">
+                    <div class="method-grid">
+                        <button class="method-card" data-intl="card" onclick="setIntlMethod('card')">
+                            <i class="fas fa-credit-card"></i> Card
+                        </button>
+                        <button class="method-card" data-intl="binance" onclick="setIntlMethod('binance')">
+                            <i class="fas fa-coins"></i> Binance
+                        </button>
+                    </div>
+
+                    <!-- Card Form -->
+                    <div id="cardForm">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mb-4">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-credit-card text-primary"></i>
+                                <span class="text-xs font-bold text-white uppercase tracking-widest">Card Details</span>
+                                <span class="ml-auto text-xs text-[var(--muted)]">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="text-xs text-[var(--muted)] block mb-1">Cardholder Name</label>
+                                <input type="text" id="cardName" class="pay-input" placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-xs text-[var(--muted)] block mb-1">Card Number</label>
+                                <input type="text" id="cardNumber" class="pay-input" placeholder="1234 5678 9012 3456"
+                                    maxlength="19" oninput="formatCardNumber(this)">
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="flex-1">
+                                    <label class="text-xs text-[var(--muted)] block mb-1">Expiry Date</label>
+                                    <input type="text" id="cardExpiry" class="pay-input" placeholder="MM/YY"
+                                        maxlength="5" oninput="formatExpiry(this)">
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-xs text-[var(--muted)] block mb-1">CVV</label>
+                                    <input type="password" id="cardCvv" class="pay-input" placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="secure-note">
+                            <i class="fas fa-lock text-green-400"></i>
+                            <span>Your card info is encrypted &amp; secure</span>
+                        </div>
+
+                        <button onclick="submitCard()" class="btn btn-primary w-full py-3 text-sm">
+                            <i class="fas fa-lock"></i> Pay Now
+                        </button>
+                    </div>
+
+                    <!-- Binance Pay Form -->
+                    <div id="binanceIntlForm" style="display:none;">
+                        <ol class="pay-steps">
+                            <li>Open the Binance App and go to <b>Pay</b>.</li>
+                            <li>Choose <b>Send</b> via Pay ID / UID.</li>
+                            <li>Use the Binance Pay ID below as the recipient.</li>
+                        </ol>
+
+                        <div class="recipient-card" style="border-color: rgba(243,186,47,0.4); background: rgba(243,186,47,0.08);">
+                            <div>
+                                <div class="r-label">Binance Pay ID</div>
+                                <div id="binanceId" class="r-value">949278923</div>
+                            </div>
+                            <button onclick="copyBinanceId()" class="copy-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+
+                        <label class="pay-field-label"><i class="fas fa-hashtag"></i> Transaction / Order ID</label>
+                        <input type="text" id="binanceTrx" class="pay-input" placeholder="Enter Binance Transaction ID">
+
+                        <div class="secure-note">
+                            <i class="fas fa-circle-info text-primary"></i>
+                            <span>Send the exact amount, then paste your Transaction ID and verify.</span>
+                        </div>
+
+                        <button onclick="verifyBinance()" class="btn btn-primary w-full py-3 text-sm mt-1"
+                            style="background:var(--binance); color:#0a0a0f;">
+                            <i class="fas fa-shield-halved"></i> Verify Binance Payment
+                        </button>
+                    </div>
+                </div>
+
+                <button onclick="closeModal('paymentModal')"
+                    class="w-full text-center text-xs text-[var(--muted)] mt-4 underline bg-transparent border-none cursor-pointer">
+                    Cancel Payment
+                </button>
             </div>
 
-            <input type="text" id="trxInput" class="pay-input mb-4" placeholder="Enter Transaction ID">
+            <!-- ===== Verification / Email Step ===== -->
+            <div id="verifyStep" class="pay-verify" style="display:none;">
+                <!-- Verifying state -->
+                <div id="verifyProcessing">
+                    <div class="verify-icon"><i class="fas fa-spinner verify-spin"></i></div>
+                    <h3 class="font-display text-white font-bold text-lg">Payment Verification</h3>
+                    <p class="text-sm text-[var(--muted)] mt-2 mb-6 leading-relaxed">
+                        আপনার পেমেন্ট ভেরিফাই হচ্ছে। প্রোডাক্ট ডেলিভারির জন্য নিচে আপনার Gmail অ্যাড্রেস দিন।
+                    </p>
 
-            <div id="payInstructions" class="text-sm text-[var(--muted)] leading-relaxed"></div>
+                    <div class="text-left">
+                        <label class="pay-field-label"><i class="fas fa-envelope"></i> Gmail Address</label>
+                        <input type="email" id="userEmail" class="pay-input" placeholder="yourname@gmail.com">
+                    </div>
 
-            <div id="recipientBox" class="recipient-box my-4">
-                <span id="recipientLabel" class="text-sm font-normal opacity-90">Recipient Number</span>
-                <div class="flex items-center gap-3">
-                    <span id="recipientNumber" class="tracking-wide"></span>
-                    <button onclick="copyRecipient()"
-                        class="bg-white/15 hover:bg-white/25 text-white text-xs px-2.5 py-1 rounded-lg border-none cursor-pointer">
-                        <i class="fas fa-copy"></i> Copy
+                    <button onclick="submitEmail()" class="btn btn-primary w-full py-3 text-sm mt-5">
+                        <i class="fas fa-paper-plane"></i> Submit &amp; Confirm
+                    </button>
+                </div>
+
+                <!-- Success state -->
+                <div id="verifySuccess" style="display:none;">
+                    <div class="verify-icon success"><i class="fas fa-check"></i></div>
+                    <h3 class="font-display text-white font-bold text-lg">Payment Confirmed</h3>
+                    <p class="text-sm text-[var(--muted)] mt-2 mb-6 leading-relaxed">
+                        ধন্যবাদ! আপনার অর্ডার কনফার্ম হয়েছে। প্রোডাক্ট ডিটেইলস পাঠানো হবে:
+                        <br><b id="confirmEmail" class="text-white"></b>
+                    </p>
+                    <button onclick="closeModal('paymentModal')" class="btn btn-primary w-full py-3 text-sm">
+                        <i class="fas fa-check-circle"></i> Done
                     </button>
                 </div>
             </div>
-
-            <p class="text-xs text-[var(--muted)] leading-relaxed mb-5">
-                Confirm by entering your PIN / authorizing the transaction, then enter the Transaction ID above and tap
-                Verify.
-            </p>
-
-            <button onclick="verifyPayment()" id="verifyBtn" class="btn btn-primary w-full py-3 text-sm">Verify
-                Payment</button>
-            <button onclick="closeModal('paymentModal')"
-                class="w-full text-center text-xs text-[var(--muted)] mt-4 underline bg-transparent border-none cursor-pointer">
-                Cancel Payment
-            </button>
         </div>
     </div>
 
@@ -673,15 +1117,15 @@
            ============================================================ */
         const PAYMENT = {
             bkash: {
-                label: 'bKash', color: 'var(--bkash)', number: '01832680252', recipient: 'Recipient Number',
+                label: 'bKash', color: 'var(--bkash)', number: '01724808246', recipient: 'bKash Number',
                 steps: ['Dial *247# or open the bKash app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
             },
             nagad: {
-                label: 'Nagad', color: 'var(--nagad)', number: '01977036709', recipient: 'Recipient Number',
+                label: 'Nagad', color: 'var(--nagad)', number: '01724808246', recipient: 'Nagad Number',
                 steps: ['Dial *167# or open the Nagad app.', 'Choose <b>Send Money</b>.', 'Use the number below as recipient:']
             },
             binance: {
-                label: 'Binance', color: 'var(--binance)', number: '556924108', recipient: 'Binance Pay ID',
+                label: 'Binance', color: 'var(--binance)', number: '949278923', recipient: 'Binance Pay ID',
                 steps: ['Open Binance App → Binance Pay.', 'Choose <b>Send</b> via Pay ID / UID.', 'Use the UID below as recipient:']
             }
         };
@@ -872,31 +1316,94 @@
             document.getElementById('payProductName').textContent = `${p.name} — ${plan.label}`;
             document.getElementById('payAmount').textContent = plan.price;
             document.getElementById('trxInput').value = '';
-            setMethod('bkash');
+            const binTrx = document.getElementById('binanceTrx');
+            if (binTrx) binTrx.value = '';
+            // reset to payment body, hide verification step
+            document.getElementById('paymentBody').style.display = 'block';
+            document.getElementById('verifyStep').style.display = 'none';
+            document.getElementById('verifyProcessing').style.display = 'block';
+            document.getElementById('verifySuccess').style.display = 'none';
+            const emailEl = document.getElementById('userEmail');
+            if (emailEl) emailEl.value = '';
+            setPaymentCategory('national');
             openModal('paymentModal');
         }
 
-        /* ---------------- Payment ---------------- */
+        /* ---------------- Payment Category Tabs ---------------- */
+        function setPaymentCategory(cat) {
+            const isNational = cat === 'national';
+            document.getElementById('nationalMethods').style.display = isNational ? 'block' : 'none';
+            document.getElementById('internationalMethods').style.display = isNational ? 'none' : 'block';
+
+            const tabN = document.getElementById('tabNational');
+            const tabI = document.getElementById('tabInternational');
+            tabN.classList.toggle('active', isNational);
+            tabI.classList.toggle('active', !isNational);
+            if (isNational) {
+                setMethod('bkash');
+            } else {
+                setIntlMethod('card');
+            }
+        }
+
+        /* ---------------- National Payment ---------------- */
         function setMethod(method) {
             const cfg = PAYMENT[method];
-            document.querySelectorAll('.pay-tab').forEach(t => {
+            document.querySelectorAll('#nationalMethods .method-card').forEach(t => {
                 const active = t.dataset.method === method;
-                t.style.background = active ? cfg.color : '';
-                t.style.color = active ? (method === 'binance' ? '#000' : '#fff') : '';
-                t.style.borderColor = active ? cfg.color : '';
+                t.classList.toggle('active', active);
+                t.style.setProperty('--method', active ? cfg.color : '');
             });
             document.getElementById('payInstructions').innerHTML =
-                '<ul class="space-y-1.5 list-disc pl-4">' + cfg.steps.map(s => `<li>${s}</li>`).join('') + '</ul>';
+                cfg.steps.map(s => `<li>${s}</li>`).join('');
 
             const box = document.getElementById('recipientBox');
-            box.style.background = cfg.color;
-            box.style.color = method === 'binance' ? '#000' : '#fff';
+            box.style.borderColor = cfg.color;
+            box.style.background = 'color-mix(in srgb, ' + cfg.color + ' 12%, transparent)';
             document.getElementById('recipientLabel').textContent = cfg.recipient;
             document.getElementById('recipientNumber').textContent = cfg.number;
 
             const vb = document.getElementById('verifyBtn');
             vb.style.background = cfg.color;
-            vb.style.color = method === 'binance' ? '#000' : '#fff';
+            vb.style.color = '#fff';
+        }
+
+        /* ---------------- International Payment ---------------- */
+        function setIntlMethod(method) {
+            document.getElementById('cardForm').style.display = method === 'card' ? 'block' : 'none';
+            document.getElementById('binanceIntlForm').style.display = method === 'binance' ? 'block' : 'none';
+
+            document.querySelectorAll('#internationalMethods .method-card').forEach(t => {
+                const active = t.dataset.intl === method;
+                t.classList.toggle('active', active);
+                t.style.setProperty('--method', active ? (method === 'binance' ? 'var(--binance)' : 'var(--primary)') : '');
+            });
+        }
+
+        /* Card input formatters */
+        function formatCardNumber(el) {
+            let v = el.value.replace(/\D/g, '').substring(0, 16);
+            el.value = v.replace(/(.{4})/g, '$1 ').trim();
+        }
+        function formatExpiry(el) {
+            let v = el.value.replace(/\D/g, '').substring(0, 4);
+            if (v.length >= 2) v = v.substring(0, 2) + '/' + v.substring(2);
+            el.value = v;
+        }
+
+        function submitCard() {
+            const name = document.getElementById('cardName').value.trim();
+            const num = document.getElementById('cardNumber').value.trim();
+            const exp = document.getElementById('cardExpiry').value.trim();
+            const cvv = document.getElementById('cardCvv').value.trim();
+            if (!name || !num || !exp || !cvv) { toast('Please fill all card details'); return; }
+            goToVerification();
+        }
+
+        function verifyBinance() {
+            const trx = document.getElementById('binanceTrx').value.trim();
+            if (!trx) { toast('Please enter your Binance Transaction ID'); return; }
+            goToVerification();
         }
 
         function copyRecipient() {
@@ -905,12 +1412,37 @@
                 .catch(() => toast('Copy failed — copy manually'));
         }
 
+        function copyBinanceId() {
+            const id = document.getElementById('binanceId').textContent;
+            navigator.clipboard.writeText(id).then(() => toast('Copied: ' + id))
+                .catch(() => toast('Copy failed — copy manually'));
+        }
+
         function verifyPayment() {
             const trx = document.getElementById('trxInput').value.trim();
             if (!trx) { toast('Please enter a valid Transaction ID'); return; }
-            const amount = document.getElementById('payAmount').textContent;
-            toast('Verifying Trx ' + trx + ' · ৳' + amount);
-            // TODO: connect your backend verification here
+            goToVerification();
+        }
+
+        /* ---------------- Verification + Email Step ---------------- */
+        function goToVerification() {
+            document.getElementById('paymentBody').style.display = 'none';
+            document.getElementById('verifyStep').style.display = 'block';
+            document.getElementById('verifyProcessing').style.display = 'block';
+            document.getElementById('verifySuccess').style.display = 'none';
+            setTimeout(() => document.getElementById('userEmail').focus(), 100);
+        }
+
+        function submitEmail() {
+            const email = document.getElementById('userEmail').value.trim();
+            const isGmail = /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
+            if (!email) { toast('Please enter your Gmail address'); return; }
+            if (!isGmail) { toast('Please enter a valid Gmail (@gmail.com) address'); return; }
+            document.getElementById('confirmEmail').textContent = email;
+            document.getElementById('verifyProcessing').style.display = 'none';
+            document.getElementById('verifySuccess').style.display = 'block';
+            toast('Payment confirmed · Details will be sent to your Gmail');
+            // TODO: connect your backend to record the order + email here
         }
 
         /* ---------------- Modal helpers ---------------- */
